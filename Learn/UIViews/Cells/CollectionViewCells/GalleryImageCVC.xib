@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GalleryImageCVC" customModule="Learn" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-yz-XHC">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1N-vc-GTh">
+                        <rect key="frame" x="34.5" y="38.5" width="276" height="276"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-Xc-ese">
+                                <rect key="frame" x="14" y="14.5" width="248" height="248"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.65247752568493156" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UJK-Xc-ese" firstAttribute="centerY" secondItem="L1N-vc-GTh" secondAttribute="centerY" id="0Ed-us-Odq"/>
+                            <constraint firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="height" multiplier="1:1" id="1GT-nM-aGb"/>
+                            <constraint firstItem="UJK-Xc-ese" firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="width" multiplier="0.9" id="DDn-pa-hBh"/>
+                            <constraint firstItem="UJK-Xc-ese" firstAttribute="height" secondItem="L1N-vc-GTh" secondAttribute="height" multiplier="0.9" id="ZVg-fQ-3SQ"/>
+                            <constraint firstItem="UJK-Xc-ese" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="h4n-qW-egX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="TJj-yz-XHC" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0zd-qq-ayq"/>
+                <constraint firstItem="TJj-yz-XHC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="PZP-8g-R8N"/>
+                <constraint firstItem="L1N-vc-GTh" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.8" id="Spm-BI-edq"/>
+                <constraint firstItem="TJj-yz-XHC" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Uac-FM-NlB"/>
+                <constraint firstItem="L1N-vc-GTh" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="avx-jH-Gc4"/>
+                <constraint firstItem="L1N-vc-GTh" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="hRz-RM-K2f"/>
+                <constraint firstItem="TJj-yz-XHC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="mOr-yf-Zlz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="345" height="352"/>
+            <connections>
+                <outlet property="coverView" destination="UJK-Xc-ese" id="o2A-RJ-3BQ"/>
+                <outlet property="imageView" destination="TJj-yz-XHC" id="cGu-17-1EP"/>
+                <outlet property="lblText" destination="UJK-Xc-ese" id="Oqm-4X-k8L"/>
+            </connections>
+            <point key="canvasLocation" x="57.5" y="66"/>
+        </collectionViewCell>
+    </objects>
+</document>
