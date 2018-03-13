@@ -31,6 +31,26 @@ class CoreDataHelper: NSObject{
 
 extension CoreDataHelper{
     
+    func returnFonts() -> [String]{
+        
+        var fonts = [String]();
+        
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)");
+                fonts.append(names);
+                
+            }
+        }
+        
+        return fonts;
+        
+    }
+    
+    
     // input UIImageView -> output asset image of the size of input view
     func createRecords(){
         

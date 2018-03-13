@@ -8,10 +8,8 @@
 
 import Foundation
 import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
 
-class LoginVC: UIViewController, FBSDKLoginButtonDelegate{
+class LoginVC: UIViewController{
     
     
     
@@ -25,46 +23,47 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate{
         // init header
         
         self.view.layoutIfNeeded();
-        addLoginButton();
         
-        if (FBSDKAccessToken.current() != nil) {
-            PageRedirect.redirectToMainPage(self);
+        GBHFacebookHelper.shared.checklogin { (success, error) in
+            if(success){
+                PageRedirect.redirectToMainPage(self);
+            }
         }
         
         
-    }
-    
-    func addLoginButton(){
-        
-        let loginButton = FBSDKLoginButton()
-        loginButton.center = loginView.center
-        loginButton.frame = CGRect(x: 0, y: 0, width: loginView.frame.width, height: loginView.frame.height);
-        loginButton.readPermissions = ["public_profile", "email"];
-        loginButton.delegate = self;
-        loginView.addSubview(loginButton)
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true;
+        
+        
+        
+        
+    }
     
-    
-    // delegate method don't delete
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    override func viewWillDisappear(_ animated: Bool) {
         //
+        self.navigationController?.isNavigationBarHidden = false;
+    }
+    
+    @IBAction func doLogin(_ sender: UIButton) {
         
-        if(FBSDKAccessToken.current() != nil){
+        GBHFacebookHelper.shared.login(controller: nil) { (success, prompt) in
             
-            PageRedirect.redirectToMainPage(self);
+            if(success){
+                
+                PageRedirect.redirectToMainPage(self);
+                
+            }
             
         }
         
-        
-        
     }
     
-    // delegate method don't delete
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("user logged out now");
-    }
+    
+    
     
     
     
