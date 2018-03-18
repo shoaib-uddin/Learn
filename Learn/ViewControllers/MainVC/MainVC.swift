@@ -13,10 +13,13 @@ import PhotosUI
 
 class MainVC: BaseVC{
     
-    var Facts: [[String: Any]] = [[:]];
+    var facts: [Facts] = [Facts]();
     var refresher:UIRefreshControl!;
-    @IBOutlet weak var collectionView: UICollectionView!;
+    var globalImage: UIImage!;
+    var localFontName: String = "";
     
+    @IBOutlet weak var collectionView: UICollectionView!;
+    @IBOutlet weak var globalImageView: UIImageView!;
     
     override func viewDidLoad() {
         //
@@ -41,6 +44,9 @@ class MainVC: BaseVC{
     override func viewWillAppear(_ animated: Bool) {
         //
         
+    }
+    @IBAction func gotoSettings(_ sender: Any) {
+        PageRedirect.redirectToSettingsPage(self);
     }
     
 }

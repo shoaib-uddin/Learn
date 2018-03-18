@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G1114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Backgrounds" representedClassName="Backgrounds" syncable="YES" codeGenerationType="class">
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Categories" representedClassName="Categories" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Facts" representedClassName="Facts" syncable="YES" codeGenerationType="class">
-        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
+        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="font" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Facts" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Categories" positionX="-63" positionY="108" width="128" height="60"/>
+        <element name="Facts" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Settings" positionX="-63" positionY="54" width="128" height="75"/>
+        <element name="Backgrounds" positionX="-54" positionY="63" width="128" height="60"/>
     </elements>
 </model>

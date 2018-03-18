@@ -11,19 +11,45 @@ import UIKit
 import Photos
 import PhotosUI
 
-extension MainVC{
+extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
+    
+    func receiveCategoryOfSidemenu(cat: String) {
+        print(cat);
+    }
+    
+    // don't delete, its a delegate function
+    func updateViewBySettings() {
+        setBg();
+        setFont();
+        self.collectionView.reloadData();
+    }
     
     @objc func loadData() {
         //code to execute during refresher
+        setBg();
+        setFont();
         getFacts();
         stopRefresher()         //Call this to stop refresher
     }
     
+    func setFont(){
+        let data = CoreDataHelper.returnSettings();
+        self.localFontName = data.font!;
+    }
+    
+    func setBg(){
+        let data = CoreDataHelper.returnSettings();
+        FileApi.retrieveImageFromDocFolder(name: data.background!) { (image) in
+            self.globalImageView.image = image
+        }
+    }
+    
     func getFacts(){
         
-        Facts.removeAll();
-        Facts = CoreDataHelper().returnFacts(ofCategory: "");
+        facts.removeAll();
+        facts = CoreDataHelper.returnFacts(ofCategory: "");
         self.collectionView.reloadData();
+        
     }
     
     func stopRefresher() {

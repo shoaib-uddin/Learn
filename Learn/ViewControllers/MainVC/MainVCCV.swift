@@ -29,8 +29,10 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GalleryImageCVC.self), for: indexPath) as? GalleryImageCVC
             else { fatalError("unexpected cell in collection view") }
         
-        let fact = Facts[indexPath.row];
+        let fact = facts[indexPath.row];
         cell.setData(fact);
+        cell.lblText.font = UIFont(name: self.localFontName, size: cell.lblText.font.pointSize);
+        cell.imageView.isHidden = true;
         
         return cell;
         
@@ -43,7 +45,7 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //
-        return (Facts.count != 0) ? Facts.count: 0;
+        return (facts.count != 0) ? facts.count: 0;
         
     }
     

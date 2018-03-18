@@ -23,6 +23,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-yz-XHC">
                         <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1N-vc-GTh">
                         <rect key="frame" x="34.5" y="38.5" width="276" height="276"/>
@@ -45,6 +46,7 @@
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0zd-qq-ayq"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="PZP-8g-R8N"/>

@@ -21,27 +21,67 @@ class GalleryImageCVC: UICollectionViewCell {
         // Initialization code
     }
     
-    func setData(_ data: [String: Any]){
+    func setData(_ data: Facts){
         
-        let width = self.imageView.frame.width;
-        let height = self.imageView.frame.height;
+        print(data);
+        self.lblText.text = data.text
         
-        do {
-            
-            FileApi.retrieveImageFromDocFolder(name: (data["background"] as! String), completion: { (image) in
-                //
+    }
+    
+    func setData(_ data: Background){
+        
+        print(data);
+        self.lblText.text = data.text
+        
+        if(data.background != nil){
+            FileApi.retrieveImageFromDocFolder(name: data.background!) { (image) in
                 self.imageView.image = image;
-                self.lblText.text = data["text"] as! String;
-            })
-            
-        } catch {
-            print("Error loading image : \(error)")
+            }
         }
         
         
+    }
+    
+    
+    
+    func setFont(name: String){
+        self.lblText.font = UIFont(name: name, size: lblText.font.pointSize);
+    }
+    
+    func addTickMark(){
+        let width = self.frame.width;
+        let height = self.frame.height;
+        
+        let imageName = "check.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        
+        imageView.frame = CGRect(x: width - (width * 0.2) - 10, y: height - (width * 0.2) - 10, width: width * 0.2, height: width * 0.2);
+        imageView.tag = 34;
+        
+        
+        let blurOverlay: UIView = UIView();
+        blurOverlay.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0.4);
+        blurOverlay.frame = CGRect(x: 0, y: 0, width: width, height: height);
+        blurOverlay.tag = 35
+        self.addSubview(blurOverlay);
+        self.addSubview(imageView);
         
         
         
+        
+        
+        
+    }
+    
+    func removeTickMark(){
+        
+        for view in self.subviews {
+            if(view.tag == 34 || view.tag == 35){
+                view.removeFromSuperview();
+            }
+            
+        }
         
     }
 

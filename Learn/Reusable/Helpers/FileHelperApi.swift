@@ -58,38 +58,43 @@ class FileApi{
     
     class func retrieveImageFromDocFolder(name: String, completion: @escaping (_ image: UIImage) -> Void){
         
-        // Get the document directory url
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        var list: [URL] = [URL]();
-        do {
-            // Get the directory contents urls (including subfolders urls)
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            //print(directoryContents)
-            
-            // if you want to filter the directory contents you can do like this:
-            let gifFiles = directoryContents.filter{ $0.pathExtension == "jpg" }
-            //print("gif urls:",gifFiles);
-            
-            //let gifFilesStringPath = gifFiles.map{ $0.path }
-            //print("gif StringUrls:",gifFilesStringPath);
-            
-            
-            //let gifFileNames = gifFiles.map{ $0.deletingPathExtension().lastPathComponent }
-            //print("gif list:", gifFileNames)
-            
-            list = gifFiles;
-            
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-        print(list) ;
-        
+//        // Get the document directory url
+//        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        var list: [URL] = [URL]();
+//        do {
+//            // Get the directory contents urls (including subfolders urls)
+//            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+//            //print(directoryContents)
+//
+//            // if you want to filter the directory contents you can do like this:
+//            let gifFiles = directoryContents.filter{ $0.pathExtension == "png" }
+//            //print("gif urls:",gifFiles);
+//
+//            //let gifFilesStringPath = gifFiles.map{ $0.path }
+//            //print("gif StringUrls:",gifFilesStringPath);
+//
+//
+//            //let gifFileNames = gifFiles.map{ $0.deletingPathExtension().lastPathComponent }
+//            //print("gif list:", gifFileNames)
+//
+//            list = gifFiles;
+//
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//
+//        print(list) ;
+//
         // Get the document directory url
         let documentsDirectory =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fullImgNm: URL = documentsDirectory.appendingPathComponent(name)
-        let image = UIImage(contentsOfFile: fullImgNm.path)!
-        completion(image);
+        
+        print(fullImgNm);
+        
+        if let image = UIImage.init(contentsOfFile: fullImgNm.path){
+            completion(image);
+        }
+        
         
         
     }

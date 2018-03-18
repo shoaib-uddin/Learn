@@ -10,5 +10,13 @@ target 'Learn' do
 pod 'FontAwesome.swift'
 pod 'IBAnimatable'
 pod 'FBSDKLoginKit'
+pod 'Alamofire', '~> 4.0'
+pod 'EVReflection'
+pod 'ReachabilitySwift'
+pod 'MBProgressHUD'
+pod 'LKAlertController'
+pod 'IQKeyboardManagerSwift'
+pod 'ActionSheetPicker-3.0'
+pod 'AlamofireImage'
 
 end

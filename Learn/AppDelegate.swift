@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        if(!UtilityHelper.getBoolKey(Setting.isInitializeCategories)){
-            CoreDataHelper().createRecords();
+        if(!UtilityHelper.getBoolKey(localv.isInitializeCategories)){
+            CoreDataHelper.createRecords();
         }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

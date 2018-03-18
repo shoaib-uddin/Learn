@@ -20,6 +20,14 @@ class PageRedirect {
         
     }
     
+    class func redirectToSettingsPage(_ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+        destination.vcDelegate = viewController as? SettingsVCDelegate;
+        viewController.present(destination, animated: true, completion: nil);
+        
+    }
         
     
 

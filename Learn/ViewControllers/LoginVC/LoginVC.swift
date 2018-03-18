@@ -37,10 +37,6 @@ class LoginVC: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.isNavigationBarHidden = true;
-        
-        
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,13 +47,9 @@ class LoginVC: UIViewController{
     @IBAction func doLogin(_ sender: UIButton) {
         
         GBHFacebookHelper.shared.login(controller: nil) { (success, prompt) in
-            
             if(success){
-                
                 PageRedirect.redirectToMainPage(self);
-                
             }
-            
         }
         
     }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol SidemenuVCDelegate: class {
+    func receiveCategoryOfSidemenu(cat: String);
+}
+
 class SidemenuVC: UIViewController, UISearchResultsUpdating{
     
     
@@ -20,9 +24,8 @@ class SidemenuVC: UIViewController, UISearchResultsUpdating{
     var filteredCategoryArray: [String] = [String]();
     let cellIdentifier = "SidemenuParentTVC";
     let searchController = UISearchController(searchResultsController: nil)
-    
     var refreshControl: UIRefreshControl!
-    
+    weak var vcDelegate: SidemenuVCDelegate?;
     
     
     override func viewDidLoad() {
@@ -64,7 +67,7 @@ class SidemenuVC: UIViewController, UISearchResultsUpdating{
         self.tableView.reloadData();
         
         self.refreshControl.beginRefreshing();
-        self.categoryArray = CoreDataHelper().returnCategories();
+        self.categoryArray = CoreDataHelper.returnCategories();
         
         self.filteredCategoryArray = self.categoryArray;
         self.tableView.reloadData();
