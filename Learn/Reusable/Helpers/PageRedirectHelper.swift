@@ -28,6 +28,15 @@ class PageRedirect {
         viewController.present(destination, animated: true, completion: nil);
         
     }
+    
+    class func redirectToSidemenuPage(_ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "SidemenuVC") as! SidemenuVC
+        destination.vcDelegate = viewController as? SidemenuVCDelegate;
+        viewController.present(destination, animated: true, completion: nil);
+        
+    }
         
     
 

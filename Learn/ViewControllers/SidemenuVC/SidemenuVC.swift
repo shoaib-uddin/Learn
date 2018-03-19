@@ -138,6 +138,9 @@ extension SidemenuVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //PageRedirect.navToChildSubmenu(item: self.collectionArray[indexPath.row], viewController: self);
+        self.dismiss(animated: true, completion: {
+            self.vcDelegate?.receiveCategoryOfSidemenu(cat: self.filteredCategoryArray[indexPath.row]);
+        })
     }
     
     

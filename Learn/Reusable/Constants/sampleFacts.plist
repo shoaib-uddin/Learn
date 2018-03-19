@@ -7,16 +7,32 @@
 		<string>Banging your head against a wall burns 150 calorie an hour</string>
 		<key>category</key>
 		<string>Fun</string>
-		<key>background</key>
-		<string>smiley</string>
+		<key>refer</key>
+		<string>self</string>
 	</dict>
 	<dict>
+		<key>refer</key>
+		<string>self</string>
 		<key>text</key>
 		<string>During your life span, you will produce enough siliva to fill two swimming pools</string>
 		<key>category</key>
 		<string>Fun</string>
-		<key>background</key>
-		<string>smiley</string>
+	</dict>
+	<dict>
+		<key>refer</key>
+		<string>self</string>
+		<key>text</key>
+		<string>Las Vegas casinos have no clocks.</string>
+		<key>category</key>
+		<string>World</string>
+	</dict>
+	<dict>
+		<key>refer</key>
+		<string>self</string>
+		<key>text</key>
+		<string>Russia has a larger surface area than Pluto.</string>
+		<key>category</key>
+		<string>World</string>
 	</dict>
 </array>
 </plist>

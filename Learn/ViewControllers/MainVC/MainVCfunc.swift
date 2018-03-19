@@ -13,8 +13,12 @@ import PhotosUI
 
 extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
     
+    // don't delete, its a delegate function
     func receiveCategoryOfSidemenu(cat: String) {
         print(cat);
+        
+        
+        
     }
     
     // don't delete, its a delegate function
@@ -47,13 +51,18 @@ extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
     func getFacts(){
         
         facts.removeAll();
-        facts = CoreDataHelper.returnFacts(ofCategory: "");
-        self.collectionView.reloadData();
+        CoreDataHelper.returnFacts(ofCategory: "") { (arr) in
+            self.facts = arr;
+            self.collectionView.reloadData();
+        }
+        
         
     }
     
     func stopRefresher() {
         self.refresher.endRefreshing()
     }
+    
+    
     
 }

@@ -199,10 +199,12 @@ class CoreDataHelper{
         
     }
     
-    class func returnFacts(ofCategory: String) -> [Facts]{
+    class func returnFacts(ofCategory: String, completion: @escaping (_ facts: [Facts]) -> Void){
         
         
         var facts = [Facts]();
+        
+        self.createFacts();
         
         let appDelegate =  AppDelegate.getAppDelegate();
         let context = appDelegate.persistentContainer.viewContext;
@@ -212,54 +214,51 @@ class CoreDataHelper{
         do {
             let result = try context.fetch(request)
             facts = result as! [Facts];
-//
-//
-//            for data in result as! [Facts] {
-//
-//                let fact: [String: Any] = [
-//                    "text" : data.value(forKey: "text") as! String,
-//                    "category" : data.value(forKey: "category") as! String
-//                ];
-//
-//
-//
-//                facts.append(fact);
-//            }
-            
         } catch {
             
             print("Failed")
         }
-        
-//        facts.remove(at: 0);
-//
-        return facts;
+
+        completion(facts);
         
     }
     
-    // input UIImageView -> output asset image of the size of input view
+    class func createFacts(){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let nEntity = NSEntityDescription.entity(forEntityName: "Facts", in: context);
+        
+        // simulate network facts here and save to Facts
+        let AssociatedFacts = UtilityHelper.getPlistContent(name: "sampleFacts");
+        
+        for fact in AssociatedFacts {
+            let newFact = NSManagedObject(entity: nEntity!, insertInto: context);
+            newFact.setValue(fact["text"], forKey: "text");
+            newFact.setValue(fact["category"], forKey: "category");
+        }
+        
+        
+        // save all default features
+        do {
+            try context.save();
+        } catch {
+            print("Failed saving")
+        }
+        
+        
+    }
+    
     class func createRecords(){
-        
-        
-        //        let bg = "1.png";
-        //        let image = UIImage(named: bg);
-        //        FileApi.copyImageToDocFolder(image: image!, fileName: "smiley.jpg") { (url, pixelsize, filesize) in
-        //
+
         let appDelegate =  AppDelegate.getAppDelegate();
         let context = appDelegate.persistentContainer.viewContext;
         
         // setting backgrounds paths
         let cBgs = NSEntityDescription.entity(forEntityName: "Backgrounds", in: context)
-        
-        
-        
         self.copyImageToDocFolder(index: 0) { (urls) in
             
         }
-        
-        
-        
-        
         
         // setting Settings Global
         // Font Arial-ItalicMT
@@ -272,14 +271,9 @@ class CoreDataHelper{
         }
         
         for bg in localv.AssociatedBackgrounds {
-            
             let newBackground = NSManagedObject(entity: cBgs!, insertInto: context);
             newBackground.setValue("\(bg).png", forKey: "path");
-            
         }
-        
-        
-        
         
         // setting Categories
         let cEntity = NSEntityDescription.entity(forEntityName: "Categories", in: context)
@@ -292,15 +286,12 @@ class CoreDataHelper{
         
         // settings Temp Facts
         let nEntity = NSEntityDescription.entity(forEntityName: "Facts", in: context)
-        
         let AssociatedFacts = UtilityHelper.getPlistContent(name: "sampleFacts");
         
         for fact in AssociatedFacts {
             let newFact = NSManagedObject(entity: nEntity!, insertInto: context);
-            
             newFact.setValue(fact["text"], forKey: "text");
             newFact.setValue(fact["category"], forKey: "category");
-            
         }
         
         
@@ -311,10 +302,6 @@ class CoreDataHelper{
         } catch {
             print("Failed saving")
         }
-        //        }
-        
-        
-        
         
     }
 

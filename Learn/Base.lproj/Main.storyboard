@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="8K8-Rt-FnI">
-                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wUU-OR-NUc">
                                 <rect key="frame" x="-0.5" y="20" width="375" height="587"/>
@@ -43,6 +43,9 @@
                                             <constraint firstAttribute="width" secondItem="wEJ-Fu-owK" secondAttribute="height" multiplier="2:1" id="BFg-Fj-lR2"/>
                                         </constraints>
                                         <state key="normal" title="tv"/>
+                                        <connections>
+                                            <action selector="shareSnapshotImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tuz-NA-4zj"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JS6-mM-vse">
                                         <rect key="frame" x="135" y="0.0" width="240" height="60"/>
@@ -84,13 +87,13 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.32156862749999998" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Mem-DC-d7h" firstAttribute="top" secondItem="wUU-OR-NUc" secondAttribute="bottom" id="DHX-an-KYq"/>
                             <constraint firstItem="wUU-OR-NUc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FcP-Uo-spf"/>
                             <constraint firstItem="Mem-DC-d7h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="WTL-Ue-qle"/>
                             <constraint firstItem="wUU-OR-NUc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZQh-J4-ZOM"/>
-                            <constraint firstItem="8K8-Rt-FnI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Zqc-Zf-cHW"/>
+                            <constraint firstItem="8K8-Rt-FnI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Zqc-Zf-cHW"/>
                             <constraint firstItem="8K8-Rt-FnI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cyD-th-M8X"/>
                             <constraint firstItem="8K8-Rt-FnI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="dMF-0X-6Tr"/>
                             <constraint firstItem="8K8-Rt-FnI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="eHX-91-BVA"/>
@@ -102,23 +105,27 @@
                     </view>
                     <navigationItem key="navigationItem" id="486-3f-y9U">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="fastForward" id="m9r-67-0eo">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="m9r-67-0eo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="RIl-t6-zJd" kind="popoverPresentation" popoverAnchorBarButtonItem="m9r-67-0eo" id="NEt-sz-hFv">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <action selector="gotoSidemenu:" destination="BYZ-38-t0r" id="lMY-5j-kcT"/>
                             </connections>
                         </barButtonItem>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zFn-3R-U5l">
-                            <rect key="frame" x="167" y="7" width="41" height="30"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zFn-3R-U5l">
+                            <rect key="frame" x="167" y="7" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Home">
+                            <state key="normal">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" id="99H-SL-Cy6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnLeftBar" destination="m9r-67-0eo" id="w4l-iO-R8o"/>
+                        <outlet property="btnRightBar" destination="99H-SL-Cy6" id="iR3-d4-JtU"/>
+                        <outlet property="btnTopHome" destination="zFn-3R-U5l" id="TcB-l1-HFa"/>
                         <outlet property="collectionView" destination="wUU-OR-NUc" id="vEv-YP-LqF"/>
                         <outlet property="globalImageView" destination="8K8-Rt-FnI" id="eDq-KT-lEs"/>
                     </connections>
@@ -395,8 +402,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4zL-r7-x9z" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" backIndicatorTransitionMaskImage="&lt;" id="Wj9-eb-OOr">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorTransitionMaskImage="&lt;" id="Wj9-eb-OOr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

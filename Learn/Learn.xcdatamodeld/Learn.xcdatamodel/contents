@@ -8,6 +8,7 @@
     </entity>
     <entity name="Facts" representedClassName="Facts" syncable="YES" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
@@ -16,7 +17,7 @@
     </entity>
     <elements>
         <element name="Categories" positionX="-63" positionY="108" width="128" height="60"/>
-        <element name="Facts" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Facts" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Settings" positionX="-63" positionY="54" width="128" height="75"/>
         <element name="Backgrounds" positionX="-54" positionY="63" width="128" height="60"/>
     </elements>

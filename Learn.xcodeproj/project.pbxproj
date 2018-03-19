@@ -38,6 +38,7 @@
 		0A5AE501205863CD007387DE /* 8@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5AE4F82058632E007387DE /* 8@1x.png */; };
 		0A5AE502205863CD007387DE /* 9@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5AE4F92058632E007387DE /* 9@1x.png */; };
 		0A5AE504205B1EB1007387DE /* ApplicationServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE503205B1EB0007387DE /* ApplicationServiceModel.swift */; };
+		0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */; };
 		0A6979F7204DC9E7000A68CA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6979F6204DC9E6000A68CA /* LoginVC.swift */; };
 		0A6979FB204DCFFD000A68CA /* PageRedirectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */; };
 		0A9CCCFA205537D3006F5396 /* abel-regular_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */; };
@@ -93,6 +94,7 @@
 		0A5AE4F82058632E007387DE /* 8@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8@1x.png"; sourceTree = "<group>"; };
 		0A5AE4F92058632E007387DE /* 9@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9@1x.png"; sourceTree = "<group>"; };
 		0A5AE503205B1EB0007387DE /* ApplicationServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationServiceModel.swift; sourceTree = "<group>"; };
+		0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelper.swift; sourceTree = "<group>"; };
 		0A6979F6204DC9E6000A68CA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRedirectHelper.swift; sourceTree = "<group>"; };
 		0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "abel-regular_0.ttf"; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				0A0BBF2D203B5BB300486915 /* FileHelperApi.swift */,
 				0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */,
 				0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */,
+				0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				0A6979FB204DCFFD000A68CA /* PageRedirectHelper.swift in Sources */,
 				0A3E87C020358F40002A4748 /* Learn.xcdatamodeld in Sources */,
 				0A3E87DE20359A3D002A4748 /* BaseVC.swift in Sources */,
+				0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */,
 				0A0BBF112039A03600486915 /* Constants.swift in Sources */,
 				0A5AE504205B1EB1007387DE /* ApplicationServiceModel.swift in Sources */,
 				0A0BBF0620397D6100486915 /* MainVCfunc.swift in Sources */,
