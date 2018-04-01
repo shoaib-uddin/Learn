@@ -12,10 +12,11 @@ import UIKit
 class PageRedirect {
 
     
-    class func redirectToMainPage(_ viewController: UIViewController){
+    class func redirectToMainPage(_ viewController: UIViewController, signup: EnSignUp){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+        destination.signup = signup;
         viewController.navigationController?.pushViewController(destination, animated: true);
         
     }
@@ -36,6 +37,18 @@ class PageRedirect {
         destination.vcDelegate = viewController as? SidemenuVCDelegate;
         viewController.present(destination, animated: true, completion: nil);
         
+    }
+    
+    class func navToChildSubmenu(item: EnDDL, viewController: UIViewController){
+    
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "SidemenuVC") as! SidemenuVC
+        destination.vcDelegate = viewController as? SidemenuVCDelegate;
+        destination.isSubCategory = true;
+        destination.parentCat = item;
+        destination.vcDelegate = viewController as? SidemenuVCDelegate;
+        viewController.present(destination, animated: true, completion: nil);
+    
     }
         
     

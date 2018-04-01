@@ -12,14 +12,17 @@ import Photos
 import PhotosUI
 
 extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
-    
-    // don't delete, its a delegate function
-    func receiveCategoryOfSidemenu(cat: String) {
-        print(cat);
+    func receiveCategoryOfSidemenu(parent: EnDDL, cat: EnDDL) {
+        
+        print(parent.ID!, cat.ID!);
+        UtilityHelper.setKey(api.savedCatId, KeyValue: parent.ID!);
+        UtilityHelper.setKey(api.savedSubCatId, KeyValue: cat.ID!);
         
         
         
+        getFacts(page: 0, subCat: Int(cat.ID!));
     }
+    
     
     // don't delete, its a delegate function
     func updateViewBySettings() {
@@ -32,7 +35,7 @@ extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
         //code to execute during refresher
         setBg();
         setFont();
-        getFacts();
+        getFacts(page: 0, subCat: nil);
         stopRefresher()         //Call this to stop refresher
     }
     
@@ -48,13 +51,21 @@ extension MainVC: SettingsVCDelegate, SidemenuVCDelegate{
         }
     }
     
-    func getFacts(){
+    func getFacts(page: Int, subCat: Int!){
         
         facts.removeAll();
-        CoreDataHelper.returnFacts(ofCategory: "") { (arr) in
-            self.facts = arr;
-            self.collectionView.reloadData();
+        LearnottoApi.getFacts(signup.Id!, page, subCat: subCat) { (success, facts) in
+            //
+            if(success){
+                self.facts = facts!;
+                self.collectionView.reloadData();
+            }
+            
         }
+//        CoreDataHelper.returnFacts(ofCategory: "") { (arr) in
+//            self.facts = arr;
+//            self.collectionView.reloadData();
+//        }
         
         
     }

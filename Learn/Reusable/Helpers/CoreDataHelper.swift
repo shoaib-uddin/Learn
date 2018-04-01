@@ -14,6 +14,76 @@ import CoreData
 
 class CoreDataHelper{
     
+    class func updateUser(signup: EnSignUp, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User");
+        request.returnsObjectsAsFaults = false;
+        
+        
+        do {
+            let result = try context.fetch(request) as! [User];
+            if(result.count > 0){ // Atleast one record
+                
+                result[0].email = signup.Email!;
+                result[0].gender = signup.Gender!;
+                result[0].id = signup.Id!;
+                result[0].imageUrl = signup.ImageUrl!;
+                result[0].name = signup.Name!;
+                result[0].password = signup.password!;
+                
+                try context.save();
+                completion(true);
+            }
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    class func createUser(signup: EnSignUp, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        
+        // setting backgrounds paths
+        let cSign = NSEntityDescription.entity(forEntityName: "User", in: context)
+        
+        
+        // setting Settings Global
+            let newUser = NSManagedObject(entity: cSign!, insertInto: context) as! User;
+            newUser.setValue("\(signup.Email!)", forKey: "email");
+            newUser.setValue("\(signup.Gender!)", forKey: "gender");
+            newUser.setValue("\(signup.Id!)", forKey: "id");
+            newUser.setValue("\(signup.ImageUrl!)", forKey: "imageUrl");
+            newUser.setValue("\(signup.Name!)", forKey: "name");
+            newUser.setValue("\(signup.password!)", forKey: "password");
+        
+        do{
+                
+                try context.save();
+                completion(true);
+            
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+        
+        
+        
+        
+        
+    }
     
     class func insertSettings(background: String, font: String, completion: @escaping (_ success: Bool) -> Void){
         
@@ -293,6 +363,11 @@ class CoreDataHelper{
             newFact.setValue(fact["text"], forKey: "text");
             newFact.setValue(fact["category"], forKey: "category");
         }
+        
+        // set pre category Ids for user
+        UtilityHelper.setKey(api.savedCatId, KeyValue: "1");
+        UtilityHelper.setKey(api.savedSubCatId, KeyValue: "1");
+        
         
         
         // save all default features

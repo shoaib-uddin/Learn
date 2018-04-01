@@ -15,27 +15,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GalleryImageCVC" customModule="Learn" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+            <rect key="frame" x="0.0" y="0.0" width="345" height="471"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+                <rect key="frame" x="0.0" y="0.0" width="345" height="471"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TJj-yz-XHC">
-                        <rect key="frame" x="0.0" y="0.0" width="345" height="352"/>
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="471"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1N-vc-GTh">
-                        <rect key="frame" x="34.5" y="38.5" width="276" height="276"/>
+                        <rect key="frame" x="34.5" y="74" width="276" height="276"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-Xc-ese">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-Xc-ese">
                                 <rect key="frame" x="14" y="14.5" width="248" height="248"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.65247752568493156" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UJK-Xc-ese" firstAttribute="centerY" secondItem="L1N-vc-GTh" secondAttribute="centerY" id="0Ed-us-Odq"/>
                             <constraint firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="height" multiplier="1:1" id="1GT-nM-aGb"/>
@@ -44,6 +44,20 @@
                             <constraint firstItem="UJK-Xc-ese" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="h4n-qW-egX"/>
                         </constraints>
                     </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Ur-VS-nVB">
+                        <rect key="frame" x="34.5" y="350" width="276" height="30"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ref" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuc-Yn-ggM">
+                                <rect key="frame" x="0.0" y="0.0" width="276" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="HuN-rw-yYt"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -53,17 +67,22 @@
                 <constraint firstItem="L1N-vc-GTh" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.8" id="Spm-BI-edq"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Uac-FM-NlB"/>
                 <constraint firstItem="L1N-vc-GTh" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="avx-jH-Gc4"/>
-                <constraint firstItem="L1N-vc-GTh" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="hRz-RM-K2f"/>
+                <constraint firstItem="2Ur-VS-nVB" firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="width" id="dHz-Um-Nwv"/>
+                <constraint firstItem="L1N-vc-GTh" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.9" id="hRz-RM-K2f"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="mOr-yf-Zlz"/>
+                <constraint firstItem="2Ur-VS-nVB" firstAttribute="top" secondItem="L1N-vc-GTh" secondAttribute="bottom" id="r4R-NQ-s86"/>
+                <constraint firstItem="2Ur-VS-nVB" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="z89-iN-piD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="345" height="352"/>
+            <size key="customSize" width="345" height="471"/>
             <connections>
                 <outlet property="coverView" destination="UJK-Xc-ese" id="o2A-RJ-3BQ"/>
                 <outlet property="imageView" destination="TJj-yz-XHC" id="cGu-17-1EP"/>
+                <outlet property="lblRef" destination="wuc-Yn-ggM" id="sEZ-YO-K40"/>
                 <outlet property="lblText" destination="UJK-Xc-ese" id="Oqm-4X-k8L"/>
+                <outlet property="quoteView" destination="L1N-vc-GTh" id="XfC-Bk-vKt"/>
             </connections>
-            <point key="canvasLocation" x="57.5" y="66"/>
+            <point key="canvasLocation" x="57.5" y="125.5"/>
         </collectionViewCell>
     </objects>
 </document>

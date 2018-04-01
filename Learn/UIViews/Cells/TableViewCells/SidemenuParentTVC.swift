@@ -12,10 +12,20 @@ class SidemenuParentTVC: UITableViewCell {
 
     
     @IBOutlet weak var menuLabel: UILabel!
+    @IBOutlet weak var tickImage: UIImageView!
+    
+    
+    override func prepareForReuse() {
+        //
+        self.tickImage.image = nil;
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,9 +34,9 @@ class SidemenuParentTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(lbl: String){
+    func setData(lbl: EnDDL){
         
-        menuLabel.text = lbl.uppercased();
+        menuLabel.text = lbl.Name!;
         
     }
     

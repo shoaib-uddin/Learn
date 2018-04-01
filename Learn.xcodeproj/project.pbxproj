@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A085120206C2D0700D453CF /* HeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08511E206C2D0700D453CF /* HeaderTVC.swift */; };
+		0A085121206C2D0700D453CF /* HeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A08511F206C2D0700D453CF /* HeaderTVC.xib */; };
 		0A0BBF0620397D6100486915 /* MainVCfunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BBF0420397D6100486915 /* MainVCfunc.swift */; };
 		0A0BBF0720397D6100486915 /* MainVCCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BBF0520397D6100486915 /* MainVCCV.swift */; };
 		0A0BBF092039890000486915 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BBF082039890000486915 /* CoreDataHelper.swift */; };
@@ -53,13 +55,28 @@
 		0A9CCD03205537D3006F5396 /* TrajanPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */; };
 		0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD04205539A1006F5396 /* SettingsVC.swift */; };
 		0A9CCD0720553F56006F5396 /* GBHFacebookHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */; };
+		0AD7BA00206518DF007A6E44 /* LearnottoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */; };
 		0AE430A32037791C00894DBC /* GalleryImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE430A12037791C00894DBC /* GalleryImageCVC.swift */; };
 		0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE430A22037791C00894DBC /* GalleryImageCVC.xib */; };
 		0AE430A8203782CD00894DBC /* AssetImageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE430A7203782CD00894DBC /* AssetImageApi.swift */; };
+		0AFDDA052064D186002C860B /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA042064D186002C860B /* NetworkHelper.swift */; };
+		0AFDDA1C2064D456002C860B /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA122064D456002C860B /* ARSInfiniteLoader.swift */; };
+		0AFDDA1D2064D456002C860B /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA132064D456002C860B /* ARSLineProgress.swift */; };
+		0AFDDA1E2064D456002C860B /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA142064D456002C860B /* ARSLineProgressConstants.swift */; };
+		0AFDDA1F2064D456002C860B /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA152064D456002C860B /* ARSLineProgressCustomization.swift */; };
+		0AFDDA202064D456002C860B /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA162064D456002C860B /* ARSLineProgressExtensions.swift */; };
+		0AFDDA212064D456002C860B /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA172064D456002C860B /* ARSLineProgressHelpers.swift */; };
+		0AFDDA222064D456002C860B /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA182064D456002C860B /* ARSLineProgressProtocols.swift */; };
+		0AFDDA232064D456002C860B /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA192064D456002C860B /* ARSLineProgressTypeAliases.swift */; };
+		0AFDDA242064D456002C860B /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA1A2064D456002C860B /* ARSProgressLoader.swift */; };
+		0AFDDA252064D456002C860B /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA1B2064D456002C860B /* ARSStatus.swift */; };
+		0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA262064D7AE002C860B /* UserModel.swift */; };
 		2F8AC24BEED3F0383ACB1E64 /* Pods_Learn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFC95D4D30155E93829A8CC /* Pods_Learn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A08511E206C2D0700D453CF /* HeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTVC.swift; sourceTree = "<group>"; };
+		0A08511F206C2D0700D453CF /* HeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTVC.xib; sourceTree = "<group>"; };
 		0A0BBF0420397D6100486915 /* MainVCfunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCfunc.swift; sourceTree = "<group>"; };
 		0A0BBF0520397D6100486915 /* MainVCCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVCCV.swift; sourceTree = "<group>"; };
 		0A0BBF082039890000486915 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -109,9 +126,22 @@
 		0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.otf"; sourceTree = "<group>"; };
 		0A9CCD04205539A1006F5396 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBHFacebookHelper.swift; sourceTree = "<group>"; };
+		0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnottoApi.swift; sourceTree = "<group>"; };
 		0AE430A12037791C00894DBC /* GalleryImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCVC.swift; sourceTree = "<group>"; };
 		0AE430A22037791C00894DBC /* GalleryImageCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryImageCVC.xib; sourceTree = "<group>"; };
 		0AE430A7203782CD00894DBC /* AssetImageApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetImageApi.swift; sourceTree = "<group>"; };
+		0AFDDA042064D186002C860B /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		0AFDDA122064D456002C860B /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSInfiniteLoader.swift; sourceTree = "<group>"; };
+		0AFDDA132064D456002C860B /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgress.swift; sourceTree = "<group>"; };
+		0AFDDA142064D456002C860B /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressConstants.swift; sourceTree = "<group>"; };
+		0AFDDA152064D456002C860B /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
+		0AFDDA162064D456002C860B /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressExtensions.swift; sourceTree = "<group>"; };
+		0AFDDA172064D456002C860B /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressHelpers.swift; sourceTree = "<group>"; };
+		0AFDDA182064D456002C860B /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
+		0AFDDA192064D456002C860B /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressTypeAliases.swift; sourceTree = "<group>"; };
+		0AFDDA1A2064D456002C860B /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSProgressLoader.swift; sourceTree = "<group>"; };
+		0AFDDA1B2064D456002C860B /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
+		0AFDDA262064D7AE002C860B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C9E2C88444EF7493A783CBE /* Pods-Learn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Learn/Pods-Learn.release.xcconfig"; sourceTree = "<group>"; };
 		7BFC95D4D30155E93829A8CC /* Pods_Learn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9F62BB5056E8DFE06320C4 /* Pods-Learn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learn/Pods-Learn.debug.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +259,8 @@
 				0A5AE4EA205847AE007387DE /* HeaderForCollectionReusableView.xib */,
 				0A5AE4EC20584855007387DE /* FontsCVC.swift */,
 				0A5AE4ED20584855007387DE /* FontsCVC.xib */,
+				0A08511E206C2D0700D453CF /* HeaderTVC.swift */,
+				0A08511F206C2D0700D453CF /* HeaderTVC.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -260,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3E87D7203599EF002A4748 /* Constants */,
+				0AFDDA112064D456002C860B /* ARSLoader */,
 				0A3E87D8203599EF002A4748 /* Helpers */,
 				0A3E87D9203599EF002A4748 /* Model */,
 				0A3E87DA203599EF002A4748 /* SupportingFiles */,
@@ -270,7 +303,6 @@
 		0A3E87D7203599EF002A4748 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				0A5AE503205B1EB0007387DE /* ApplicationServiceModel.swift */,
 				0A0BBF102039A03600486915 /* Constants.swift */,
 				0A0BBF29203A24AD00486915 /* sampleFacts.plist */,
 			);
@@ -287,6 +319,8 @@
 				0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */,
 				0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */,
 				0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */,
+				0AFDDA042064D186002C860B /* NetworkHelper.swift */,
+				0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -294,6 +328,8 @@
 		0A3E87D9203599EF002A4748 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A5AE503205B1EB0007387DE /* ApplicationServiceModel.swift */,
+				0AFDDA262064D7AE002C860B /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +399,23 @@
 				0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		0AFDDA112064D456002C860B /* ARSLoader */ = {
+			isa = PBXGroup;
+			children = (
+				0AFDDA122064D456002C860B /* ARSInfiniteLoader.swift */,
+				0AFDDA132064D456002C860B /* ARSLineProgress.swift */,
+				0AFDDA142064D456002C860B /* ARSLineProgressConstants.swift */,
+				0AFDDA152064D456002C860B /* ARSLineProgressCustomization.swift */,
+				0AFDDA162064D456002C860B /* ARSLineProgressExtensions.swift */,
+				0AFDDA172064D456002C860B /* ARSLineProgressHelpers.swift */,
+				0AFDDA182064D456002C860B /* ARSLineProgressProtocols.swift */,
+				0AFDDA192064D456002C860B /* ARSLineProgressTypeAliases.swift */,
+				0AFDDA1A2064D456002C860B /* ARSProgressLoader.swift */,
+				0AFDDA1B2064D456002C860B /* ARSStatus.swift */,
+			);
+			path = ARSLoader;
 			sourceTree = "<group>";
 		};
 		0D2A0D8513ADDF9EEB3EE1A7 /* Pods */ = {
@@ -467,6 +520,7 @@
 				0A9CCCFB205537D3006F5396 /* Esphimere Light_0.otf in Resources */,
 				0A9CCCFD205537D3006F5396 /* Gin Regular.otf in Resources */,
 				0A9CCD03205537D3006F5396 /* TrajanPro-Regular.otf in Resources */,
+				0A085121206C2D0700D453CF /* HeaderTVC.xib in Resources */,
 				0A3E87BD20358F40002A4748 /* Main.storyboard in Resources */,
 				0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */,
 				0A9CCCFC205537D3006F5396 /* Gin Oblique.otf in Resources */,
@@ -559,10 +613,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */,
+				0AFDDA1F2064D456002C860B /* ARSLineProgressCustomization.swift in Sources */,
+				0AFDDA1C2064D456002C860B /* ARSInfiniteLoader.swift in Sources */,
 				0A0BBF092039890000486915 /* CoreDataHelper.swift in Sources */,
+				0AFDDA252064D456002C860B /* ARSStatus.swift in Sources */,
+				0A085120206C2D0700D453CF /* HeaderTVC.swift in Sources */,
+				0AFDDA232064D456002C860B /* ARSLineProgressTypeAliases.swift in Sources */,
 				0A3E87B820358F40002A4748 /* AppDelegate.swift in Sources */,
+				0AFDDA212064D456002C860B /* ARSLineProgressHelpers.swift in Sources */,
+				0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */,
+				0AFDDA1E2064D456002C860B /* ARSLineProgressConstants.swift in Sources */,
 				0A0BBF0F20399F2200486915 /* UtilityHelper.swift in Sources */,
 				0A3E87DC20359A2B002A4748 /* MainVC.swift in Sources */,
+				0AFDDA222064D456002C860B /* ARSLineProgressProtocols.swift in Sources */,
 				0A5AE4E220577D22007387DE /* SettingsCVVC.swift in Sources */,
 				0A5AE4EB205847AF007387DE /* HeaderForCollectionReusableView.swift in Sources */,
 				0A0BBF0720397D6100486915 /* MainVCCV.swift in Sources */,
@@ -571,16 +634,21 @@
 				0A3E87DE20359A3D002A4748 /* BaseVC.swift in Sources */,
 				0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */,
 				0A0BBF112039A03600486915 /* Constants.swift in Sources */,
+				0AFDDA242064D456002C860B /* ARSProgressLoader.swift in Sources */,
 				0A5AE504205B1EB1007387DE /* ApplicationServiceModel.swift in Sources */,
 				0A0BBF0620397D6100486915 /* MainVCfunc.swift in Sources */,
 				0A9CCD0720553F56006F5396 /* GBHFacebookHelper.swift in Sources */,
+				0AFDDA052064D186002C860B /* NetworkHelper.swift in Sources */,
 				0AE430A8203782CD00894DBC /* AssetImageApi.swift in Sources */,
 				0A3E87E32035C7E2002A4748 /* SidemenuVC.swift in Sources */,
 				0A0BBF0C203996F300486915 /* SidemenuParentTVC.swift in Sources */,
 				0A0BBF2E203B5BB300486915 /* FileHelperApi.swift in Sources */,
 				0AE430A32037791C00894DBC /* GalleryImageCVC.swift in Sources */,
+				0AFDDA1D2064D456002C860B /* ARSLineProgress.swift in Sources */,
+				0AFDDA202064D456002C860B /* ARSLineProgressExtensions.swift in Sources */,
 				0A5AE4EE20584855007387DE /* FontsCVC.swift in Sources */,
 				0A6979F7204DC9E7000A68CA /* LoginVC.swift in Sources */,
+				0AD7BA00206518DF007A6E44 /* LearnottoApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

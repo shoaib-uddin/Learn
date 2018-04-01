@@ -22,6 +22,53 @@ class GBHFacebookHelper {
     // MARK: - Singleton 
 
     static let shared = GBHFacebookHelper();
+    
+    /// - Parameter after: after page identifier (optional)
+    func fbDataRequest(completion: @escaping (_ success: Bool, _ callback: EnSignUp?) -> Void) {
+        
+        
+        // Build Facebook's request
+        let graphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"id,name,email,gender,picture{url}"])
+        
+        // Start Facebook Request
+        _ = graphRequest?.start { _, result, error in
+            if error != nil {
+                print(error.debugDescription)
+                completion(false, nil);
+                return
+            } else {
+                // Try to parse request's result
+                if let fbResult = result as? [String: AnyObject] {
+                    
+                    // Parse Album
+                    var SignupModel = EnSignUp();
+                    //SignupModel.Email = fbResult["email"] as? String;
+                    
+                    //let rand = Int.random(range: 30..<2000); // 456 // 457 // 458 // 459 // 460 // 461 // 462
+                    let rand = 462
+                    SignupModel.Token = "\(rand)";
+                    SignupModel.FacebookId = "fb-\(rand)";
+                    SignupModel.username = "username-\(rand)";
+                    SignupModel.Email = "username-\(rand)";
+                    
+                    // SignupModel.username = fbResult["email"] as? String;
+                    SignupModel.Id = fbResult["id"] as? String;
+                    SignupModel.Gender = fbResult["gender"] as? String;
+                    SignupModel.Name = fbResult["name"] as? String;
+                    var temp = fbResult["picture"] as? [String: AnyObject];
+                    var data = temp!["data"] as? [String: AnyObject];
+                    SignupModel.ImageUrl = data!["url"] as? String;
+                    
+                    print(SignupModel);
+                    completion(true, SignupModel);
+                    
+                    
+                    
+                    
+                }
+            }
+        }
+    }
 
     
     // MARK: - Logout

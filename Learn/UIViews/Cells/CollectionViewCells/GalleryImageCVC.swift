@@ -13,18 +13,31 @@ import PhotosUI
 class GalleryImageCVC: UICollectionViewCell {
 
     @IBOutlet var imageView: UIImageView!
+    
     @IBOutlet var coverView: UIView!
     @IBOutlet var lblText: UILabel!
+    @IBOutlet var lblRef: UILabel!
+    
+    
+    @IBOutlet weak var quoteView: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
     
-    func setData(_ data: Facts){
+    
+    
+    
+    func setData(_ data: EnFact){
         
         print(data);
-        self.lblText.text = data.text
+        self.lblText.text = data.Content;
+        self.lblRef.text = data.Reference;
         
     }
     

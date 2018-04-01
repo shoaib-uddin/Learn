@@ -29,10 +29,30 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GalleryImageCVC.self), for: indexPath) as? GalleryImageCVC
             else { fatalError("unexpected cell in collection view") }
         
+        
+        currentIndex = indexPath;
         let fact = facts[indexPath.row];
         cell.setData(fact);
         cell.lblText.font = UIFont(name: self.localFontName, size: cell.lblText.font.pointSize);
-        cell.imageView.isHidden = true;
+        //cell.imageView.isHidden = true;
+        
+        
+        print(fact);
+        self.isLikeByMe = fact.likebyme!;
+        self.factid = fact.ID!;
+        btnHeart.titleLabel?.font = UIFont.fontAwesome(ofSize: 30);
+        if(!fact.likebyme!){
+            btnHeart.setTitle(String.fontAwesomeIcon(name: .heartO), for: .normal)
+        }else{
+            self.btnHeart.setTitle(String.fontAwesomeIcon(name: .heart), for: .normal);
+        }
+        
+        
+        DispatchQueue.main.async {
+            self.lblLike.text = "\(Int(fact.likes!))";
+            self.likes = Int(fact.likes!);
+        }
+        
         
         return cell;
         

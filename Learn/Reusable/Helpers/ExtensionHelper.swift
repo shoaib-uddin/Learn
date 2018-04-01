@@ -8,6 +8,22 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+
+extension String {
+    
+    func ToDictionary() -> [String:AnyObject]? {
+        if let data = self.data(using: String.Encoding.utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        return nil
+    }
+}
+
 
 extension UIView{
     
@@ -47,3 +63,47 @@ extension UIView{
     }
     
 }
+
+
+
+extension NSArray
+{
+    
+    func ToString() ->String
+    {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions.prettyPrinted)
+            
+            let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+            return jsonString;
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        return "";
+    }
+    
+}
+
+extension Int{
+    func  toString() -> String{
+        return String(describing: self);
+    }
+    
+    static func random(range: Range<Int> ) -> Int
+    {
+        var offset = 0
+        
+        if range.lowerBound < 0   // allow negative ranges
+        {
+            offset = abs(range.lowerBound)
+        }
+        
+        let mini = UInt32(range.lowerBound + offset)
+        let maxi = UInt32(range.upperBound   + offset)
+        
+        return Int(mini + arc4random_uniform(maxi - mini)) - offset
+    }
+    
+}
+

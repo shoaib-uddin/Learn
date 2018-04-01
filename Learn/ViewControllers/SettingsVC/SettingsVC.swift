@@ -14,13 +14,16 @@ protocol SettingsVCDelegate: class {
 }
 
 
-class SettingsVC : UIViewController{
+class SettingsVC : BaseVC{
     
     
     
     @IBOutlet weak var imgIcons: UIImageView!
     @IBOutlet weak var menuLabel: UILabel!
     @IBOutlet weak var btnSync: UIButton!;
+    @IBOutlet weak var leftImage: UIImageView!;
+    @IBOutlet weak var centerImage: UIImageView!;
+    @IBOutlet weak var rightImage: UIImageView!;
     
     @IBOutlet weak var horizontalCollectionView: UICollectionView!
     @IBOutlet weak var verticalCollectionView: UICollectionView!
@@ -36,6 +39,11 @@ class SettingsVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        self.navigationController?.isNavigationBarHidden = false;
+        leftImage.image = UIImage.fontAwesomeIcon(name: .times, textColor: UIColor.white, size: CGSize(width: 30, height: 30));
+        rightImage.image = UIImage.fontAwesomeIcon(name: .save, textColor: UIColor.white, size: CGSize(width: 30, height: 30));
+        
         
         let returnSettings: Settings = CoreDataHelper.returnSettings();
         print(returnSettings.background ?? "Error getting settings background");
@@ -82,7 +90,7 @@ class SettingsVC : UIViewController{
         
     }
     
-    @IBAction func doSaveSettings(_ sender: UIBarButtonItem) {
+    @IBAction func doSaveSettings(_ sender: Any) {
         
         let q = verticalCollectionArray[selectedImageIndex.row];
         CoreDataHelper.insertSettings(background: q.background!, font: self.localFontName) { (success) in
