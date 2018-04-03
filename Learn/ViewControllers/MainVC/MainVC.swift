@@ -55,7 +55,7 @@ class MainVC: BaseVC{
         PageRedirect.redirectToSettingsPage(self);
     }
     @IBAction func gotoSidemenu(_ sender: Any) {
-        PageRedirect.redirectToSidemenuPage(self);
+        PageRedirect.redirectToPreSidemenuPage(self);
     }
     @IBAction func shareSnapshotImage(_ sender: Any) {
         self.shareImage(image: self.collectionView.snapshot()!);

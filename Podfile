@@ -18,5 +18,6 @@ pod 'LKAlertController'
 pod 'IQKeyboardManagerSwift'
 pod 'ActionSheetPicker-3.0'
 pod 'AlamofireImage'
+pod 'SwiftIconFont'
 
 end

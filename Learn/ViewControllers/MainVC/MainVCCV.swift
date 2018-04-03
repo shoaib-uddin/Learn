@@ -37,7 +37,7 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         //cell.imageView.isHidden = true;
         
         
-        print(fact);
+        print(indexPath.row , fact);
         self.isLikeByMe = fact.likebyme!;
         self.factid = fact.ID!;
         btnHeart.titleLabel?.font = UIFont.fontAwesome(ofSize: 30);

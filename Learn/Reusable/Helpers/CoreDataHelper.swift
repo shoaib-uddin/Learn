@@ -35,6 +35,11 @@ class CoreDataHelper{
                 
                 try context.save();
                 completion(true);
+            }else{
+                print("Boo");
+                self.createUser(signup: signup, completion: { (flag) in
+                    completion(false);
+                })
             }
         } catch {
             

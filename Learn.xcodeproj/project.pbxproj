@@ -43,6 +43,13 @@
 		0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */; };
 		0A6979F7204DC9E7000A68CA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6979F6204DC9E6000A68CA /* LoginVC.swift */; };
 		0A6979FB204DCFFD000A68CA /* PageRedirectHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */; };
+		0A7599AE207219A9000570B3 /* ReminderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599AC207219A9000570B3 /* ReminderTVC.swift */; };
+		0A7599AF207219A9000570B3 /* ReminderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599AD207219A9000570B3 /* ReminderTVC.xib */; };
+		0A7599B120725861000570B3 /* PreSidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599B020725861000570B3 /* PreSidemenuVC.swift */; };
+		0A7599B420725AA9000570B3 /* SidemenuTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599B220725AA9000570B3 /* SidemenuTableHeader.swift */; };
+		0A7599B520725AA9000570B3 /* SidemenuTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599B320725AA9000570B3 /* SidemenuTableHeader.xib */; };
+		0A7599B820725B9F000570B3 /* ImageTitleDesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599B620725B9F000570B3 /* ImageTitleDesTVC.swift */; };
+		0A7599B920725B9F000570B3 /* ImageTitleDesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599B720725B9F000570B3 /* ImageTitleDesTVC.xib */; };
 		0A9CCCFA205537D3006F5396 /* abel-regular_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */; };
 		0A9CCCFB205537D3006F5396 /* Esphimere Light_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF1205537D2006F5396 /* Esphimere Light_0.otf */; };
 		0A9CCCFC205537D3006F5396 /* Gin Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF2205537D2006F5396 /* Gin Oblique.otf */; };
@@ -55,6 +62,8 @@
 		0A9CCD03205537D3006F5396 /* TrajanPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */; };
 		0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD04205539A1006F5396 /* SettingsVC.swift */; };
 		0A9CCD0720553F56006F5396 /* GBHFacebookHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */; };
+		0AABBF71207211AD00668419 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AABBF70207211AD00668419 /* ReminderVC.swift */; };
+		0AABBF732072137600668419 /* AddReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AABBF722072137600668419 /* AddReminderVC.swift */; };
 		0AD7BA00206518DF007A6E44 /* LearnottoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */; };
 		0AE430A32037791C00894DBC /* GalleryImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE430A12037791C00894DBC /* GalleryImageCVC.swift */; };
 		0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE430A22037791C00894DBC /* GalleryImageCVC.xib */; };
@@ -114,6 +123,13 @@
 		0A5AE505205EB9E2007387DE /* ExtensionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelper.swift; sourceTree = "<group>"; };
 		0A6979F6204DC9E6000A68CA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0A6979FA204DCFFD000A68CA /* PageRedirectHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRedirectHelper.swift; sourceTree = "<group>"; };
+		0A7599AC207219A9000570B3 /* ReminderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTVC.swift; sourceTree = "<group>"; };
+		0A7599AD207219A9000570B3 /* ReminderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTVC.xib; sourceTree = "<group>"; };
+		0A7599B020725861000570B3 /* PreSidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreSidemenuVC.swift; sourceTree = "<group>"; };
+		0A7599B220725AA9000570B3 /* SidemenuTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidemenuTableHeader.swift; sourceTree = "<group>"; };
+		0A7599B320725AA9000570B3 /* SidemenuTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidemenuTableHeader.xib; sourceTree = "<group>"; };
+		0A7599B620725B9F000570B3 /* ImageTitleDesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTitleDesTVC.swift; sourceTree = "<group>"; };
+		0A7599B720725B9F000570B3 /* ImageTitleDesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTitleDesTVC.xib; sourceTree = "<group>"; };
 		0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "abel-regular_0.ttf"; sourceTree = "<group>"; };
 		0A9CCCF1205537D2006F5396 /* Esphimere Light_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Esphimere Light_0.otf"; sourceTree = "<group>"; };
 		0A9CCCF2205537D2006F5396 /* Gin Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gin Oblique.otf"; sourceTree = "<group>"; };
@@ -126,6 +142,8 @@
 		0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrajanPro-Regular.otf"; sourceTree = "<group>"; };
 		0A9CCD04205539A1006F5396 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBHFacebookHelper.swift; sourceTree = "<group>"; };
+		0AABBF70207211AD00668419 /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
+		0AABBF722072137600668419 /* AddReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderVC.swift; sourceTree = "<group>"; };
 		0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnottoApi.swift; sourceTree = "<group>"; };
 		0AE430A12037791C00894DBC /* GalleryImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCVC.swift; sourceTree = "<group>"; };
 		0AE430A22037791C00894DBC /* GalleryImageCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryImageCVC.xib; sourceTree = "<group>"; };
@@ -197,6 +215,7 @@
 		0A3E87CC203599EE002A4748 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0AABBF6F2072119400668419 /* ReminderVC */,
 				0A9CCCEE20506D85006F5396 /* SettingsVC */,
 				0A6979F5204DC9D8000A68CA /* LoginVC */,
 				0A3E87E12035C7D4002A4748 /* SidemenuVC */,
@@ -261,6 +280,10 @@
 				0A5AE4ED20584855007387DE /* FontsCVC.xib */,
 				0A08511E206C2D0700D453CF /* HeaderTVC.swift */,
 				0A08511F206C2D0700D453CF /* HeaderTVC.xib */,
+				0A7599B220725AA9000570B3 /* SidemenuTableHeader.swift */,
+				0A7599B320725AA9000570B3 /* SidemenuTableHeader.xib */,
+				0A7599B620725B9F000570B3 /* ImageTitleDesTVC.swift */,
+				0A7599B720725B9F000570B3 /* ImageTitleDesTVC.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -270,6 +293,8 @@
 			children = (
 				0A0BBF0A203996F300486915 /* SidemenuParentTVC.swift */,
 				0A0BBF0B203996F300486915 /* SidemenuParentTVC.xib */,
+				0A7599AC207219A9000570B3 /* ReminderTVC.swift */,
+				0A7599AD207219A9000570B3 /* ReminderTVC.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -346,6 +371,7 @@
 		0A3E87E12035C7D4002A4748 /* SidemenuVC */ = {
 			isa = PBXGroup;
 			children = (
+				0A7599B020725861000570B3 /* PreSidemenuVC.swift */,
 				0A3E87E22035C7E2002A4748 /* SidemenuVC.swift */,
 			);
 			path = SidemenuVC;
@@ -399,6 +425,15 @@
 				0A9CCCF9205537D3006F5396 /* TrajanPro-Regular.otf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		0AABBF6F2072119400668419 /* ReminderVC */ = {
+			isa = PBXGroup;
+			children = (
+				0AABBF70207211AD00668419 /* ReminderVC.swift */,
+				0AABBF722072137600668419 /* AddReminderVC.swift */,
+			);
+			path = ReminderVC;
 			sourceTree = "<group>";
 		};
 		0AFDDA112064D456002C860B /* ARSLoader */ = {
@@ -502,8 +537,11 @@
 				0A5AE4FC205863CD007387DE /* 3@1x.png in Resources */,
 				0A5AE4FD205863CD007387DE /* 4@1x.png in Resources */,
 				0A5AE4FE205863CD007387DE /* 5@1x.png in Resources */,
+				0A7599B920725B9F000570B3 /* ImageTitleDesTVC.xib in Resources */,
 				0A5AE4FF205863CD007387DE /* 6@1x.png in Resources */,
 				0A5AE500205863CD007387DE /* 7@1x.png in Resources */,
+				0A7599AF207219A9000570B3 /* ReminderTVC.xib in Resources */,
+				0A7599B520725AA9000570B3 /* SidemenuTableHeader.xib in Resources */,
 				0A5AE501205863CD007387DE /* 8@1x.png in Resources */,
 				0A5AE502205863CD007387DE /* 9@1x.png in Resources */,
 				0A3E87C520358F40002A4748 /* LaunchScreen.storyboard in Resources */,
@@ -565,6 +603,7 @@
 				"${BUILT_PRODUCTS_DIR}/LKAlertController/LKAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -581,6 +620,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -612,18 +652,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7599B120725861000570B3 /* PreSidemenuVC.swift in Sources */,
 				0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */,
 				0AFDDA1F2064D456002C860B /* ARSLineProgressCustomization.swift in Sources */,
 				0AFDDA1C2064D456002C860B /* ARSInfiniteLoader.swift in Sources */,
 				0A0BBF092039890000486915 /* CoreDataHelper.swift in Sources */,
+				0A7599B420725AA9000570B3 /* SidemenuTableHeader.swift in Sources */,
 				0AFDDA252064D456002C860B /* ARSStatus.swift in Sources */,
 				0A085120206C2D0700D453CF /* HeaderTVC.swift in Sources */,
 				0AFDDA232064D456002C860B /* ARSLineProgressTypeAliases.swift in Sources */,
 				0A3E87B820358F40002A4748 /* AppDelegate.swift in Sources */,
 				0AFDDA212064D456002C860B /* ARSLineProgressHelpers.swift in Sources */,
 				0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */,
+				0AABBF732072137600668419 /* AddReminderVC.swift in Sources */,
 				0AFDDA1E2064D456002C860B /* ARSLineProgressConstants.swift in Sources */,
 				0A0BBF0F20399F2200486915 /* UtilityHelper.swift in Sources */,
+				0AABBF71207211AD00668419 /* ReminderVC.swift in Sources */,
 				0A3E87DC20359A2B002A4748 /* MainVC.swift in Sources */,
 				0AFDDA222064D456002C860B /* ARSLineProgressProtocols.swift in Sources */,
 				0A5AE4E220577D22007387DE /* SettingsCVVC.swift in Sources */,
@@ -635,12 +679,14 @@
 				0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */,
 				0A0BBF112039A03600486915 /* Constants.swift in Sources */,
 				0AFDDA242064D456002C860B /* ARSProgressLoader.swift in Sources */,
+				0A7599B820725B9F000570B3 /* ImageTitleDesTVC.swift in Sources */,
 				0A5AE504205B1EB1007387DE /* ApplicationServiceModel.swift in Sources */,
 				0A0BBF0620397D6100486915 /* MainVCfunc.swift in Sources */,
 				0A9CCD0720553F56006F5396 /* GBHFacebookHelper.swift in Sources */,
 				0AFDDA052064D186002C860B /* NetworkHelper.swift in Sources */,
 				0AE430A8203782CD00894DBC /* AssetImageApi.swift in Sources */,
 				0A3E87E32035C7E2002A4748 /* SidemenuVC.swift in Sources */,
+				0A7599AE207219A9000570B3 /* ReminderTVC.swift in Sources */,
 				0A0BBF0C203996F300486915 /* SidemenuParentTVC.swift in Sources */,
 				0A0BBF2E203B5BB300486915 /* FileHelperApi.swift in Sources */,
 				0AE430A32037791C00894DBC /* GalleryImageCVC.swift in Sources */,
