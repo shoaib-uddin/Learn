@@ -12,6 +12,7 @@ import Photos
 import PhotosUI
 import FontAwesome_swift
 
+
 class MainVC: BaseVC{
     
     var facts: [EnFact] = [EnFact]();
@@ -23,6 +24,13 @@ class MainVC: BaseVC{
     var factid: String = "";
     var likes: Int = 0;
     var currentIndex: IndexPath!;
+    
+    @IBOutlet weak var imgMenu: UIImageView!
+    @IBOutlet weak var imgCateg: UIImageView!
+    @IBOutlet weak var imgAa: UIImageView!
+    @IBOutlet weak var imgShare: UIImageView!
+    @IBOutlet weak var imgLove: UIImageView!
+    @IBOutlet weak var imgReport: UIImageView!
     
     @IBOutlet weak var collectionView: UICollectionView!;
     @IBOutlet weak var globalImageView: UIImageView!;
@@ -47,6 +55,13 @@ class MainVC: BaseVC{
         self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
         self.collectionView!.addSubview(refresher)
         
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // runs every time
+        self.loadVisuals();
         loadData();
         
     }
@@ -57,6 +72,11 @@ class MainVC: BaseVC{
     @IBAction func gotoSidemenu(_ sender: Any) {
         PageRedirect.redirectToPreSidemenuPage(self);
     }
+    @IBAction func gotoCategoryList(_ sender: Any) {
+        PageRedirect.redirectToCatSidemenuPage(self);
+    }
+    
+    
     @IBAction func shareSnapshotImage(_ sender: Any) {
         self.shareImage(image: self.collectionView.snapshot()!);
     }
@@ -65,13 +85,8 @@ class MainVC: BaseVC{
         LearnottoApi.addLike(userid: signup.Id!, factid: self.factid) { (success) in
             //
             if(success){
-                self.btnHeart.titleLabel?.font = UIFont.fontAwesome(ofSize: 30);
-                self.btnHeart.setTitle(String.fontAwesomeIcon(name: .heart), for: .normal);
                 
-                var li: Int = Int(self.likes) + 1;
-                self.lblLike.text = "\(li)";
-                
-                self.facts[self.currentIndex.row].likes = NSNumber(value: li);
+                StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
                 self.facts[self.currentIndex.row].likebyme = true;
                 self.collectionView.reloadData();
                 
@@ -93,6 +108,31 @@ class MainVC: BaseVC{
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    func loadVisuals(){
+        
+        //
+        
+        StyleHelper.setFontImageVisualsMaterial(self.imgMenu, name: "menu");
+        StyleHelper.setFontImageVisualsMaterial(self.imgCateg, name: "dashboard");
+        StyleHelper.setFontImageVisualsMaterial(self.imgAa, name: "style");
+        
+        StyleHelper.setFontImageVisualsMaterial(self.imgShare, name: "screen.share");
+        StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
+//        StyleHelper.setFontImageVisualsMaterial(self.imgReport, name: "style");
+        
+        
+        if(globalSettings.ttype == "A"){
+            self.globalImageView.image = nil;
+        }else{
+            self.globalImageView.image = nil;
+            FileApi.retrieveImageFromDocFolder(name: globalSettings.background!) { (image) in
+                self.globalImageView.image = image
+            }
+        }
+        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+        
     }
     
     

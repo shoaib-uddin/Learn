@@ -13,15 +13,25 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     // this collectionView is for Bottom Part of Screen where collectionView flow is vertical
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if(section == 0){
+            let width = self.collectionView.frame.width
+            return CGSize(width: width, height: 0);
+        }else{
+            return CGSize.zero;
+        }
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //
         var reusableView: UICollectionReusableView? = nil;
         
-        if(kind == UICollectionElementKindSectionHeader && collectionView == self.horizontalCollectionView){
+        if(kind == UICollectionElementKindSectionHeader){
             
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderForCollectionReusableView", for: indexPath) as! HeaderForCollectionReusableView;
-            header.setData(heading: "Style", subheading: "");
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader", for: indexPath) as! SidemenuTableHeader;
+            //
             reusableView =  header;
         }
         
@@ -34,9 +44,9 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         //
         collectionView.layoutIfNeeded();
         
-        if(collectionView == self.verticalCollectionView){
-            let width = (collectionView.frame.width/3);
-            return CGSize(width: width, height: width * 2);
+        if(indexPath.section == 0){
+            let width = (collectionView.frame.width);
+            return CGSize(width: width, height: 60);
         }else{
             let width = (collectionView.frame.width/3);
             return CGSize(width: width, height: width);
@@ -52,30 +62,34 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         // Dequeue a GridViewCell.
         
         
-        if(collectionView == self.verticalCollectionView){
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryImageCVC", for: indexPath) as? GalleryImageCVC
-                else { fatalError("unexpected cell in collection view") }
+        if(indexPath.section == 0){
             
-            
-            
-            let c = self.verticalCollectionArray[indexPath.row];
-            cell.setData(c);
-            cell.setFont(name: self.localFontName);
-            
-            
-            cell.removeTickMark();
-            if(self.selectedImageIndex == indexPath){
-                cell.addTickMark();
+            if(indexPath.row == 0){
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UniHeaderCVC", for: indexPath) as? UniHeaderCVC
+                    else { fatalError("unexpected cell in collection view") }
+                cell.setData(heading: "STYLE");
+                cell.cellDelegate = self;
+                return cell;
+                
+            }else{
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeadViewCVC", for: indexPath) as? HeadViewCVC
+                    else { fatalError("unexpected cell in collection view") }
+                cell.setData(heading: "Set Your Favorite Background");
+                return cell;
             }
             
             
-            return cell;
+            
         }else{
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FontsCVC", for: indexPath) as? FontsCVC
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryImageCVC", for: indexPath) as? GalleryImageCVC
                 else { fatalError("unexpected cell in collection view") }
             
-            cell.setData(self.horizontalCollectionArray[indexPath.row]);
+            let c = self.collectionArray[indexPath.row];
+            cell.setData(c);
+            
             
             return cell;
             
@@ -86,18 +100,16 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         //
-        return 1;
+        return 2;
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //
-        
-        if(collectionView == self.verticalCollectionView){
-            return verticalCollectionArray.count;
+        if(section == 0){
+            return 2;
         }else{
-            return horizontalCollectionArray.count;
+            return collectionArray.count;
         }
-        
         
     }
     
@@ -110,67 +122,18 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
-        // celldelegate?.redirectToContacts(self);
-        //cell?.setBorder(color: "#9c9c9c", radius: 10, width: 2);
-        
-        
-        if(collectionView == self.verticalCollectionView){
-            
-            if let previousCell = self.verticalCollectionView.cellForItem(at: self.selectedImageIndex) as? GalleryImageCVC{
-                
-                previousCell.removeTickMark();
-                
+        let data = self.collectionArray[indexPath.row];
+        print(data);
+        CoreDataHelper.insertSettings(data: data) { (success) in
+            if(success){
+                self.dismiss(animated: true, completion: nil);
             }
-            
-            
-            if let cell = self.verticalCollectionView.cellForItem(at: indexPath) as? GalleryImageCVC{
-                
-                cell.addTickMark();
-                self.selectedImageIndex = indexPath;
-                
-            }
-            
-            
-            
         }
-        
-        
-        if(collectionView == self.horizontalCollectionView){
-            
-            let data = horizontalCollectionArray[indexPath.row];
-            self.localFontName = data.type!;
-            self.verticalCollectionView.reloadData();
-            
-            
-            
-        }
-        
-        
-        
-        
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         //
-        
-        
-        if(collectionView == self.verticalCollectionView){
-            
-            
-            if let cell = self.verticalCollectionView.cellForItem(at: indexPath) as? GalleryImageCVC{
-                
-                cell.removeTickMark();
-                
-            }
-            
-            
-            
-        }
-        
-        
-        
-        
         
         
     }

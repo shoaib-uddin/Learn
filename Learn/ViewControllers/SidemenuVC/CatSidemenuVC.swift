@@ -1,5 +1,5 @@
 //
-//  ReminderVC.swift
+//  CatSidemenuVC.swift
 //  Learn
 //
 //  Created by Xtreme Hardware on 11/03/2018.
@@ -9,31 +9,44 @@
 import Foundation
 import UIKit
 
-class ReminderVC: BaseVC, UniHeaderCVCDelegate{
+class CatSidemenuVC : BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var collectionArray: [[String: Any]] = [[String: Any]]();
-    
+    var collectionArray: [EnDDL] = [EnDDL]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+
+//        let returnSettings: Settings = CoreDataHelper.returnSettings();
+//        print(returnSettings.background ?? "Error getting settings background");
+        
+        
+        
+        
+        
         collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
         
         collectionView.register(UINib(nibName: "HeadViewCVC", bundle: nil), forCellWithReuseIdentifier: "HeadViewCVC");
         collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");
-        collectionView.register(UINib(nibName: "ReminderCVC", bundle: nil), forCellWithReuseIdentifier: "ReminderCVC");
+        collectionView.register(UINib(nibName: "CatLabelCVC", bundle: nil), forCellWithReuseIdentifier: "CatLabelCVC");
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.allowsMultipleSelection = false;
         
-        self.collectionArray = UtilityHelper.getPlistContent(name: "sidemenu");
-        self.collectionView.reloadData();
-        
-        
-        
+        LearnottoApi.getCategories { (success, data) in
+            if(success){
+                
+                if let d = data{
+                    self.collectionArray = d;
+                    self.collectionView.reloadData();
+                }
+                
+                
+            }
+        }
         
     }
     
@@ -42,20 +55,28 @@ class ReminderVC: BaseVC, UniHeaderCVCDelegate{
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
         }
-        
+
     }
+    
+    
+    
+    
     
     
 }
 
-extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CatSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     // this collectionView is for Bottom Part of Screen where collectionView flow is vertical
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        let width = self.collectionView.frame.width
-        return CGSize(width: width, height: 0);
+        if(section == 0){
+            let width = self.collectionView.frame.width
+            return CGSize(width: width, height: 0);
+        }else{
+            return CGSize.zero;
+        }
         
     }
     
@@ -79,13 +100,12 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         //
         collectionView.layoutIfNeeded();
         
-        
-        if(indexPath.row == 0 || indexPath.row == 1){
+        if(indexPath.section == 0){
             let width = (collectionView.frame.width);
             return CGSize(width: width, height: 60);
         }else{
-            let width = (collectionView.frame.width);
-            return CGSize(width: width, height: 540);
+            let width = (collectionView.frame.width/3);
+            return CGSize(width: width, height: width);
         }
         
         
@@ -104,25 +124,15 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
                 
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UniHeaderCVC", for: indexPath) as? UniHeaderCVC
                     else { fatalError("unexpected cell in collection view") }
-                cell.setData(heading: "REMINDERS");
+                cell.setData(heading: "CATEGORIES");
                 cell.cellDelegate = self;
                 return cell;
                 
-            }else
-            if(indexPath.row == 1){
+            }else{
                 
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeadViewCVC", for: indexPath) as? HeadViewCVC
                     else { fatalError("unexpected cell in collection view") }
-                cell.setData(heading: "Setup Reminders for your day");
-                
-                return cell;
-                
-            }
-            else{
-                
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReminderCVC", for: indexPath) as? ReminderCVC
-                    else { fatalError("unexpected cell in collection view") }
-                
+                cell.setData(heading: "Facts we've captured by topics");
                 return cell;
             }
             
@@ -130,11 +140,52 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             
         }else{
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTitleDesTVC", for: indexPath) as? ImageTitleDesTVC
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatLabelCVC", for: indexPath) as? CatLabelCVC
                 else { fatalError("unexpected cell in collection view") }
             
-            let data = collectionArray[indexPath.row + 6];
-            cell.setData(icon: (data["icon"] as! String), heading: ( data["Name"] as! String), subHeading: "");
+            let c = self.collectionArray[indexPath.row];
+            
+            switch c.Name! {
+            case "General":
+                cell.setData(lblString: c.Name!, icon: "lightbulbo");
+                break;
+            case "Food":
+                cell.setData(lblString: c.Name!, icon: "apple");
+                break;
+            case "Life Hacks":
+                cell.setData(lblString: c.Name!, icon: "bug");
+                break;
+            case "Trivia":
+                cell.setData(lblString: c.Name!, icon: "questioncircleo");
+                break;
+            case "Fun Thoughts":
+                cell.setData(lblString: c.Name!, icon: "search");
+                break;
+            case "Riddles":
+                cell.setData(lblString: c.Name!, icon: "puzzlepiece");
+                break;
+            case "Language":
+                cell.setData(lblString: c.Name!, icon: "language");
+                break;
+            case "Sport":
+                cell.setData(lblString: c.Name!, icon: "soccerballo");
+                break;
+            case "Sex":
+                cell.setData(lblString: c.Name!, icon: "venusmars");
+                break;
+            case "United Stated":
+                cell.setData(lblString: c.Name!, icon: "flago");
+                break;
+            case "Animals":
+                cell.setData(lblString: c.Name!, icon: "paw");
+                break;
+            case "Human Body":
+                cell.setData(lblString: c.Name!, icon: "500px");
+                break;
+            default:
+                break;
+            }
+            
             
             
             return cell;
@@ -146,12 +197,16 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         //
-        return 1;
+        return 2;
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //
-        return 3;
+        if(section == 0){
+            return 2;
+        }else{
+            return collectionArray.count;
+        }
         
     }
     
@@ -164,7 +219,9 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
-        
+        let c = self.collectionArray[indexPath.row];
+        globalCatId = c.ID!;
+        self.dismiss(animated: true, completion: nil);
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -174,5 +231,4 @@ extension ReminderVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
     }
     
 }
-
 

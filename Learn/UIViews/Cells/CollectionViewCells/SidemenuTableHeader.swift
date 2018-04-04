@@ -18,4 +18,9 @@ class SidemenuTableHeader: UICollectionReusableView {
         // Initialization code
     }
     
+    func setData(heading: String, subheading: String){
+        self.lblHeading.text = heading;
+        self.lblSubHeading.text = subheading;
+    }
+    
 }

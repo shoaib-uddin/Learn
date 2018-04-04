@@ -18,6 +18,17 @@ class ImageTitleDesTVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.lblHeading.textColor = clr
+        self.lblSubHeading.textColor = clr
+    }
+    
+    func setData(icon: String, heading: String, subHeading: String){
+        
+        self.lblHeading.text = heading;
+        self.lblSubHeading.text = subHeading;
+        StyleHelper.setFontImageVisualsMaterial(self.imgView, name: icon);
+        
     }
 
 }

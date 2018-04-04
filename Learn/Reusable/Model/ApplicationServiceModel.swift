@@ -19,7 +19,10 @@ class Font: EVObject{
 
 class Background: EVObject{
     var background: String?
-    var text: String?
+    var font: String?
+    var bcolor: String?
+    var fcolor: String?
+    var ttype: String?
 }
 
 public class ResponseObject: EVObject {

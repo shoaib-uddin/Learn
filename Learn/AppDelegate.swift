@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
+        print(CoreDataHelper.returnSettings());
+        globalSettings = CoreDataHelper.returnSettings();
+        
         return true
     }
     

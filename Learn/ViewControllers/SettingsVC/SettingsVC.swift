@@ -14,99 +14,39 @@ protocol SettingsVCDelegate: class {
 }
 
 
-class SettingsVC : BaseVC{
+class SettingsVC : BaseVC, UniHeaderCVCDelegate{
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    
-    @IBOutlet weak var imgIcons: UIImageView!
-    @IBOutlet weak var menuLabel: UILabel!
-    @IBOutlet weak var btnSync: UIButton!;
-    @IBOutlet weak var leftImage: UIImageView!;
-    @IBOutlet weak var centerImage: UIImageView!;
-    @IBOutlet weak var rightImage: UIImageView!;
-    
-    @IBOutlet weak var horizontalCollectionView: UICollectionView!
-    @IBOutlet weak var verticalCollectionView: UICollectionView!
-    
-    var horizontalCollectionArray: [Font] = [Font]();
-    var verticalCollectionArray: [Background] = [Background]();
-    
-    var localFontName: String = "";
-    var selectedImageIndex: IndexPath!;
-    weak var vcDelegate: SettingsVCDelegate?;
-    
-    
+    var collectionArray: [Background] = [Background]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.navigationController?.isNavigationBarHidden = false;
-        leftImage.image = UIImage.fontAwesomeIcon(name: .times, textColor: UIColor.white, size: CGSize(width: 30, height: 30));
-        rightImage.image = UIImage.fontAwesomeIcon(name: .save, textColor: UIColor.white, size: CGSize(width: 30, height: 30));
+        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+
+//        let returnSettings: Settings = CoreDataHelper.returnSettings();
+//        print(returnSettings.background ?? "Error getting settings background");
+        collectionArray = CoreDataHelper.settingPlist();
+        collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
+        collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");
+        collectionView.register(UINib(nibName: "HeadViewCVC", bundle: nil), forCellWithReuseIdentifier: "HeadViewCVC");
+        collectionView.register(UINib(nibName: "BtnViewCVC", bundle: nil), forCellWithReuseIdentifier: "BtnViewCVC");
+        collectionView.register(UINib(nibName: "GalleryImageCVC", bundle: nil), forCellWithReuseIdentifier: "GalleryImageCVC");
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        collectionView.allowsMultipleSelection = false;
+        collectionView.reloadData();
         
-        
-        let returnSettings: Settings = CoreDataHelper.returnSettings();
-        print(returnSettings.background ?? "Error getting settings background");
-        self.localFontName = returnSettings.font!;
-        
-        horizontalCollectionArray = CoreDataHelper.returnFonts();
-        verticalCollectionArray = CoreDataHelper.returnBackgrounds();
-        
-        
-        horizontalCollectionView.register(UINib(nibName: "HeaderForCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderForCollectionReusableView");
-        
-        horizontalCollectionView.register(UINib(nibName: "FontsCVC", bundle: nil), forCellWithReuseIdentifier: "FontsCVC");
-        horizontalCollectionView.delegate = self;
-        horizontalCollectionView.dataSource = self;
-        horizontalCollectionView.allowsMultipleSelection = false;
-        
-        verticalCollectionView.register(UINib(nibName: "GalleryImageCVC", bundle: nil), forCellWithReuseIdentifier: "GalleryImageCVC");
-        verticalCollectionView.delegate = self
-        verticalCollectionView.dataSource = self;
-        verticalCollectionView.allowsMultipleSelection = false;
-        
-        
-        let index = verticalCollectionArray.index { (bg) -> Bool in
-            return bg.background == returnSettings.background
+    }
+    
+    func UniHeaderCVCClose(cell: UniHeaderCVC, doCLose: Bool) {
+        //
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
         }
-        
-        self.selectedImageIndex = IndexPath(row: index!, section: 0);
-        
-        
-        verticalCollectionView.reloadData();
-        horizontalCollectionView.reloadData();
-        
-        
-        
+
     }
-    
-    @IBAction func doClose(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil);
-    }
-    
-    @IBAction func doAddBackground(_ sender: Any) {
-        
-        
-        
-    }
-    
-    @IBAction func doSaveSettings(_ sender: Any) {
-        
-        let q = verticalCollectionArray[selectedImageIndex.row];
-        CoreDataHelper.insertSettings(background: q.background!, font: self.localFontName) { (success) in
-            if(success){
-                print("saved");
-                self.dismiss(animated: true, completion: {
-                    self.vcDelegate?.updateViewBySettings();
-                })
-            }else{
-                print("can't save");
-            }
-        }
-        
-    }
-    
-    
     
     
     

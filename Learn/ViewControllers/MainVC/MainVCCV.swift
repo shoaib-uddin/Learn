@@ -40,17 +40,14 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         print(indexPath.row , fact);
         self.isLikeByMe = fact.likebyme!;
         self.factid = fact.ID!;
-        btnHeart.titleLabel?.font = UIFont.fontAwesome(ofSize: 30);
+        
+        
+        
+        
         if(!fact.likebyme!){
-            btnHeart.setTitle(String.fontAwesomeIcon(name: .heartO), for: .normal)
+            StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
         }else{
-            self.btnHeart.setTitle(String.fontAwesomeIcon(name: .heart), for: .normal);
-        }
-        
-        
-        DispatchQueue.main.async {
-            self.lblLike.text = "\(Int(fact.likes!))";
-            self.likes = Int(fact.likes!);
+            StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
         }
         
         

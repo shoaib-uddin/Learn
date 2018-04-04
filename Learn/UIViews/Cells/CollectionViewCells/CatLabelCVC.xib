@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CatLabelCVC" customModule="Learn" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="239" height="237"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="239" height="237"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dbe-Px-FLi">
+                        <rect key="frame" x="36" y="10" width="167" height="167.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Dbe-Px-FLi" secondAttribute="height" multiplier="1:1" id="7lh-xd-m8G"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAq-Ix-lJ6">
+                        <rect key="frame" x="35.5" y="177.5" width="167" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="iqe-bO-VBd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Dbe-Px-FLi" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.7" id="8rB-dN-96S"/>
+                <constraint firstItem="sAq-Ix-lJ6" firstAttribute="top" secondItem="Dbe-Px-FLi" secondAttribute="bottom" id="Ua1-wr-egD"/>
+                <constraint firstItem="Dbe-Px-FLi" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Uqp-2u-ce7"/>
+                <constraint firstItem="sAq-Ix-lJ6" firstAttribute="width" secondItem="Dbe-Px-FLi" secondAttribute="width" id="akp-PO-8Rz"/>
+                <constraint firstItem="sAq-Ix-lJ6" firstAttribute="centerX" secondItem="Dbe-Px-FLi" secondAttribute="centerX" id="tOQ-gE-kTU"/>
+                <constraint firstItem="Dbe-Px-FLi" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="10" id="yV8-hA-7L8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="239" height="237"/>
+            <connections>
+                <outlet property="imgFontIcon" destination="Dbe-Px-FLi" id="oyy-nh-VbL"/>
+                <outlet property="lblname" destination="sAq-Ix-lJ6" id="JGJ-3U-Zol"/>
+            </connections>
+            <point key="canvasLocation" x="-46.5" y="147.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

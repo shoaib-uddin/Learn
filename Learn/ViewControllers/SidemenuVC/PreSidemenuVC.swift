@@ -2,53 +2,81 @@
 //  PreSidemenuVC.swift
 //  Learn
 //
-//  Created by Xtreme Hardware on 02/04/2018.
+//  Created by Xtreme Hardware on 11/03/2018.
 //  Copyright © 2018 pixel. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import SwiftIconFont
 
-class PreSidemenuVC: UIViewController {
+class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate{
     
-    
-    @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var collectionArray: [[String: Any]] = [[String: Any]]();
+    
+    
     override func viewDidLoad() {
-        //
+        super.viewDidLoad();
+        
+        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
         collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
         
+        collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");
         collectionView.register(UINib(nibName: "ImageTitleDesTVC", bundle: nil), forCellWithReuseIdentifier: "ImageTitleDesTVC");
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.allowsMultipleSelection = false;
         
-        // CSS Needs
-        btnClose.parseIcon();
+        self.collectionArray = UtilityHelper.getPlistContent(name: "sidemenu");
+        self.collectionView.reloadData();
+        
         
         
         
     }
+    
+    func UniHeaderCVCClose(cell: UniHeaderCVC, doCLose: Bool) {
+        //
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
+    
+    
+    
+    
     
 }
 
 extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    // this collectionView is for Bottom Part of Screen where collectionView flow is vertical
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        let width = self.collectionView.frame.width
-        return CGSize(width: width, height: 30);
+        if(section == 0){
+            let width = self.collectionView.frame.width
+            return CGSize(width: width, height: 0);
+        }else{
+            let width = self.collectionView.frame.width
+            return CGSize(width: width, height: 40);
+        }
+        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //
         var reusableView: UICollectionReusableView? = nil;
         
         if(kind == UICollectionElementKindSectionHeader){
+            
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader", for: indexPath) as! SidemenuTableHeader;
+            //
+            header.setData(heading: "", subheading: "About US");
+            
             reusableView =  header;
         }
         
@@ -60,8 +88,11 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //
         collectionView.layoutIfNeeded();
+        
         let width = (collectionView.frame.width);
-        return CGSize(width: width, height: 60);
+        return CGSize(width: width, height: 70);
+        
+        
         
     }
     
@@ -71,15 +102,45 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
         // Dequeue a GridViewCell.
         
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTitleDesTVC", for: indexPath) as? ImageTitleDesTVC
+        if(indexPath.section == 0){
+            
+            if(indexPath.row == 0){
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UniHeaderCVC", for: indexPath) as? UniHeaderCVC
+                    else { fatalError("unexpected cell in collection view") }
+                cell.setData(heading: "");
+                cell.cellDelegate = self;
+                return cell;
+                
+            }else{
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTitleDesTVC", for: indexPath) as? ImageTitleDesTVC
+                    else { fatalError("unexpected cell in collection view") }
+                
+                let data = collectionArray[indexPath.row - 1];
+                cell.setData(icon: (data["icon"] as! String), heading: ( data["Name"] as! String), subHeading: "");
+                
+                
+                
+                
+                return cell;
+            }
+            
+            
+            
+        }else{
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageTitleDesTVC", for: indexPath) as? ImageTitleDesTVC
                 else { fatalError("unexpected cell in collection view") }
             
-            
-            
-        
+            let data = collectionArray[indexPath.row + 5];
+            cell.setData(icon: (data["icon"] as! String), heading: ( data["Name"] as! String), subHeading: "");
             
             
             return cell;
+            
+        }
+        
         
     }
     
@@ -90,7 +151,13 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //
-        return 5;
+        if(section == 0){
+            return collectionArray.count - 1;
+        }else if(section == 1){
+            return 2;
+        }else{
+            return 0;
+        }
         
     }
     
@@ -104,6 +171,25 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
         
+        let c = self.collectionArray[indexPath.row - 1];
+        
+        switch c["key"] as! String {
+        case "REM":
+            PageRedirect.redirectToReminderPage(self);
+            break;
+        case "CAT":
+            PageRedirect.redirectToCatSidemenuPage(self);
+            break;
+        case "STY":
+            PageRedirect.redirectToSettingsPage(self);
+            break;
+            
+        default:
+            break;
+        }
+        
+        
+        
         
     }
     
@@ -114,4 +200,5 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     }
     
 }
+
 

@@ -21,10 +21,19 @@ class GalleryImageCVC: UICollectionViewCell {
     
     @IBOutlet weak var quoteView: UIView!
     
+    override func prepareForReuse() {
+        //
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.lblText.textColor = clr
+        self.lblRef.textColor = clr
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.lblText.textColor = clr
+        self.lblRef.textColor = clr
         
         
         
@@ -44,13 +53,33 @@ class GalleryImageCVC: UICollectionViewCell {
     func setData(_ data: Background){
         
         print(data);
-        self.lblText.text = data.text
-        
-        if(data.background != nil){
-            FileApi.retrieveImageFromDocFolder(name: data.background!) { (image) in
-                self.imageView.image = image;
+        self.lblText.text = "Abcd";
+        if(data.ttype == "B"){
+            
+            if(data.background != nil){
+                FileApi.retrieveImageFromDocFolder(name: data.background!) { (image) in
+                    self.imageView.image = image;
+                }
             }
+            
+            self.imageView.isHidden = false;
+            
+        }else{
+            
+            self.imageView.isHidden = true;
+            
         }
+        
+        self.contentView.backgroundColor = StyleHelper.colorWithHexString(data.bcolor!);
+        self.lblText.textColor = StyleHelper.colorWithHexString(data.fcolor!);
+        self.lblText.font = UIFont(name: data.font!, size: self.lblText.font.pointSize);
+        
+        
+        
+        
+        
+        
+        
         
         
     }

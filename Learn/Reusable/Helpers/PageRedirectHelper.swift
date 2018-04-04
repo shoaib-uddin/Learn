@@ -25,7 +25,6 @@ class PageRedirect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
-        destination.vcDelegate = viewController as? SettingsVCDelegate;
         viewController.present(destination, animated: true, completion: nil);
         
     }
@@ -38,27 +37,21 @@ class PageRedirect {
         
     }
     
-    class func redirectToSidemenuPage(_ viewController: UIViewController){
+    class func redirectToCatSidemenuPage(_ viewController: UIViewController){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
-        let destination = storyboard.instantiateViewController(withIdentifier: "SidemenuVC") as! SidemenuVC
-        destination.vcDelegate = viewController as? SidemenuVCDelegate;
+        let destination = storyboard.instantiateViewController(withIdentifier: "CatSidemenuVC") as! CatSidemenuVC
         viewController.present(destination, animated: true, completion: nil);
         
     }
     
-    class func navToChildSubmenu(item: EnDDL, viewController: UIViewController){
-    
+    class func redirectToReminderPage(_ viewController: UIViewController){
+        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
-        let destination = storyboard.instantiateViewController(withIdentifier: "SidemenuVC") as! SidemenuVC
-        destination.vcDelegate = viewController as? SidemenuVCDelegate;
-        destination.isSubCategory = true;
-        destination.parentCat = item;
-        destination.vcDelegate = viewController as? SidemenuVCDelegate;
+        let destination = storyboard.instantiateViewController(withIdentifier: "ReminderVC") as! ReminderVC
         viewController.present(destination, animated: true, completion: nil);
-    
+        
     }
-    
     
     
         

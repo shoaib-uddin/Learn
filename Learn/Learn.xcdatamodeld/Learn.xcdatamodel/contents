@@ -12,9 +12,18 @@
         <attribute name="refer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isReminderOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="repeatCount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
         <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bcolor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fcolor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="font" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ttype" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +37,8 @@
         <element name="Backgrounds" positionX="-54" positionY="63" width="128" height="60"/>
         <element name="Categories" positionX="-63" positionY="108" width="128" height="75"/>
         <element name="Facts" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Settings" positionX="-63" positionY="54" width="128" height="75"/>
+        <element name="Settings" positionX="-63" positionY="54" width="128" height="120"/>
         <element name="User" positionX="-54" positionY="54" width="128" height="135"/>
+        <element name="Reminder" positionX="-54" positionY="63" width="128" height="105"/>
     </elements>
 </model>

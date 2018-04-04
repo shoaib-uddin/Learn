@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>timer</string>
+		<key>Name</key>
+		<string>Reminder</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>REM</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>dashboard</string>
+		<key>Name</key>
+		<string>Categories</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>CAT</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>style</string>
+		<key>Name</key>
+		<string>Styles</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>STY</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>search</string>
+		<key>Name</key>
+		<string>Search</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>SRC</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>favorite.border</string>
+		<key>Name</key>
+		<string>Favorities</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>FAV</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>check</string>
+		<key>Name</key>
+		<string>Review This App</string>
+		<key>Section</key>
+		<string>2</string>
+		<key>key</key>
+		<string>REV</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>mail.outline</string>
+		<key>Name</key>
+		<string>Give us Feedback</string>
+		<key>Section</key>
+		<string>2</string>
+		<key>key</key>
+		<string>MAL</string>
+	</dict>
+</array>
+</plist>

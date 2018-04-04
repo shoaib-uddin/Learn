@@ -90,20 +90,28 @@ class CoreDataHelper{
         
     }
     
-    class func insertSettings(background: String, font: String, completion: @escaping (_ success: Bool) -> Void){
+    class func insertSettings(data: Background, completion: @escaping (_ success: Bool) -> Void){
         
         let appDelegate =  AppDelegate.getAppDelegate();
         let context = appDelegate.persistentContainer.viewContext;
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Settings");
         request.returnsObjectsAsFaults = false;
         
-        
         do {
             let result = try context.fetch(request) as! [Settings];
             if(result.count > 0){ // Atleast one record
                 
-                result[0].background = background;
-                result[0].font = font;
+                result[0].background = data.background;
+                result[0].font = data.font;
+                result[0].ttype = data.ttype;
+                result[0].fcolor = data.fcolor;
+                result[0].bcolor = data.bcolor;
+                
+                globalSettings.background = data.background;
+                globalSettings.font = data.font;
+                globalSettings.ttype = data.ttype;
+                globalSettings.fcolor = data.fcolor;
+                globalSettings.bcolor = data.bcolor;
                 
                 
             }
@@ -212,7 +220,7 @@ class CoreDataHelper{
         {
             let b = Background();
             b.background = each.path;
-            b.text = "Style";
+            
             
             bgs.append(b);
             
@@ -221,6 +229,27 @@ class CoreDataHelper{
         return bgs;
         
     }
+    
+    class func settingPlist() -> [Background]{
+        
+        var b: [Background] = [Background]();
+        let r = UtilityHelper.getPlistContent(name: "themes");
+        
+        for each in r {
+            
+            let p = Background();
+            p.background = each["background"] as? String;
+            p.font = each["font"] as? String;
+            p.fcolor = each["fcolor"] as? String;
+            p.bcolor = each["bcolor"] as? String;
+            p.ttype = each["ttype"] as? String;
+            b.append(p);
+        }
+        
+        return b;
+        
+    }
+    
     
     
     
@@ -341,8 +370,13 @@ class CoreDataHelper{
         
         if AssociatedPaths[0].lowercased().range(of:"png") != nil {
             let newSettings = NSManagedObject(entity: cSets!, insertInto: context);
-            newSettings.setValue("\(localv.AssociatedBackgrounds[0]).png", forKey: "background");
-            newSettings.setValue("Arial-ItalicMT", forKey: "font");
+            let p: [[String: Any]] = UtilityHelper.getPlistContent(name: "themes");
+            newSettings.setValue(p[0]["background"], forKey: "background");
+            newSettings.setValue(p[0]["font"], forKey: "font");
+            newSettings.setValue(p[0]["fcolor"], forKey: "fcolor");
+            newSettings.setValue(p[0]["bcolor"], forKey: "bcolor");
+            newSettings.setValue(p[0]["ttype"], forKey: "ttype");
+            
         }
         
         for bg in localv.AssociatedBackgrounds {

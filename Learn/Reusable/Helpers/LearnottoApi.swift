@@ -83,7 +83,7 @@ class LearnottoApi{
         
     }
     
-    class func getFacts(_ id: String, _ page: Int, subCat: Int!,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
+    class func getFacts(_ id: String, _ page: Int, subCat: String!,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
         
         // Post Model Create
         var post = "";

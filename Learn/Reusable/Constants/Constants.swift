@@ -12,6 +12,8 @@ import UIKit;
 
 // global variables
 var AssociatedPaths = [String]();
+var globalSettings: Settings!;
+var globalCatId: String!;
 
 struct api {
     static let SERVICEURL = "http://54.86.166.112:84/api/Default/";
