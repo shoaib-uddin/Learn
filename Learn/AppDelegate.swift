@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
+import UserNotifications
+
 
 
 @UIApplicationMain
@@ -32,6 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(CoreDataHelper.returnSettings());
         globalSettings = CoreDataHelper.returnSettings();
+        
+        
+        let center = UNUserNotificationCenter.current();
+        let options: UNAuthorizationOptions = [.alert, .sound];
+        center.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+        
         
         return true
     }

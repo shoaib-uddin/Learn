@@ -10,6 +10,30 @@ import Foundation
 import UIKit
 import AVFoundation
 
+
+extension Date {
+    var localizedDescription: String {
+        return description(with: .current)
+    }
+    
+    var convertedDate:Date {
+        
+        let dateFormatter = DateFormatter();
+        
+        let dateFormat = "dd MMM yyyy";
+        dateFormatter.dateFormat = dateFormat;
+        let formattedDate = dateFormatter.string(from: self);
+        
+        dateFormatter.locale = NSLocale.current;
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00");
+        
+        dateFormatter.dateFormat = dateFormat as String;
+        let sourceDate = dateFormatter.date(from: formattedDate as String);
+        
+        return sourceDate!;
+    }
+}
+
 extension String {
     
     func ToDictionary() -> [String:AnyObject]? {
@@ -26,6 +50,14 @@ extension String {
 
 
 extension UIView{
+    
+    func setBorder(color: UIColor, radius: Int, width: Int){
+        self.layoutIfNeeded();
+        self.layer.cornerRadius = CGFloat(radius);
+        self.clipsToBounds = true;
+        self.layer.borderColor = color.cgColor;
+        self.layer.borderWidth = CGFloat(width);
+    }
     
     func snapshot(of rect: CGRect? = nil) -> UIImage? {
         // snapshot entire view

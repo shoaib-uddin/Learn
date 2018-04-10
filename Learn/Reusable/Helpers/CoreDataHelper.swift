@@ -90,6 +90,32 @@ class CoreDataHelper{
         
     }
     
+    class func returnUser() -> User{
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User");
+        request.returnsObjectsAsFaults = false
+        
+        
+        
+        var firstElement: User!;
+        
+        do {
+            let result = try context.fetch(request)
+            firstElement = result.first as! User
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
+        return firstElement;
+        
+        
+        
+    }
+    
     class func insertSettings(data: Background, completion: @escaping (_ success: Bool) -> Void){
         
         let appDelegate =  AppDelegate.getAppDelegate();

@@ -24,6 +24,8 @@ class MainVC: BaseVC{
     var factid: String = "";
     var likes: Int = 0;
     var currentIndex: IndexPath!;
+    var PhotoAlbum: CustomPhotoAlbum = CustomPhotoAlbum();
+    
     
     @IBOutlet weak var imgMenu: UIImageView!
     @IBOutlet weak var imgCateg: UIImageView!
@@ -31,6 +33,9 @@ class MainVC: BaseVC{
     @IBOutlet weak var imgShare: UIImageView!
     @IBOutlet weak var imgLove: UIImageView!
     @IBOutlet weak var imgReport: UIImageView!
+    
+    @IBOutlet weak var topBtnView: UIView!
+    @IBOutlet weak var bottomBtnView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!;
     @IBOutlet weak var globalImageView: UIImageView!;
@@ -75,10 +80,8 @@ class MainVC: BaseVC{
     @IBAction func gotoCategoryList(_ sender: Any) {
         PageRedirect.redirectToCatSidemenuPage(self);
     }
-    
-    
-    @IBAction func shareSnapshotImage(_ sender: Any) {
-        self.shareImage(image: self.collectionView.snapshot()!);
+    @IBAction func openShareView(_ sender: Any) {
+        self.addBlurSharePanelView();
     }
     @IBAction func doLike(_ sender: UIButton) {
         
@@ -96,31 +99,16 @@ class MainVC: BaseVC{
         
         
     }
-    func shareImage(image: UIImage){
-        
-        // set up activity view controller
-        let imageToShare = [ image ]
-        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        
-        // exclude some activity types from the list (optional)
-        activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
-        
-        // present the view controller
-        self.present(activityViewController, animated: true, completion: nil)
-    }
+    
     
     func loadVisuals(){
-        
         //
-        
         StyleHelper.setFontImageVisualsMaterial(self.imgMenu, name: "menu");
         StyleHelper.setFontImageVisualsMaterial(self.imgCateg, name: "dashboard");
         StyleHelper.setFontImageVisualsMaterial(self.imgAa, name: "style");
         
         StyleHelper.setFontImageVisualsMaterial(self.imgShare, name: "screen.share");
         StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
-//        StyleHelper.setFontImageVisualsMaterial(self.imgReport, name: "style");
         
         
         if(globalSettings.ttype == "A"){

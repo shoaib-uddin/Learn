@@ -34,6 +34,7 @@ struct settings
 {
     static let timeOut :Double = 5.0;
     static let gPassword : String = "EEAFBF4D";
+    static let albumName : String = "Learnotto";
     
     
     

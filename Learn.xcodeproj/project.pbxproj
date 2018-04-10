@@ -61,6 +61,13 @@
 		0A7599D42073A538000570B3 /* sidemenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599D32073A538000570B3 /* sidemenu.plist */; };
 		0A7599D72073E58B000570B3 /* ReminderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599D52073E58B000570B3 /* ReminderCVC.swift */; };
 		0A7599D82073E58B000570B3 /* ReminderCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599D62073E58B000570B3 /* ReminderCVC.xib */; };
+		0A7599DA2074965A000570B3 /* SearchCatSideVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599D92074965A000570B3 /* SearchCatSideVC.swift */; };
+		0A7599DD207497A8000570B3 /* TableSearchCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599DB207497A8000570B3 /* TableSearchCVC.swift */; };
+		0A7599DE207497A8000570B3 /* TableSearchCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599DC207497A8000570B3 /* TableSearchCVC.xib */; };
+		0A7599E02074B102000570B3 /* BlurSharePanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599DF2074B102000570B3 /* BlurSharePanelView.xib */; };
+		0A7599E22074B116000570B3 /* BlurSharePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599E12074B116000570B3 /* BlurSharePanelView.swift */; };
+		0A7599E42074B200000570B3 /* sharepanel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7599E32074B200000570B3 /* sharepanel.plist */; };
+		0A7599E620762C8D000570B3 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7599E520762C8C000570B3 /* CustomPhotoAlbum.swift */; };
 		0A9CCCFA205537D3006F5396 /* abel-regular_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */; };
 		0A9CCCFB205537D3006F5396 /* Esphimere Light_0.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF1205537D2006F5396 /* Esphimere Light_0.otf */; };
 		0A9CCCFC205537D3006F5396 /* Gin Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9CCCF2205537D2006F5396 /* Gin Oblique.otf */; };
@@ -152,6 +159,13 @@
 		0A7599D32073A538000570B3 /* sidemenu.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = sidemenu.plist; sourceTree = "<group>"; };
 		0A7599D52073E58B000570B3 /* ReminderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCVC.swift; sourceTree = "<group>"; };
 		0A7599D62073E58B000570B3 /* ReminderCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderCVC.xib; sourceTree = "<group>"; };
+		0A7599D92074965A000570B3 /* SearchCatSideVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCatSideVC.swift; sourceTree = "<group>"; };
+		0A7599DB207497A8000570B3 /* TableSearchCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSearchCVC.swift; sourceTree = "<group>"; };
+		0A7599DC207497A8000570B3 /* TableSearchCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableSearchCVC.xib; sourceTree = "<group>"; };
+		0A7599DF2074B102000570B3 /* BlurSharePanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlurSharePanelView.xib; sourceTree = "<group>"; };
+		0A7599E12074B116000570B3 /* BlurSharePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurSharePanelView.swift; sourceTree = "<group>"; };
+		0A7599E32074B200000570B3 /* sharepanel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sharepanel.plist; sourceTree = "<group>"; };
+		0A7599E520762C8C000570B3 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		0A9CCCF0205537D2006F5396 /* abel-regular_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "abel-regular_0.ttf"; sourceTree = "<group>"; };
 		0A9CCCF1205537D2006F5396 /* Esphimere Light_0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Esphimere Light_0.otf"; sourceTree = "<group>"; };
 		0A9CCCF2205537D2006F5396 /* Gin Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gin Oblique.otf"; sourceTree = "<group>"; };
@@ -313,6 +327,8 @@
 				0A7599CE20737E1B000570B3 /* CatLabelCVC.xib */,
 				0A7599D52073E58B000570B3 /* ReminderCVC.swift */,
 				0A7599D62073E58B000570B3 /* ReminderCVC.xib */,
+				0A7599DB207497A8000570B3 /* TableSearchCVC.swift */,
+				0A7599DC207497A8000570B3 /* TableSearchCVC.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -331,6 +347,8 @@
 		0A3E87D4203599EF002A4748 /* subviews */ = {
 			isa = PBXGroup;
 			children = (
+				0A7599E12074B116000570B3 /* BlurSharePanelView.swift */,
+				0A7599DF2074B102000570B3 /* BlurSharePanelView.xib */,
 			);
 			path = subviews;
 			sourceTree = "<group>";
@@ -361,6 +379,7 @@
 				0A0BBF29203A24AD00486915 /* sampleFacts.plist */,
 				0A7599BA20730D50000570B3 /* themes.plist */,
 				0A7599D32073A538000570B3 /* sidemenu.plist */,
+				0A7599E32074B200000570B3 /* sharepanel.plist */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -368,6 +387,7 @@
 		0A3E87D8203599EF002A4748 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0A7599E520762C8C000570B3 /* CustomPhotoAlbum.swift */,
 				0AE430A7203782CD00894DBC /* AssetImageApi.swift */,
 				0A0BBF082039890000486915 /* CoreDataHelper.swift */,
 				0A0BBF0E20399F2200486915 /* UtilityHelper.swift */,
@@ -405,6 +425,7 @@
 			children = (
 				0A7599B020725861000570B3 /* PreSidemenuVC.swift */,
 				0A3E87E22035C7E2002A4748 /* CatSidemenuVC.swift */,
+				0A7599D92074965A000570B3 /* SearchCatSideVC.swift */,
 			);
 			path = SidemenuVC;
 			sourceTree = "<group>";
@@ -547,6 +568,11 @@
 					0A3E87B320358F40002A4748 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -600,12 +626,15 @@
 				0A5AE4EF20584855007387DE /* FontsCVC.xib in Resources */,
 				0A3E87C220358F40002A4748 /* Assets.xcassets in Resources */,
 				0A9CCD01205537D3006F5396 /* Infinite_Stroke_2.ttf in Resources */,
+				0A7599E42074B200000570B3 /* sharepanel.plist in Resources */,
 				0A0BBF0D203996F300486915 /* SidemenuParentTVC.xib in Resources */,
 				0A9CCCFA205537D3006F5396 /* abel-regular_0.ttf in Resources */,
+				0A7599DE207497A8000570B3 /* TableSearchCVC.xib in Resources */,
 				0A9CCCFF205537D3006F5396 /* Harabara.ttf in Resources */,
 				0A9CCCFB205537D3006F5396 /* Esphimere Light_0.otf in Resources */,
 				0A9CCCFD205537D3006F5396 /* Gin Regular.otf in Resources */,
 				0A9CCD03205537D3006F5396 /* TrajanPro-Regular.otf in Resources */,
+				0A7599E02074B102000570B3 /* BlurSharePanelView.xib in Resources */,
 				0A3E87BD20358F40002A4748 /* Main.storyboard in Resources */,
 				0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */,
 				0A9CCCFC205537D3006F5396 /* Gin Oblique.otf in Resources */,
@@ -706,6 +735,8 @@
 				0AFDDA1C2064D456002C860B /* ARSInfiniteLoader.swift in Sources */,
 				0A0BBF092039890000486915 /* CoreDataHelper.swift in Sources */,
 				0A7599B420725AA9000570B3 /* SidemenuTableHeader.swift in Sources */,
+				0A7599DD207497A8000570B3 /* TableSearchCVC.swift in Sources */,
+				0A7599E22074B116000570B3 /* BlurSharePanelView.swift in Sources */,
 				0AFDDA252064D456002C860B /* ARSStatus.swift in Sources */,
 				0AFDDA232064D456002C860B /* ARSLineProgressTypeAliases.swift in Sources */,
 				0A3E87B820358F40002A4748 /* AppDelegate.swift in Sources */,
@@ -724,6 +755,7 @@
 				0A0BBF0720397D6100486915 /* MainVCCV.swift in Sources */,
 				0A6979FB204DCFFD000A68CA /* PageRedirectHelper.swift in Sources */,
 				0A3E87C020358F40002A4748 /* Learn.xcdatamodeld in Sources */,
+				0A7599E620762C8D000570B3 /* CustomPhotoAlbum.swift in Sources */,
 				0A3E87DE20359A3D002A4748 /* BaseVC.swift in Sources */,
 				0A5AE506205EB9E2007387DE /* ExtensionHelper.swift in Sources */,
 				0A0BBF112039A03600486915 /* Constants.swift in Sources */,
@@ -745,6 +777,7 @@
 				0AFDDA1D2064D456002C860B /* ARSLineProgress.swift in Sources */,
 				0AFDDA202064D456002C860B /* ARSLineProgressExtensions.swift in Sources */,
 				0A5AE4EE20584855007387DE /* FontsCVC.swift in Sources */,
+				0A7599DA2074965A000570B3 /* SearchCatSideVC.swift in Sources */,
 				0A6979F7204DC9E7000A68CA /* LoginVC.swift in Sources */,
 				0AD7BA00206518DF007A6E44 /* LearnottoApi.swift in Sources */,
 			);

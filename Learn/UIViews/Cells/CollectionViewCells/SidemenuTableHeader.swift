@@ -16,6 +16,9 @@ class SidemenuTableHeader: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.lblHeading.textColor = clr;
+        self.lblSubHeading.textColor = clr;
     }
     
     func setData(heading: String, subheading: String){

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>commento</string>
+		<key>Name</key>
+		<string>Message</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>MSG</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>copy</string>
+		<key>Name</key>
+		<string>Copy Text</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>CPY</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>save</string>
+		<key>Name</key>
+		<string>Save image</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>SAV</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>sharesquareo</string>
+		<key>Name</key>
+		<string>Share</string>
+		<key>Section</key>
+		<string>1</string>
+		<key>key</key>
+		<string>SHR</string>
+	</dict>
+</array>
+</plist>

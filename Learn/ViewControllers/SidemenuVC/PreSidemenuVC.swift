@@ -171,22 +171,47 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
         
-        let c = self.collectionArray[indexPath.row - 1];
-        
-        switch c["key"] as! String {
-        case "REM":
-            PageRedirect.redirectToReminderPage(self);
-            break;
-        case "CAT":
-            PageRedirect.redirectToCatSidemenuPage(self);
-            break;
-        case "STY":
-            PageRedirect.redirectToSettingsPage(self);
-            break;
+        if(indexPath.section == 1){
             
-        default:
-            break;
+            let c = self.collectionArray[indexPath.row + 5];
+            
+            switch c["key"] as! String {
+            case "REV":
+                
+                break;
+            case "MAL":
+                
+                break;
+                
+            default:
+                break;
+            }
+            
+        }else{
+            
+            let c = self.collectionArray[indexPath.row - 1];
+            
+            switch c["key"] as! String {
+            case "REM":
+                PageRedirect.redirectToReminderPage(self);
+                break;
+            case "CAT":
+                PageRedirect.redirectToCatSidemenuPage(self);
+                break;
+            case "STY":
+                PageRedirect.redirectToSettingsPage(self);
+                break;
+            case "SRC":
+                PageRedirect.redirectToSearchCatPage(self);
+                break;
+                
+            default:
+                break;
+            }
+            
+            
         }
+        
         
         
         

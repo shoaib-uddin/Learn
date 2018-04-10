@@ -22,16 +22,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dbe-Px-FLi">
-                        <rect key="frame" x="36" y="10" width="167" height="167.5"/>
+                        <rect key="frame" x="60" y="23" width="119.5" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Dbe-Px-FLi" secondAttribute="height" multiplier="1:1" id="7lh-xd-m8G"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAq-Ix-lJ6">
-                        <rect key="frame" x="35.5" y="177.5" width="167" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="iqe-bO-VBd"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="sAq-Ix-lJ6">
+                        <rect key="frame" x="59.5" y="143" width="119.5" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,12 +36,12 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Dbe-Px-FLi" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.7" id="8rB-dN-96S"/>
+                <constraint firstItem="Dbe-Px-FLi" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.7" id="6Ah-Dy-kfm"/>
+                <constraint firstItem="Dbe-Px-FLi" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.5" id="8rB-dN-96S"/>
                 <constraint firstItem="sAq-Ix-lJ6" firstAttribute="top" secondItem="Dbe-Px-FLi" secondAttribute="bottom" id="Ua1-wr-egD"/>
                 <constraint firstItem="Dbe-Px-FLi" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Uqp-2u-ce7"/>
                 <constraint firstItem="sAq-Ix-lJ6" firstAttribute="width" secondItem="Dbe-Px-FLi" secondAttribute="width" id="akp-PO-8Rz"/>
                 <constraint firstItem="sAq-Ix-lJ6" firstAttribute="centerX" secondItem="Dbe-Px-FLi" secondAttribute="centerX" id="tOQ-gE-kTU"/>
-                <constraint firstItem="Dbe-Px-FLi" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="10" id="yV8-hA-7L8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="239" height="237"/>

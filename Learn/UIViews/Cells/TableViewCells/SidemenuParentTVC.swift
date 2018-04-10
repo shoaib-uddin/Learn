@@ -17,14 +17,17 @@ class SidemenuParentTVC: UITableViewCell {
     
     override func prepareForReuse() {
         //
-        self.tickImage.image = nil;
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.menuLabel.textColor = clr
+        
     }
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        self.menuLabel.textColor = clr
         
     }
 

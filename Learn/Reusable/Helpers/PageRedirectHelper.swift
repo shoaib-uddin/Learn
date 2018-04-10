@@ -53,6 +53,18 @@ class PageRedirect {
         
     }
     
+    class func redirectToSearchCatPage(_ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "SearchCatSideVC") as! SearchCatSideVC
+        viewController.present(destination, animated: true, completion: nil);
+        
+    }
+    
+    
+    
+    
+    
     
         
     

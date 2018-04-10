@@ -12,6 +12,18 @@
         <attribute name="refer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="RandomFacts" representedClassName="RandomFacts" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dislikebyme" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dislikes" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="likebyme" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="likes" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="themeIndex" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="views" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isReminderOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -37,8 +49,9 @@
         <element name="Backgrounds" positionX="-54" positionY="63" width="128" height="60"/>
         <element name="Categories" positionX="-63" positionY="108" width="128" height="75"/>
         <element name="Facts" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Reminder" positionX="-54" positionY="63" width="128" height="105"/>
         <element name="Settings" positionX="-63" positionY="54" width="128" height="120"/>
         <element name="User" positionX="-54" positionY="54" width="128" height="135"/>
-        <element name="Reminder" positionX="-54" positionY="63" width="128" height="105"/>
+        <element name="RandomFacts" positionX="-54" positionY="63" width="128" height="195"/>
     </elements>
 </model>

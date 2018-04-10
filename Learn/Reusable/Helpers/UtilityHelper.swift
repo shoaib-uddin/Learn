@@ -13,6 +13,34 @@ import AVFoundation
 
 open class UtilityHelper
 {
+    class func getCurrentDateTime() -> Date{
+        
+        let currentDate = Date()
+        let CurrentTimeZone = NSTimeZone(abbreviation: "GMT")
+        let SystemTimeZone = NSTimeZone.system as NSTimeZone
+        let currentGMTOffset: Int? = CurrentTimeZone?.secondsFromGMT(for: currentDate)
+        let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
+        let interval = TimeInterval((SystemGMTOffset - currentGMTOffset!))
+        let TodayDate = Date(timeInterval: interval, since: currentDate)
+        print("Current time zone Today Date : \(TodayDate)")
+        return TodayDate;
+        
+    }
+    
+    class func getCurrentDateTime(date: Date) -> Date{
+        
+        let currentDate = date;
+        let CurrentTimeZone = NSTimeZone(abbreviation: "GMT")
+        let SystemTimeZone = NSTimeZone.system as NSTimeZone
+        let currentGMTOffset: Int? = CurrentTimeZone?.secondsFromGMT(for: currentDate)
+        let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
+        let interval = TimeInterval((SystemGMTOffset - currentGMTOffset!))
+        let TodayDate = Date(timeInterval: interval, since: currentDate)
+        print("Current time zone Today Date : \(TodayDate)")
+        return TodayDate;
+        
+    }
+    
     class func setKey(_ KeyName : String , KeyValue : String){
         let prefs:UserDefaults = UserDefaults.standard
         prefs.set(KeyValue, forKey: KeyName)

@@ -8,13 +8,16 @@
 
 import Foundation
 import UIKit
+import UserNotifications
+
 
 class ReminderVC: BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var collectionArray: [[String: Any]] = [[String: Any]]();
-    
+    let center = UNUserNotificationCenter.current();
+    let options: UNAuthorizationOptions = [.alert, .sound];
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -32,8 +35,21 @@ class ReminderVC: BaseVC, UniHeaderCVCDelegate{
         self.collectionArray = UtilityHelper.getPlistContent(name: "sidemenu");
         self.collectionView.reloadData();
         
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                
+                self.dismiss(animated: true, completion: {
+                    UtilityHelper.AlertMessage("Please allow access to notifications")
+                })
+                
+            }
+        }
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //
         
     }
     

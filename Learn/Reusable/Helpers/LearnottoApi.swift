@@ -177,4 +177,35 @@ class LearnottoApi{
         
     }
     
+    class func getRandomFacts(_ id: String,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
+        
+        // Post Model Create
+        var post = "";
+        post += "\(id)?";
+        post += "count=100";
+        
+        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        
+        //Network Request
+        print()
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getRandomFacts)/\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [EnFact] = [EnFact](json: successData as? String);
+            print(response);
+            completion(true, response);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false, nil);
+            
+        })
+        
+        
+    }
+    
+    
+
+    
 }

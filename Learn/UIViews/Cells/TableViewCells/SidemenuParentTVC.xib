@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,48 +19,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGw-Lw-hcO">
-                        <rect key="frame" x="32" y="6.5" width="256" height="52.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVv-Rt-jVL">
-                                <rect key="frame" x="0.0" y="0.0" width="203.5" height="52.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWC-lk-dlw">
-                                <rect key="frame" x="203.5" y="0.0" width="52.5" height="52.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FWC-lk-dlw" secondAttribute="height" multiplier="1:1" id="pve-gN-NGk"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                    </stackView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZB-gV-RbI">
-                        <rect key="frame" x="32" y="58" width="256" height="1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="5J2-OH-9Kp"/>
-                        </constraints>
-                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVv-Rt-jVL">
+                        <rect key="frame" x="-0.5" y="-0.5" width="320.5" height="65.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="kZB-gV-RbI" firstAttribute="width" secondItem="AGw-Lw-hcO" secondAttribute="width" id="dZr-St-T2p"/>
-                    <constraint firstItem="AGw-Lw-hcO" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.8" id="ekd-Io-YDR"/>
-                    <constraint firstItem="AGw-Lw-hcO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="evu-Zy-qdv"/>
-                    <constraint firstItem="AGw-Lw-hcO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="nfc-8U-Btn"/>
-                    <constraint firstItem="AGw-Lw-hcO" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" id="pOD-hQ-tX7"/>
-                    <constraint firstItem="kZB-gV-RbI" firstAttribute="centerX" secondItem="AGw-Lw-hcO" secondAttribute="centerX" id="sAa-Lf-pQm"/>
-                    <constraint firstItem="kZB-gV-RbI" firstAttribute="bottom" secondItem="AGw-Lw-hcO" secondAttribute="bottom" id="tE9-6j-c5U"/>
+                    <constraint firstItem="fVv-Rt-jVL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LUn-O6-DYz"/>
+                    <constraint firstItem="fVv-Rt-jVL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="Ucc-s3-Mue"/>
+                    <constraint firstItem="fVv-Rt-jVL" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="ZgP-sU-ZLf"/>
+                    <constraint firstItem="fVv-Rt-jVL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xXr-dQ-LQy"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="menuLabel" destination="fVv-Rt-jVL" id="wLz-k4-Wtb"/>
-                <outlet property="tickImage" destination="FWC-lk-dlw" id="j1H-pf-G5F"/>
             </connections>
             <point key="canvasLocation" x="35" y="43"/>
         </tableViewCell>
