@@ -29,6 +29,8 @@ class ImageTitleDesTVC: UICollectionViewCell {
         self.lblSubHeading.text = subHeading;
         StyleHelper.setFontImageVisualsMaterial(self.imgView, name: icon);
         
+        
+        
     }
 
 }

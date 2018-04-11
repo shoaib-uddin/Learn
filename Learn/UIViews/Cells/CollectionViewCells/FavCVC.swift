@@ -1,15 +1,46 @@
 //
-//  SlideVCCV.swift
+//  FavCVC.swift
 //  Learn
 //
-//  Created by Xtreme Hardware on 17/02/2018.
+//  Created by Xtreme Hardware on 11/04/2018.
 //  Copyright © 2018 pixel. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class FavCVC: UICollectionViewCell {
+
+    
+    var favCount: Int = 0;
+    var facts: [EnFact] = [EnFact]();
+    @IBOutlet weak var collectionView: UICollectionView!;
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        collectionView.register(UINib(nibName: "GalleryImageCVC", bundle: nil), forCellWithReuseIdentifier: "GalleryImageCVC");
+        collectionView.delegate = self
+        collectionView.dataSource = self;
+        collectionView.allowsMultipleSelection = false;
+        
+        facts.removeAll();
+        LearnottoApi.getFavFacts(CoreDataHelper.returnUser().id!, 0, size: 5000) { (success, facts) in
+            //
+            if(success){
+                self.facts = facts!;
+                self.collectionView.reloadData();
+            }
+        }
+            
+            
+        
+        
+    }
+
+}
+
+extension FavCVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //
@@ -30,28 +61,11 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
             else { fatalError("unexpected cell in collection view") }
         
         
-        currentIndex = indexPath;
+        
         let fact = facts[indexPath.row];
         cell.setData(fact);
         cell.lblText.font = UIFont(name: globalSettings.font!, size: cell.lblText.font.pointSize);
         //cell.imageView.isHidden = true;
-        
-        
-        print(indexPath.row , fact);
-        self.isLikeByMe = fact.likebyme!;
-        self.factid = fact.ID!;
-        
-        
-        DispatchQueue.main.async {
-            if(!fact.likebyme!){
-                StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
-            }else{
-                StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
-            }
-        }
-        
-        
-        
         
         return cell;
         
@@ -87,3 +101,4 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     
     
 }
+

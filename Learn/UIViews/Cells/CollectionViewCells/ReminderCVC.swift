@@ -11,6 +11,7 @@ import UIKit
 import UserNotifications
 
 
+
 class ReminderCVC: UICollectionViewCell {
 
     @IBOutlet weak var reSwitch: UISwitch!
@@ -22,6 +23,7 @@ class ReminderCVC: UICollectionViewCell {
     @IBOutlet weak var endTimeDp: UIDatePicker!
     
     let cnter = UNUserNotificationCenter.current();
+    
     let options: UNAuthorizationOptions = [.alert, .sound];
     
     var xArray: [String] = ["1x", "2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x"];
@@ -32,11 +34,39 @@ class ReminderCVC: UICollectionViewCell {
     
     // MARK: - Helping content
     
+    fileprivate func getPreSettings(){
+        
+    }
+    
+    fileprivate func removeAllPendingNotifications(){
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+            var identifiers: [String] = []
+            for notification:UNNotificationRequest in notificationRequests {
+                if notification.identifier.contains("learn") {
+                    identifiers.append(notification.identifier)
+                }
+            }
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         // setting x in loop
+        
+        // remove all reminders
+        
+        
+        
+        if(!reSwitch.isOn){
+            removeAllPendingNotifications();
+        }
+        
+        
+        
+        //
         
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
         let bclr = StyleHelper.colorWithHexString(globalSettings.bcolor!);
@@ -53,10 +83,17 @@ class ReminderCVC: UICollectionViewCell {
         self.startTimeDp.setValue(false, forKey: DatePickerProperties.HighlightsToday.rawValue)
         self.endTimeDp.setValue(clr, forKey: DatePickerProperties.TextColor.rawValue)
         self.endTimeDp.setValue(false, forKey: DatePickerProperties.HighlightsToday.rawValue)
-        startTimeDp.timeZone = TimeZone(identifier: "UTC")
-        endTimeDp.timeZone = TimeZone(identifier: "UTC");
         
+        startTimeDp.date = UtilityHelper.getCurrentDateTime();
+        endTimeDp.date = UtilityHelper.getCurrentDateTime();
         
+        if let seminder = CoreDataHelper.returnReminderSettings() as? ReminderSettings{
+            reSwitch.setOn(seminder.isReminderOn, animated: true);
+            let i: Int = Int(seminder.repeatCount) - 1;
+            lbl3x.text = xArray[i];
+            startTimeDp.date = seminder.startTime!;
+            endTimeDp.date = seminder.endTime!;
+        }
         
         
         for all in LabelsPlural as! [UILabel]{
@@ -109,6 +146,17 @@ class ReminderCVC: UICollectionViewCell {
     @IBAction func doOnDailyReminder(_ sender: UISwitch) {
         
         print(sender.isOn);
+        
+        CoreDataHelper.updateReminderSetting(startDate: startTimeDp.date, endDate: endTimeDp.date, isON: reSwitch.isOn, repeatCount: getRepeatCount()) { (success) in
+            //
+            print(success);
+        }
+        
+        
+        
+        
+        
+        
         if(sender.isOn){
             
             print("turn on random facts");
@@ -127,6 +175,7 @@ class ReminderCVC: UICollectionViewCell {
         }else{
             
             print("turn off random facts");
+            removeAllPendingNotifications();
             
         }
         
@@ -203,7 +252,7 @@ class ReminderCVC: UICollectionViewCell {
         let currentDateTime = UtilityHelper.getCurrentDateTime();
         print(currentDateTime);
         
-        let startTIme = startTimeDp.date
+        var startTIme = startTimeDp.date
         let endTIme = endTimeDp.date
         
         print(startTIme);
@@ -218,28 +267,36 @@ class ReminderCVC: UICollectionViewCell {
         
         
         var dateArray: [Date] = [Date]();
-        var newStartTime = startTIme;
-        var newEndTime = endTIme;
+        let vi: [Int] = [2,3,1];
         
-        for indec in 0...23{
+        var newEndTime = endTIme;
+        let calendar = Calendar.current;
+        
+        for inde in 0...Int(data.count / getRepeatCount()){
             
-            let calendar = Calendar.current;
-            newStartTime = calendar.date(byAdding: .minute, value: minDistance, to: newStartTime)!;
-            print("peep", newStartTime)
-//            if(newStartTime < newEndTime){
-//                dateArray.append(newStartTime);
-//
-//                print("peep2", newStartTime)
-//            }else{
-//
-//            }
+            var newStartTime = startTIme;
+            for each in 1...getRepeatCount(){
+                
+                newStartTime = calendar.date(byAdding: .minute, value: minDistance, to: newStartTime)!;
+                
+                
+                if(dateArray.contains(newStartTime)){
+                    startTIme = calendar.date(byAdding: .day, value: 1, to: startTIme)!;
+                    newStartTime = startTIme;
+                    dateArray.append(newStartTime)
+                }else{
+                   dateArray.append(newStartTime)
+                };
+                
+                print("peep", newStartTime);
+                
+            }
             
-            
-            
+            newStartTime = startTIme;
             
         }
         
-        print(dateArray);
+        print("dateArray", dateArray);
         
         
         
@@ -248,36 +305,36 @@ class ReminderCVC: UICollectionViewCell {
         
         
         
-        
-        
-        
-        
-        
-        
-//        for (index, dict) in data.enumerated(){
-//
-//            print(index, dict);
-//
-//            let content = UNMutableNotificationContent()
-//            content.title = "New Random Fact : \(dict.Reference!)";
-//            content.body = dict.Content!;
-//            content.sound = UNNotificationSound.default()
-//
-//            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(10 + 2*index), repeats: false)
-//
-//            let identifier = "learn.id.\(dict.ID!)";
-//            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-//
-//            cnter.add(request, withCompletionHandler: { (error) in
-//                if let error = error {
-//                    // Something went wrong
-//                }
-//
-//                print("delivered");
-//
-//            })
-//
-//        }
+        for (index, dict) in data.enumerated(){
+
+            print(index, dict);
+
+            let content = UNMutableNotificationContent()
+            content.title = "New Random Fact : \(dict.Reference!)";
+            content.body = dict.Content!;
+            content.sound = UNNotificationSound.default()
+            
+            let comp2 = calendar.dateComponents([.year,.month,.day,.hour,.minute], from: dateArray[index])
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comp2, repeats: true);
+            print(comp2);
+            
+
+            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(10 + 2*index), repeats: false)
+            let identifier = "learn.id.\(dict.ID!).\(dateArray[index])";
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+
+
+            cnter.add(request, withCompletionHandler: { (error) in
+                if let error = error {
+                    // Something went wrong
+                    print(error);
+                }
+
+                print("delivered");
+
+            })
+
+        }
         
         
     }

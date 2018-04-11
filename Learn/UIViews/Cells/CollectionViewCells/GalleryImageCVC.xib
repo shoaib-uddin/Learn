@@ -47,12 +47,13 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Ur-VS-nVB">
                         <rect key="frame" x="34.5" y="350" width="276" height="30"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ref" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuc-Yn-ggM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="http://www.google.com" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-2f-T9P">
                                 <rect key="frame" x="0.0" y="0.0" width="276" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="HuN-rw-yYt"/>
@@ -78,7 +79,7 @@
             <connections>
                 <outlet property="coverView" destination="UJK-Xc-ese" id="o2A-RJ-3BQ"/>
                 <outlet property="imageView" destination="TJj-yz-XHC" id="cGu-17-1EP"/>
-                <outlet property="lblRef" destination="wuc-Yn-ggM" id="sEZ-YO-K40"/>
+                <outlet property="lblRef" destination="Yki-2f-T9P" id="rK3-nv-zmo"/>
                 <outlet property="lblText" destination="UJK-Xc-ese" id="Oqm-4X-k8L"/>
                 <outlet property="quoteView" destination="L1N-vc-GTh" id="XfC-Bk-vKt"/>
             </connections>

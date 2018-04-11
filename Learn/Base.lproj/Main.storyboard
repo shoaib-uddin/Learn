@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9ch-3R-Nv5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4zL-r7-x9z">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -441,6 +441,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92A-nr-9Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-607" y="829"/>
+        </scene>
+        <!--FavoritiesVC-->
+        <scene sceneID="r8h-JK-i8R">
+            <objects>
+                <viewController storyboardIdentifier="FavoritiesVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wRR-IJ-9tc" customClass="FavoritiesVC" customModule="Learn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zhU-3N-YKd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZxU-ZM-ayV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WEn-1w-sbJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZxU-ZM-ayV" firstAttribute="centerX" secondItem="ybY-1D-074" secondAttribute="centerX" id="E5v-p4-YPX"/>
+                            <constraint firstItem="ZxU-ZM-ayV" firstAttribute="height" secondItem="zhU-3N-YKd" secondAttribute="height" id="EhQ-yi-ap7"/>
+                            <constraint firstItem="ZxU-ZM-ayV" firstAttribute="width" secondItem="zhU-3N-YKd" secondAttribute="width" id="ZmN-4o-uli"/>
+                            <constraint firstItem="ZxU-ZM-ayV" firstAttribute="centerY" secondItem="zhU-3N-YKd" secondAttribute="centerY" id="jRa-th-cKD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ybY-1D-074"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ZxU-ZM-ayV" id="noT-3M-P7R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AEA-oi-0MP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1420" y="1545"/>
         </scene>
         <!--ReminderVC-->
         <scene sceneID="WTs-qn-ylk">

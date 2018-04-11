@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var ffavCount: Int = 0;
     var collectionArray: [[String: Any]] = [[String: Any]]();
     
     
@@ -44,6 +45,11 @@ class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate{
         
     }
     
+    func DisplayReviewController() {
+        if #available( iOS 10.3,*){
+            SKStoreReviewController.requestReview()
+        }
+    }
     
     
     
@@ -120,6 +126,20 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
                 let data = collectionArray[indexPath.row - 1];
                 cell.setData(icon: (data["icon"] as! String), heading: ( data["Name"] as! String), subHeading: "");
                 
+                if(( data["Name"] as! String).contains("Favor")){
+                    
+                    
+                    LearnottoApi.getFavFactCount(CoreDataHelper.returnUser().id!, completion: { (success, fav) in
+                        //
+                        if let c = (fav?.count! as? Int){
+                            cell.lblHeading.text = cell.lblHeading.text! + "  (\(c))"
+                            self.ffavCount = c;
+                        }
+                        
+                    })
+                    
+                }
+                
                 
                 
                 
@@ -177,7 +197,7 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
             
             switch c["key"] as! String {
             case "REV":
-                
+                DisplayReviewController()
                 break;
             case "MAL":
                 
@@ -203,6 +223,12 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
                 break;
             case "SRC":
                 PageRedirect.redirectToSearchCatPage(self);
+                break;
+            case "FAV":
+                if(self.ffavCount > 0){
+                    PageRedirect.redirectToFavFactsPage(count: self.ffavCount, self);
+                }
+                
                 break;
                 
             default:

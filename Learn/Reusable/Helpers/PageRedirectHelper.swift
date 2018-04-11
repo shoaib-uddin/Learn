@@ -12,11 +12,19 @@ import UIKit
 class PageRedirect {
 
     
+    class func redirectToMainPageFromAppDelegate(text: String){
+        
+        
+        
+        
+        
+    }
+    
     class func redirectToMainPage(_ viewController: UIViewController, signup: EnSignUp){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
-        destination.signup = signup;
+        // destination.signup = signup;
         viewController.navigationController?.pushViewController(destination, animated: true);
         
     }
@@ -57,6 +65,15 @@ class PageRedirect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "SearchCatSideVC") as! SearchCatSideVC
+        viewController.present(destination, animated: true, completion: nil);
+        
+    }
+    
+    class func redirectToFavFactsPage(count: Int, _ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "FavoritiesVC") as! FavoritiesVC
+        destination.FavCount = count;
         viewController.present(destination, animated: true, completion: nil);
         
     }

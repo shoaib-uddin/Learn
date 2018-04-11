@@ -14,6 +14,112 @@ import CoreData
 
 class CoreDataHelper{
     
+    class func updateReminderSetting(startDate: Date, endDate: Date, isON: Bool, repeatCount: Int, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderSettings");
+        request.returnsObjectsAsFaults = false;
+        
+        
+        do {
+            let result = try context.fetch(request) as! [ReminderSettings];
+            if(result.count > 0){ // Atleast one record
+                
+                result[0].startTime = startDate;
+                result[0].endTime = endDate;
+                result[0].isReminderOn = isON;
+                result[0].repeatCount = Int64(repeatCount) ;
+                
+                
+                try context.save();
+                completion(true);
+            }else{
+                print("Boo");
+                
+                self.createReminderSetting(startDate: startDate, endDate: endDate, isON: isON, repeatCount: repeatCount, completion: { (success) in
+                    completion(true);
+                })
+            }
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    class func createReminderSetting(startDate: Date, endDate: Date, isON: Bool, repeatCount: Int, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        
+        // setting backgrounds paths
+        let cSign = NSEntityDescription.entity(forEntityName: "ReminderSettings", in: context)
+        
+        
+        // setting Settings Global
+        let newUser = NSManagedObject(entity: cSign!, insertInto: context) as! ReminderSettings;
+        newUser.setValue(startDate, forKey: "startTime");
+        newUser.setValue(endDate, forKey: "endTime");
+        newUser.setValue(isON, forKey: "isReminderOn");
+        newUser.setValue(repeatCount, forKey: "repeatCount");
+        
+        do{
+            
+            try context.save();
+            completion(true);
+            
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    class func returnReminderSettings() -> ReminderSettings!{
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderSettings");
+        request.returnsObjectsAsFaults = false
+        
+        
+        
+        var firstElement: ReminderSettings!;
+        
+        do {
+            let result = try context.fetch(request) as! [ReminderSettings];
+            if(result.count == 0){
+                return nil
+            }else{
+                firstElement = result.first
+            }
+            
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
+        return firstElement;
+        
+        
+        
+    }
+
+    
     class func updateUser(signup: EnSignUp, completion: @escaping (_ success: Bool) -> Void){
         
         let appDelegate =  AppDelegate.getAppDelegate();

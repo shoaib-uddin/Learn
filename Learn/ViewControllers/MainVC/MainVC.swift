@@ -16,11 +16,12 @@ import FontAwesome_swift
 class MainVC: BaseVC{
     
     var facts: [EnFact] = [EnFact]();
-    var signup: EnSignUp!;
+    var signup: User!;
     var refresher:UIRefreshControl!;
     var globalImage: UIImage!;
     var localFontName: String = "";
     var isLikeByMe: Bool = false;
+    var viewFromNotif: Bool = true;
     var factid: String = "";
     var likes: Int = 0;
     var currentIndex: IndexPath!;
@@ -62,6 +63,9 @@ class MainVC: BaseVC{
         
         
         
+        
+        self.signup = CoreDataHelper.returnUser();
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +89,7 @@ class MainVC: BaseVC{
     }
     @IBAction func doLike(_ sender: UIButton) {
         
-        LearnottoApi.addLike(userid: signup.Id!, factid: self.factid) { (success) in
+        LearnottoApi.addLike(userid: signup.id!, factid: self.factid) { (success) in
             //
             if(success){
                 
@@ -109,7 +113,8 @@ class MainVC: BaseVC{
         
         StyleHelper.setFontImageVisualsMaterial(self.imgShare, name: "screen.share");
         StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
-        
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        UITextView.appearance().linkTextAttributes = [ NSAttributedStringKey.foregroundColor.rawValue: clr ];
         
         if(globalSettings.ttype == "A"){
             self.globalImageView.image = nil;

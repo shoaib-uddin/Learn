@@ -115,6 +115,36 @@ class LearnottoApi{
         
     }
     
+    class func getFavFacts(_ id: String, _ page: Int, size: Int, completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
+        
+        // Post Model Create
+        var post = "";
+        post += "userid=\(id)&";
+        post += "Page=\(page)&";
+        post += "Size=\(size)";
+        
+        
+        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        
+        //Network Request
+        print()
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getMyFavouriteFacts)?\(encoded!)", postData: nil, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [EnFact] = [EnFact](json: successData as? String);
+            print(response);
+            completion(true, response);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false, nil);
+            
+        })
+        
+        
+    }
+    
     class func getCategories( completion: @escaping (_ callback: Bool, _ data: [EnDDL]?) -> Void ){
         
         //Network Request
@@ -193,6 +223,33 @@ class LearnottoApi{
             let response : [EnFact] = [EnFact](json: successData as? String);
             print(response);
             completion(true, response);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false, nil);
+            
+        })
+        
+        
+    }
+    
+    class func getFavFactCount(_ id: String,   completion: @escaping (_ callback: Bool, _ data: FavCount?) -> Void){
+        
+        // Post Model Create
+        var post = "";
+        post += "?userid=\(id)";
+        
+        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        
+        //Network Request
+        print()
+        NetworkHelper.MakePostRequestForArray(Url: "\(api.myFavouriteCount)/\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [FavCount] = [FavCount](json: successData as? String);
+            print(response);
+            completion(true, response[0]);
             
             
         },failure: { (error) -> Void in

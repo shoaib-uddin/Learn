@@ -165,10 +165,18 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
     func getFacts(page: Int, subCat: String!){
         
         facts.removeAll();
-        LearnottoApi.getFacts(signup.Id!, page, subCat: subCat) { (success, facts) in
+        LearnottoApi.getFacts(signup.id!, page, subCat: subCat) { (success, facts) in
             //
             if(success){
+                
+                
                 self.facts = facts!;
+                if(self.viewFromNotif){
+                    
+                }
+                
+                
+                
                 self.collectionView.reloadData();
             }
             

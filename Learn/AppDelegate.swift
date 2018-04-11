@@ -14,10 +14,51 @@ import UserNotifications
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        //
+        
+        let actionIdentifier = response.actionIdentifier;
+        
+        switch actionIdentifier {
+        case UNNotificationDismissActionIdentifier: // Notification was dismissed by user
+            // Do something
+            completionHandler()
+        case UNNotificationDefaultActionIdentifier: // App was opened from notification
+            // Do something
+            
+            var fact: EnFact!
+            fact.Content = response.notification.request.content.body;
+            fact.Reference = response.notification.request.content.title;
+            fact.ID = response.notification.request.content.threadIdentifier;
+            print(fact.ID);
+            
+            
+            if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC {
+                if let window = self.window, let rootViewController = window.rootViewController {
+                    var currentController = rootViewController
+                    while let presentedController = currentController.presentedViewController {
+                        currentController = presentedController
+                        
+                    }
+                    currentController.present(controller, animated: true, completion: nil)
+                }
+            }
+            
+            completionHandler()
+        default:
+            completionHandler()
+        }
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //
+        
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -42,8 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if !granted {
                 print("Something went wrong")
             }
+            
         }
         
+        UNUserNotificationCenter.current().delegate = self;
         
         return true
     }

@@ -24,6 +24,9 @@
 		0A3E87DC20359A2B002A4748 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E87DB20359A2B002A4748 /* MainVC.swift */; };
 		0A3E87DE20359A3D002A4748 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E87DD20359A3D002A4748 /* BaseVC.swift */; };
 		0A3E87E32035C7E2002A4748 /* CatSidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E87E22035C7E2002A4748 /* CatSidemenuVC.swift */; };
+		0A3EF713207D684D00943AD5 /* FavoritiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EF712207D684D00943AD5 /* FavoritiesVC.swift */; };
+		0A3EF716207D6ACC00943AD5 /* FavCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EF714207D6ACC00943AD5 /* FavCVC.swift */; };
+		0A3EF717207D6ACC00943AD5 /* FavCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EF715207D6ACC00943AD5 /* FavCVC.xib */; };
 		0A5AE4E220577D22007387DE /* SettingsCVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE4E120577D22007387DE /* SettingsCVVC.swift */; };
 		0A5AE4EB205847AF007387DE /* HeaderForCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE4E9205847AD007387DE /* HeaderForCollectionReusableView.swift */; };
 		0A5AE4EE20584855007387DE /* FontsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5AE4EC20584855007387DE /* FontsCVC.swift */; };
@@ -121,6 +124,9 @@
 		0A3E87DB20359A2B002A4748 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		0A3E87DD20359A3D002A4748 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		0A3E87E22035C7E2002A4748 /* CatSidemenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatSidemenuVC.swift; sourceTree = "<group>"; };
+		0A3EF712207D684D00943AD5 /* FavoritiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritiesVC.swift; sourceTree = "<group>"; };
+		0A3EF714207D6ACC00943AD5 /* FavCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavCVC.swift; path = Learn/UIViews/Cells/CollectionViewCells/FavCVC.swift; sourceTree = SOURCE_ROOT; };
+		0A3EF715207D6ACC00943AD5 /* FavCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavCVC.xib; path = Learn/UIViews/Cells/CollectionViewCells/FavCVC.xib; sourceTree = SOURCE_ROOT; };
 		0A5AE4E120577D22007387DE /* SettingsCVVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCVVC.swift; sourceTree = "<group>"; };
 		0A5AE4E9205847AD007387DE /* HeaderForCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderForCollectionReusableView.swift; sourceTree = "<group>"; };
 		0A5AE4EA205847AE007387DE /* HeaderForCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderForCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		0A3E87CC203599EE002A4748 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A3EF711207D681800943AD5 /* FavoritiesVC */,
 				0AABBF6F2072119400668419 /* ReminderVC */,
 				0A9CCCEE20506D85006F5396 /* SettingsVC */,
 				0A6979F5204DC9D8000A68CA /* LoginVC */,
@@ -313,6 +320,8 @@
 				0AE430A22037791C00894DBC /* GalleryImageCVC.xib */,
 				0A5AE4E9205847AD007387DE /* HeaderForCollectionReusableView.swift */,
 				0A5AE4EA205847AE007387DE /* HeaderForCollectionReusableView.xib */,
+				0A3EF714207D6ACC00943AD5 /* FavCVC.swift */,
+				0A3EF715207D6ACC00943AD5 /* FavCVC.xib */,
 				0A5AE4EC20584855007387DE /* FontsCVC.swift */,
 				0A5AE4ED20584855007387DE /* FontsCVC.xib */,
 				0A7599B220725AA9000570B3 /* SidemenuTableHeader.swift */,
@@ -428,6 +437,14 @@
 				0A7599D92074965A000570B3 /* SearchCatSideVC.swift */,
 			);
 			path = SidemenuVC;
+			sourceTree = "<group>";
+		};
+		0A3EF711207D681800943AD5 /* FavoritiesVC */ = {
+			isa = PBXGroup;
+			children = (
+				0A3EF712207D684D00943AD5 /* FavoritiesVC.swift */,
+			);
+			path = FavoritiesVC;
 			sourceTree = "<group>";
 		};
 		0A5AE4F02058632E007387DE /* 1x */ = {
@@ -635,6 +652,7 @@
 				0A9CCCFD205537D3006F5396 /* Gin Regular.otf in Resources */,
 				0A9CCD03205537D3006F5396 /* TrajanPro-Regular.otf in Resources */,
 				0A7599E02074B102000570B3 /* BlurSharePanelView.xib in Resources */,
+				0A3EF717207D6ACC00943AD5 /* FavCVC.xib in Resources */,
 				0A3E87BD20358F40002A4748 /* Main.storyboard in Resources */,
 				0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */,
 				0A9CCCFC205537D3006F5396 /* Gin Oblique.otf in Resources */,
@@ -744,6 +762,7 @@
 				0A7599C520734765000570B3 /* BtnViewCVC.swift in Sources */,
 				0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */,
 				0AABBF732072137600668419 /* AddReminderVC.swift in Sources */,
+				0A3EF713207D684D00943AD5 /* FavoritiesVC.swift in Sources */,
 				0A7599BD20731257000570B3 /* StyleHelper.swift in Sources */,
 				0AFDDA1E2064D456002C860B /* ARSLineProgressConstants.swift in Sources */,
 				0A0BBF0F20399F2200486915 /* UtilityHelper.swift in Sources */,
@@ -769,6 +788,7 @@
 				0AE430A8203782CD00894DBC /* AssetImageApi.swift in Sources */,
 				0A3E87E32035C7E2002A4748 /* CatSidemenuVC.swift in Sources */,
 				0A7599AE207219A9000570B3 /* ReminderTVC.swift in Sources */,
+				0A3EF716207D6ACC00943AD5 /* FavCVC.swift in Sources */,
 				0A7599CB20737C5B000570B3 /* HeadViewCVC.swift in Sources */,
 				0A0BBF0C203996F300486915 /* SidemenuParentTVC.swift in Sources */,
 				0A0BBF2E203B5BB300486915 /* FileHelperApi.swift in Sources */,
@@ -918,11 +938,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BERNRJGAM5;
+				DEVELOPMENT_TEAM = 5P89N5UC95;
 				INFOPLIST_FILE = Learn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixcietechnologies.learn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixcietechnologies.learnotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -935,11 +955,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BERNRJGAM5;
+				DEVELOPMENT_TEAM = 5P89N5UC95;
 				INFOPLIST_FILE = Learn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixcietechnologies.learn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixcietechnologies.learnotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

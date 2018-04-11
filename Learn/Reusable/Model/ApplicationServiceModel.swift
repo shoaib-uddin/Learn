@@ -64,4 +64,18 @@ class EnDDL: EVObject {
     var Name: String? = ""
 }
 
+class FavCount: EVObject {
+    var count: NSNumber? = 0
+}
+
+
+
+
+
+
+
+
+
+
+
 

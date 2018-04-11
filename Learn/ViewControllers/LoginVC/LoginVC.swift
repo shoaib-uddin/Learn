@@ -46,7 +46,7 @@ class LoginVC: UIViewController{
     
     @IBAction func doLogin(_ sender: UIButton) {
         
-        UtilityHelper.ShowLoader();
+        // UtilityHelper.ShowLoader();
         
         GBHFacebookHelper.shared.login(controller: nil) { (success1, prompt) in
             if(success1){

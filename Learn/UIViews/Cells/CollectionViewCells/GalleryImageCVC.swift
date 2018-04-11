@@ -16,9 +16,7 @@ class GalleryImageCVC: UICollectionViewCell {
     
     @IBOutlet var coverView: UIView!
     @IBOutlet var lblText: UILabel!
-    @IBOutlet var lblRef: UILabel!
-    
-    
+    @IBOutlet var lblRef: UITextView!
     @IBOutlet weak var quoteView: UIView!
     
     override func prepareForReuse() {
@@ -26,6 +24,8 @@ class GalleryImageCVC: UICollectionViewCell {
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
         self.lblText.textColor = clr
         self.lblRef.textColor = clr
+        
+
     }
     
     override func awakeFromNib() {
@@ -34,6 +34,8 @@ class GalleryImageCVC: UICollectionViewCell {
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
         self.lblText.textColor = clr
         self.lblRef.textColor = clr
+        
+
         
         
         
@@ -46,7 +48,7 @@ class GalleryImageCVC: UICollectionViewCell {
         
         print(data);
         self.lblText.text = data.Content;
-        self.lblRef.text = data.Reference;
+        // self.lblRef.text = data.Reference;
         
     }
     

@@ -6,12 +6,20 @@
 //  Copyright © 2018 pixel. All rights reserved.
 //
 
+import Foundation
 import UIKit
+
+protocol TableSearchCVCDelegate: class {
+    func setAndCloseSearch(cell: TableSearchCVC, doCLose: Bool);
+}
+
 
 class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
 
     let cellIdentifier = "SidemenuParentTVC"
     var collectionArray: [EnDDL] = [EnDDL]();
+    var filteredcollectionArray: [EnDDL] = [EnDDL]();
+    weak var cellDelegate: TableSearchCVCDelegate?;
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -35,6 +43,7 @@ class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
             if(success){
                 if let d = data{
                     self.collectionArray = d;
+                    self.filteredcollectionArray = self.collectionArray;
                     self.tableView.reloadData();
                 }
             }
@@ -61,6 +70,21 @@ class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //
         searchBar.resignFirstResponder();
+        if let searchText = searchBar.text, !(searchBar.text?.isEmpty)! {
+            
+            filteredcollectionArray = collectionArray.filter({ (list) -> Bool in
+                
+                // filter by actual location || model || stock No
+                let flag = ( (list.Name?.lowercased().contains(searchText.lowercased()))!
+                )
+                
+                return flag
+            })
+            
+        } else {
+            filteredcollectionArray = collectionArray
+        }
+        tableView.reloadData()
         
     }
     
@@ -72,7 +96,7 @@ extension TableSearchCVC: UITableViewDataSource, UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40;
+        return 60;
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,13 +105,13 @@ extension TableSearchCVC: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.collectionArray.count;
+        return self.filteredcollectionArray.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SidemenuParentTVC", for: indexPath as IndexPath) as! SidemenuParentTVC;
-        cell.setData(lbl: self.collectionArray[indexPath.row]);
+        cell.setData(lbl: self.filteredcollectionArray[indexPath.row]);
         cell.selectionStyle = .none;
         
         return cell
@@ -96,7 +120,9 @@ extension TableSearchCVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        let data = self.filteredcollectionArray[indexPath.row];
+        globalCatId = data.ID;
+        cellDelegate?.setAndCloseSearch(cell: self, doCLose: true);
         
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SearchCatSideVC : BaseVC, UniHeaderCVCDelegate{
+class SearchCatSideVC : BaseVC, UniHeaderCVCDelegate, TableSearchCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -56,6 +56,12 @@ class SearchCatSideVC : BaseVC, UniHeaderCVCDelegate{
         
     }
     
+    func setAndCloseSearch(cell: TableSearchCVC, doCLose: Bool) {
+        //
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     
     
@@ -100,7 +106,7 @@ extension SearchCatSideVC: UICollectionViewDataSource, UICollectionViewDelegateF
                 
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TableSearchCVC", for: indexPath) as? TableSearchCVC
                     else { fatalError("unexpected cell in collection view") }
-                
+                cell.cellDelegate = self;
                 return cell;
             }
             
