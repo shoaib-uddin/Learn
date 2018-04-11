@@ -89,7 +89,7 @@ class LearnottoApi{
         var post = "";
         post += "userid=\(id)&";
         post += "Page=\(page)&";
-        post += "Size=10";
+        post += "Size=100";
         if(subCat != nil){
             post += "&SubCategoryId=\(subCat!)";
         }
@@ -248,6 +248,37 @@ class LearnottoApi{
         NetworkHelper.MakePostRequestForArray(Url: "\(api.myFavouriteCount)/\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
             
             let response : [FavCount] = [FavCount](json: successData as? String);
+            print(response);
+            completion(true, response[0]);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false, nil);
+            
+        })
+        
+        
+    }
+    
+    class func getSingleFacts(_ id: String, _ factId: String, completion: @escaping (_ callback: Bool, _ data: EnFact?) -> Void){
+        
+        // Post Model Create
+        var post = "";
+        post += "userid=\(id)&";
+        post += "Page=0&";
+        post += "Size=1&";
+        post += "factId=\(factId)";
+        
+        
+        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        
+        //Network Request
+        print()
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getFacts)?\(encoded!)", postData: nil, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [EnFact] = [EnFact](json: successData as? String);
             print(response);
             completion(true, response[0]);
             

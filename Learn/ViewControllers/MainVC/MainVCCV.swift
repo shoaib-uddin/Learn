@@ -38,23 +38,39 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         
         
         print(indexPath.row , fact);
-        self.isLikeByMe = fact.likebyme!;
+        self.isLikeByMe = fact.likebyme;
         self.factid = fact.ID!;
+        cell.lblText.text = fact.ID!;
+        
+        //UtilityHelper.AlertMessage("\(fact.ID!)");
         
         
-        DispatchQueue.main.async {
-            if(!fact.likebyme!){
-                StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
-            }else{
-                StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
-            }
-        }
+        
+        
+        
         
         
         
         
         return cell;
         
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        //
+        for cell in self.collectionView.visibleCells{
+            let indec = self.collectionView.indexPath(for: cell);
+            let fact = facts[(indec?.row)!];
+            DispatchQueue.main.async {
+                let g: Bool = Bool(fact.likebyme);
+                if(!g){
+                    StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
+                }else{
+                    StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
+                }
+            }
+            
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -50,7 +50,7 @@ class EnFact: EVObject{
     var ID: String? = ""
     var likes: NSNumber? = 0
     var views: NSNumber? = 1
-    var likebyme: BooleanLiteralType? = false
+    var likebyme: Bool = false
     var dislikes: NSNumber? = 0
     var dislikebyme: BooleanLiteralType? = false
     var Name: String? = ""

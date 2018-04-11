@@ -66,7 +66,7 @@ extension FavCVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         cell.setData(fact);
         cell.lblText.font = UIFont(name: globalSettings.font!, size: cell.lblText.font.pointSize);
         //cell.imageView.isHidden = true;
-        
+        cell.lblText.text = fact.ID!;
         return cell;
         
     }

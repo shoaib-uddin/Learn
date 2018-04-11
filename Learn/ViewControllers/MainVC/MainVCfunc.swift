@@ -172,12 +172,19 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
                 
                 self.facts = facts!;
                 if(self.viewFromNotif){
-                    
+                    self.viewFromNotif = false;
+                    self.facts.insert(self.factFromNotif!, at: 0);
+                }
+                self.collectionView.reloadData();
+                DispatchQueue.main.async {
+                    let g: Bool = Bool(self.facts[0].likebyme);
+                    if(!g){
+                        StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
+                    }else{
+                        StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
+                    }
                 }
                 
-                
-                
-                self.collectionView.reloadData();
             }
             
         }

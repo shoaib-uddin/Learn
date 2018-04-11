@@ -21,7 +21,10 @@ class MainVC: BaseVC{
     var globalImage: UIImage!;
     var localFontName: String = "";
     var isLikeByMe: Bool = false;
-    var viewFromNotif: Bool = true;
+    
+    var viewFromNotif: Bool = false;
+    var factFromNotif: EnFact!;
+    
     var factid: String = "";
     var likes: Int = 0;
     var currentIndex: IndexPath!;
@@ -59,11 +62,7 @@ class MainVC: BaseVC{
         self.collectionView!.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
         self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        self.collectionView!.addSubview(refresher)
-        
-        
-        
-        
+        self.collectionView!.addSubview(refresher);
         self.signup = CoreDataHelper.returnUser();
         
     }
@@ -89,15 +88,27 @@ class MainVC: BaseVC{
     }
     @IBAction func doLike(_ sender: UIButton) {
         
-        LearnottoApi.addLike(userid: signup.id!, factid: self.factid) { (success) in
+        var visibleRect: CGRect = CGRect()
+        visibleRect.origin = (collectionView?.contentOffset)!
+        visibleRect.size = (collectionView?.bounds.size)!
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath: IndexPath? = collectionView?.indexPathForItem(at: visiblePoint)
+        
+        let idd = facts[(visibleIndexPath?.row)!].ID;
+        
+        UtilityHelper.AlertMessage("\(idd!)");
+        
+        
+        
+        LearnottoApi.addLike(userid: signup.id!, factid: idd!) { (success) in
             //
             if(success){
-                
+
                 StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite");
                 self.facts[self.currentIndex.row].likebyme = true;
                 self.collectionView.reloadData();
-                
-                
+
+
             }
         }
         
@@ -110,7 +121,6 @@ class MainVC: BaseVC{
         StyleHelper.setFontImageVisualsMaterial(self.imgMenu, name: "menu");
         StyleHelper.setFontImageVisualsMaterial(self.imgCateg, name: "dashboard");
         StyleHelper.setFontImageVisualsMaterial(self.imgAa, name: "style");
-        
         StyleHelper.setFontImageVisualsMaterial(self.imgShare, name: "screen.share");
         StyleHelper.setFontImageVisualsMaterial(self.imgLove, name: "favorite.border");
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);

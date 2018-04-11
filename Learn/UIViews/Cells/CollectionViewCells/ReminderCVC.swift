@@ -246,6 +246,8 @@ class ReminderCVC: UICollectionViewCell {
     
     func setManyRemindersWithTime(data: [EnFact]){
         
+        
+        
         let repeatCount = getRepeatCount();
         print(repeatCount);
         print(data.count);
@@ -309,8 +311,8 @@ class ReminderCVC: UICollectionViewCell {
 
             print(index, dict);
 
-            let content = UNMutableNotificationContent()
-            content.title = "New Random Fact : \(dict.Reference!)";
+            let content = UNMutableNotificationContent();
+            content.title = "Random Fact -\(dict.ID!)- \(dict.Reference!)";
             content.body = dict.Content!;
             content.sound = UNNotificationSound.default()
             

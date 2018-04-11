@@ -30,23 +30,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier: // App was opened from notification
             // Do something
             
-            var fact: EnFact!
-            fact.Content = response.notification.request.content.body;
-            fact.Reference = response.notification.request.content.title;
-            fact.ID = response.notification.request.content.threadIdentifier;
-            print(fact.ID);
+            let title = response.notification.request.content.title;
             
-            
-            if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC {
-                if let window = self.window, let rootViewController = window.rootViewController {
-                    var currentController = rootViewController
-                    while let presentedController = currentController.presentedViewController {
-                        currentController = presentedController
+            LearnottoApi.getSingleFacts(CoreDataHelper.returnUser().id!, title.components(separatedBy: "-")[1], completion: { (success, fact) in
+                //
+                
+                
+                
+                if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC {
+                    if let window = self.window, let rootViewController = window.rootViewController {
+                        var currentController = rootViewController
+                        while let presentedController = currentController.presentedViewController {
+                            currentController = presentedController
+                        }
                         
+                        controller.viewFromNotif = true;
+                        controller.factFromNotif = fact;
+                        currentController.present(controller, animated: true, completion: nil)
                     }
-                    currentController.present(controller, animated: true, completion: nil)
                 }
-            }
+            })
+            
+            
+
+            
+            
             
             completionHandler()
         default:
