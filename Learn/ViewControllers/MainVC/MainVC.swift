@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Photos
 import PhotosUI
-import FontAwesome_swift
+// import FontAwesome_swift
 
 
 class MainVC: BaseVC{

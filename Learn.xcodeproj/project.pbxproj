@@ -84,7 +84,6 @@
 		0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD04205539A1006F5396 /* SettingsVC.swift */; };
 		0A9CCD0720553F56006F5396 /* GBHFacebookHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */; };
 		0AABBF71207211AD00668419 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AABBF70207211AD00668419 /* ReminderVC.swift */; };
-		0AABBF732072137600668419 /* AddReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AABBF722072137600668419 /* AddReminderVC.swift */; };
 		0AD7BA00206518DF007A6E44 /* LearnottoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */; };
 		0AE430A32037791C00894DBC /* GalleryImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE430A12037791C00894DBC /* GalleryImageCVC.swift */; };
 		0AE430A42037791C00894DBC /* GalleryImageCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE430A22037791C00894DBC /* GalleryImageCVC.xib */; };
@@ -185,7 +184,6 @@
 		0A9CCD04205539A1006F5396 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0A9CCD0620553F56006F5396 /* GBHFacebookHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBHFacebookHelper.swift; sourceTree = "<group>"; };
 		0AABBF70207211AD00668419 /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
-		0AABBF722072137600668419 /* AddReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderVC.swift; sourceTree = "<group>"; };
 		0AD7B9FF206518DE007A6E44 /* LearnottoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnottoApi.swift; sourceTree = "<group>"; };
 		0AE430A12037791C00894DBC /* GalleryImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryImageCVC.swift; sourceTree = "<group>"; };
 		0AE430A22037791C00894DBC /* GalleryImageCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryImageCVC.xib; sourceTree = "<group>"; };
@@ -510,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				0AABBF70207211AD00668419 /* ReminderVC.swift */,
-				0AABBF722072137600668419 /* AddReminderVC.swift */,
 			);
 			path = ReminderVC;
 			sourceTree = "<group>";
@@ -684,35 +681,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Learn/Pods-Learn-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/EVReflection/EVReflection.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
-				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/LKAlertController/LKAlertController.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EVReflection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKAlertController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 			);
@@ -761,7 +748,6 @@
 				0AFDDA212064D456002C860B /* ARSLineProgressHelpers.swift in Sources */,
 				0A7599C520734765000570B3 /* BtnViewCVC.swift in Sources */,
 				0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */,
-				0AABBF732072137600668419 /* AddReminderVC.swift in Sources */,
 				0A3EF713207D684D00943AD5 /* FavoritiesVC.swift in Sources */,
 				0A7599BD20731257000570B3 /* StyleHelper.swift in Sources */,
 				0AFDDA1E2064D456002C860B /* ARSLineProgressConstants.swift in Sources */,
