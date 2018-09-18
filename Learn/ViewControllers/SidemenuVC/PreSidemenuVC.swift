@@ -10,11 +10,33 @@ import Foundation
 import UIKit
 import StoreKit
 
-class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate{
+@objc protocol PreSidemenuVCDelegate {
+    func selectedMenuItem(vc: PreSidemenuVC, menu: String);
+}
+
+
+class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, SettingsVCDelegate{
+    func updateViewBySettings() {
+        //
+    
+        DispatchQueue.main.async {
+            self.vcDelegate?.selectedMenuItem(vc: self, menu: "STY");
+            self.dismiss(animated: true, completion: nil)
+        }
+                
+    }
+    
+    func changeCategoryCollection(vc: CatSidemenuVC, catId: String) {
+        //
+        
+        vcDelegate?.selectedMenuItem(vc: self, menu: "CAT");
+    }
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     var ffavCount: Int = 0;
     var collectionArray: [[String: Any]] = [[String: Any]]();
+    weak var vcDelegate: PreSidemenuVCDelegate?;
     
     
     override func viewDidLoad() {
@@ -209,7 +231,8 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
             
         }else{
             
-            let c = self.collectionArray[indexPath.row - 1];
+            var indec = (indexPath.row <= 0) ? 0 : indexPath.row - 1;
+            let c = self.collectionArray[indec];
             
             switch c["key"] as! String {
             case "REM":

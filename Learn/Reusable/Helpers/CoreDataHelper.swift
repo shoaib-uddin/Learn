@@ -14,6 +14,88 @@ import CoreData
 
 class CoreDataHelper{
     
+    class func createPushToken(token: String, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let cSign = NSEntityDescription.entity(forEntityName: "Push", in: context)
+        let newPush = NSManagedObject(entity: cSign!, insertInto: context) as! Push;
+        
+        newPush.setValue(token, forKey: "token");
+        do{
+            try context.save();
+            completion(true);
+            
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+    }
+    
+    class func updatePushToken(token: String, completion: @escaping (_ success: Bool) -> Void){
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Push");
+        request.returnsObjectsAsFaults = false;
+        
+        
+        do {
+            let result = try context.fetch(request) as! [Push];
+            if(result.count > 0){ // Atleast one record
+                
+                result[0].token = token;
+                try context.save();
+                completion(true);
+            }else{
+                
+                self.createPushToken(token: token) { (success) in
+                    completion(success)
+                }
+                
+            }
+        } catch {
+            
+            print("Failed")
+            completion(false);
+        }
+        
+    }
+    
+    class func returnPushSettings() -> Push!{
+        
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Push");
+        request.returnsObjectsAsFaults = false
+        
+        
+        
+        var firstElement: Push!;
+        
+        do {
+            let result = try context.fetch(request) as! [Push];
+            if(result.count == 0){
+                return nil
+            }else{
+                firstElement = result.first
+            }
+            
+            
+        } catch {
+            
+            print("Failed")
+        }
+        
+        return firstElement;
+        
+        
+        
+    }
+
+    
     class func updateReminderSetting(startDate: Date, endDate: Date, isON: Bool, repeatCount: Int, completion: @escaping (_ success: Bool) -> Void){
         
         let appDelegate =  AppDelegate.getAppDelegate();

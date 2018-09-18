@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 protocol TableSearchCVCDelegate: class {
     func setAndCloseSearch(cell: TableSearchCVC, doCLose: Bool);
 }
@@ -34,12 +35,12 @@ class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension;
         tableView.estimatedRowHeight = 85.0;
         tableView.tableFooterView = UIView(frame: CGRect.zero);
-        
+//        
         // add a search to tableView
         searchBar.barTintColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
         searchBar.delegate = self;
         
-        LearnottoApi.getCategories { (success, data) in
+        LearnottoApi.getCategories(page: 0, size: 10000) { (success, data) in
             if(success){
                 if let d = data{
                     self.collectionArray = d;
@@ -59,12 +60,15 @@ class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         //
         searchBar.resignFirstResponder();
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         //
         searchBar.showsCancelButton = false;
         searchBar.resignFirstResponder();
+        self.filteredcollectionArray = self.collectionArray
+        self.tableView.reloadData();
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -80,6 +84,14 @@ class TableSearchCVC: UICollectionViewCell, UISearchBarDelegate {
                 
                 return flag
             })
+            
+            if filteredcollectionArray.count == 0{
+                UtilityHelper.AlertMessagewithCallBack("No Results ...", success: {
+                    self.filteredcollectionArray = self.collectionArray
+                    self.tableView.reloadData();
+                })
+            }
+            
             
         } else {
             filteredcollectionArray = collectionArray

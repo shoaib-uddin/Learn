@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -26,10 +26,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1N-vc-GTh">
-                        <rect key="frame" x="34.5" y="74" width="276" height="276"/>
+                        <rect key="frame" x="17.5" y="57" width="310.5" height="310.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-Xc-ese">
-                                <rect key="frame" x="14" y="14.5" width="248" height="248"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-Xc-ese">
+                                <rect key="frame" x="15" y="16" width="280" height="280"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -44,42 +44,56 @@
                             <constraint firstItem="UJK-Xc-ese" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="h4n-qW-egX"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Ur-VS-nVB">
-                        <rect key="frame" x="34.5" y="350" width="276" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PT4-0U-ffB">
+                        <rect key="frame" x="17" y="367.5" width="310.5" height="30"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="http://www.google.com" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-2f-T9P">
-                                <rect key="frame" x="0.0" y="0.0" width="276" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cw-Ly-UfS">
+                                <rect key="frame" x="0.0" y="-0.5" width="310.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMI-Wc-DLK">
+                                <rect key="frame" x="0.0" y="-0.5" width="310.5" height="30"/>
+                                <connections>
+                                    <action selector="doOpenUrl:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6AP-zw-0CS"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="HuN-rw-yYt"/>
+                            <constraint firstAttribute="height" constant="30" id="06H-XX-qKc"/>
+                            <constraint firstItem="fMI-Wc-DLK" firstAttribute="height" secondItem="PT4-0U-ffB" secondAttribute="height" id="BGo-17-9RN"/>
+                            <constraint firstItem="9cw-Ly-UfS" firstAttribute="height" secondItem="PT4-0U-ffB" secondAttribute="height" id="Hps-BY-Z9w"/>
+                            <constraint firstItem="fMI-Wc-DLK" firstAttribute="centerY" secondItem="PT4-0U-ffB" secondAttribute="centerY" id="QvN-S6-0EL"/>
+                            <constraint firstItem="9cw-Ly-UfS" firstAttribute="centerY" secondItem="PT4-0U-ffB" secondAttribute="centerY" id="ael-NH-6v1"/>
+                            <constraint firstItem="fMI-Wc-DLK" firstAttribute="width" secondItem="PT4-0U-ffB" secondAttribute="width" id="d2S-5Y-0KB"/>
+                            <constraint firstItem="9cw-Ly-UfS" firstAttribute="centerX" secondItem="PT4-0U-ffB" secondAttribute="centerX" id="dKI-FH-uax"/>
+                            <constraint firstItem="fMI-Wc-DLK" firstAttribute="centerX" secondItem="PT4-0U-ffB" secondAttribute="centerX" id="f0D-zV-LCM"/>
+                            <constraint firstItem="9cw-Ly-UfS" firstAttribute="width" secondItem="PT4-0U-ffB" secondAttribute="width" id="gyY-rV-6s0"/>
                         </constraints>
-                    </stackView>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0zd-qq-ayq"/>
+                <constraint firstItem="PT4-0U-ffB" firstAttribute="top" secondItem="L1N-vc-GTh" secondAttribute="bottom" id="GgN-Rw-kHC"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="PZP-8g-R8N"/>
-                <constraint firstItem="L1N-vc-GTh" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.8" id="Spm-BI-edq"/>
+                <constraint firstItem="L1N-vc-GTh" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.9" id="Spm-BI-edq"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="Uac-FM-NlB"/>
+                <constraint firstItem="PT4-0U-ffB" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="aq7-p6-KYA"/>
                 <constraint firstItem="L1N-vc-GTh" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="avx-jH-Gc4"/>
-                <constraint firstItem="2Ur-VS-nVB" firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="width" id="dHz-Um-Nwv"/>
+                <constraint firstItem="PT4-0U-ffB" firstAttribute="width" secondItem="L1N-vc-GTh" secondAttribute="width" id="cBU-GX-vZ8"/>
                 <constraint firstItem="L1N-vc-GTh" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" multiplier="0.9" id="hRz-RM-K2f"/>
                 <constraint firstItem="TJj-yz-XHC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="mOr-yf-Zlz"/>
-                <constraint firstItem="2Ur-VS-nVB" firstAttribute="top" secondItem="L1N-vc-GTh" secondAttribute="bottom" id="r4R-NQ-s86"/>
-                <constraint firstItem="2Ur-VS-nVB" firstAttribute="centerX" secondItem="L1N-vc-GTh" secondAttribute="centerX" id="z89-iN-piD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="345" height="471"/>
             <connections>
                 <outlet property="coverView" destination="UJK-Xc-ese" id="o2A-RJ-3BQ"/>
                 <outlet property="imageView" destination="TJj-yz-XHC" id="cGu-17-1EP"/>
-                <outlet property="lblRef" destination="Yki-2f-T9P" id="rK3-nv-zmo"/>
+                <outlet property="lblRef" destination="9cw-Ly-UfS" id="4iT-vI-2Wx"/>
                 <outlet property="lblText" destination="UJK-Xc-ese" id="Oqm-4X-k8L"/>
                 <outlet property="quoteView" destination="L1N-vc-GTh" id="XfC-Bk-vKt"/>
             </connections>

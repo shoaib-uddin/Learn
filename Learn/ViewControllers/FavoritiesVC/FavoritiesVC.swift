@@ -74,7 +74,7 @@ extension FavoritiesVC: UICollectionViewDataSource, UICollectionViewDelegateFlow
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UniHeaderCVC", for: indexPath) as? UniHeaderCVC
                 else { fatalError("unexpected cell in collection view") }
-            cell.setData(heading: "FAVORITIES");
+            cell.setData(heading: "FAVORITES");
             cell.cellDelegate = self;
             return cell;
             

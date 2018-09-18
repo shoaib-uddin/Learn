@@ -33,6 +33,7 @@ class PageRedirect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+        destination.vcDelegate = viewController as! SettingsVCDelegate
         viewController.present(destination, animated: true, completion: nil);
         
     }
@@ -41,6 +42,7 @@ class PageRedirect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "PreSidemenuVC") as! PreSidemenuVC
+        destination.vcDelegate = viewController as! PreSidemenuVCDelegate
         viewController.present(destination, animated: true, completion: nil);
         
     }
@@ -49,6 +51,7 @@ class PageRedirect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "CatSidemenuVC") as! CatSidemenuVC
+        destination.vcDelegate = viewController as! CatSidemenuVCDelegate;
         viewController.present(destination, animated: true, completion: nil);
         
     }

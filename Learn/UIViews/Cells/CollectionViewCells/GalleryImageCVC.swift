@@ -16,7 +16,7 @@ class GalleryImageCVC: UICollectionViewCell {
     
     @IBOutlet var coverView: UIView!
     @IBOutlet var lblText: UILabel!
-    @IBOutlet var lblRef: UITextView!
+    @IBOutlet var lblRef: UILabel!
     @IBOutlet weak var quoteView: UIView!
     
     override func prepareForReuse() {
@@ -24,7 +24,7 @@ class GalleryImageCVC: UICollectionViewCell {
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
         self.lblText.textColor = clr
         self.lblRef.textColor = clr
-        
+        //setTextViewColor()
 
     }
     
@@ -35,12 +35,41 @@ class GalleryImageCVC: UICollectionViewCell {
         self.lblText.textColor = clr
         self.lblRef.textColor = clr
         
-
+        //setTextViewColor()
         
         
         
     }
     
+    func setTextViewColor(){
+        
+        let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
+        
+        // create the attributed colour
+        let attributedStringColor = [NSAttributedStringKey.foregroundColor : clr];
+        let attributedString = NSMutableAttributedString(string: self.lblRef.text!, attributes: attributedStringColor)
+        
+        self.lblRef.attributedText = attributedString
+        //self.lblRef.tintColor = clr;
+        
+    }
+    
+    @IBAction func doOpenUrl(_ sender: UIButton) {
+        
+        if let urlString = self.lblRef.text {
+            // create NSURL instance
+            if let url = NSURL(string: urlString) {
+                // check if your application can open the NSURL instance
+                if( UIApplication.shared.canOpenURL(url as URL) ){
+                    UIApplication.shared.open(url as URL, options: [:]) { (success) in
+                        //
+                    }
+                }
+            }
+        }
+        
+        
+    }
     
     
     
@@ -48,7 +77,9 @@ class GalleryImageCVC: UICollectionViewCell {
         
         print(data);
         self.lblText.text = data.Content;
-        // self.lblRef.text = data.Reference;
+        self.lblRef.text = data.Reference;
+        // self.lblRef.text = "https://google.com";
+        //setTextViewColor()
         
     }
     
@@ -56,6 +87,8 @@ class GalleryImageCVC: UICollectionViewCell {
         
         print(data);
         self.lblText.text = "Abcd";
+        
+        
         if(data.ttype == "B"){
             
             if(data.background != nil){

@@ -9,11 +9,17 @@
 import Foundation
 import UIKit
 
+@objc protocol CatSidemenuVCDelegate {
+    func changeCategoryCollection(vc: CatSidemenuVC, catId: String);
+}
+
+
 class CatSidemenuVC : BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var collectionArray: [EnDDL] = [EnDDL]();
+    weak var vcDelegate: CatSidemenuVCDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -36,7 +42,7 @@ class CatSidemenuVC : BaseVC, UniHeaderCVCDelegate{
         collectionView.dataSource = self;
         collectionView.allowsMultipleSelection = false;
         
-        LearnottoApi.getCategories { (success, data) in
+        LearnottoApi.getDefaultCategories(page: 0, size: 12) { (success, data) in
             if(success){
                 
                 if let d = data{
@@ -146,42 +152,34 @@ extension CatSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
             let c = self.collectionArray[indexPath.row];
             
             switch c.Name! {
-            case "General":
+            case "General Knowledge":
                 cell.setData(lblString: c.Name!, icon: "lightbulbo");
-                break;
-            case "Food":
-                cell.setData(lblString: c.Name!, icon: "apple");
-                break;
-            case "Life Hacks":
-                cell.setData(lblString: c.Name!, icon: "bug");
                 break;
             case "Trivia":
                 cell.setData(lblString: c.Name!, icon: "questioncircleo");
                 break;
-            case "Fun Thoughts":
-                cell.setData(lblString: c.Name!, icon: "search");
-                break;
-            case "Riddles":
-                cell.setData(lblString: c.Name!, icon: "puzzlepiece");
-                break;
-            case "Language":
-                cell.setData(lblString: c.Name!, icon: "language");
-                break;
-            case "Sport":
-                cell.setData(lblString: c.Name!, icon: "soccerballo");
-                break;
-            case "Sex":
-                cell.setData(lblString: c.Name!, icon: "venusmars");
-                break;
-            case "United Stated":
-                cell.setData(lblString: c.Name!, icon: "flago");
-                break;
             case "Animals":
                 cell.setData(lblString: c.Name!, icon: "paw");
+                break;
+            case "History":
+                cell.setData(lblString: c.Name!, icon: "history");
+                break;
+            case "Geography":
+                cell.setData(lblString: c.Name!, icon: "mapmarker");
                 break;
             case "Human Body":
                 cell.setData(lblString: c.Name!, icon: "500px");
                 break;
+            case "Science":
+                cell.setData(lblString: c.Name!, icon: "flask");
+                break;
+            case "Popular culture":
+                cell.setData(lblString: c.Name!, icon: "puzzlepiece");
+                break;
+            case "Quotes":
+                cell.setData(lblString: c.Name!, icon: "language");
+                break;
+            
             default:
                 break;
             }
@@ -221,6 +219,7 @@ extension CatSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
         //
         let c = self.collectionArray[indexPath.row];
         globalCatId = c.ID!;
+        vcDelegate?.changeCategoryCollection(vc: self, catId: c.ID!);
         self.dismiss(animated: true, completion: nil);
     }
     

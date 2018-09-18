@@ -4,18 +4,6 @@
 <array>
 	<dict>
 		<key>background</key>
-		<string>none</string>
-		<key>font</key>
-		<string>Abel-Regular</string>
-		<key>ttype</key>
-		<string>A</string>
-		<key>bcolor</key>
-		<string>#92CD00</string>
-		<key>fcolor</key>
-		<string>#FFFFFF</string>
-	</dict>
-	<dict>
-		<key>background</key>
 		<string>1@1x.png</string>
 		<key>font</key>
 		<string>Esphimere-Light</string>
@@ -30,13 +18,25 @@
 		<key>background</key>
 		<string>none</string>
 		<key>font</key>
+		<string>Abel-Regular</string>
+		<key>ttype</key>
+		<string>A</string>
+		<key>bcolor</key>
+		<string>#E1CDD9</string>
+		<key>fcolor</key>
+		<string>#000000</string>
+	</dict>
+	<dict>
+		<key>background</key>
+		<string>none</string>
+		<key>font</key>
 		<string>Esphimere-Light</string>
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#CC0000</string>
+		<string>#ACB6CF</string>
 		<key>fcolor</key>
-		<string>#FFCC00</string>
+		<string>#FFFFFF</string>
 	</dict>
 	<dict>
 		<key>background</key>
@@ -58,9 +58,9 @@
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#FFCC00</string>
+		<string>#636999</string>
 		<key>fcolor</key>
-		<string>#CC0000</string>
+		<string>#FFFFFF</string>
 	</dict>
 	<dict>
 		<key>background</key>
@@ -82,15 +82,15 @@
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#D1CAB0</string>
+		<string>#A9D0D8</string>
 		<key>fcolor</key>
-		<string>#AA0078</string>
+		<string>#FFFFFF</string>
 	</dict>
 	<dict>
 		<key>background</key>
 		<string>4@1x.png</string>
 		<key>font</key>
-		<string>Goodline-Free</string>
+		<string>goodline-free</string>
 		<key>ttype</key>
 		<string>B</string>
 		<key>bcolor</key>
@@ -102,7 +102,7 @@
 		<key>background</key>
 		<string>none</string>
 		<key>font</key>
-		<string>Goodline-Free</string>
+		<string>goodline-free</string>
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
@@ -114,7 +114,7 @@
 		<key>background</key>
 		<string>5@1x.png</string>
 		<key>font</key>
-		<string>Harabara</string>
+		<string>futura_medium_italic</string>
 		<key>ttype</key>
 		<string>B</string>
 		<key>bcolor</key>
@@ -126,11 +126,11 @@
 		<key>background</key>
 		<string>none</string>
 		<key>font</key>
-		<string>Harabara</string>
+		<string>futura_medium_italic</string>
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#D3649F</string>
+		<string>#F2DB61</string>
 		<key>fcolor</key>
 		<string>#000000</string>
 	</dict>
@@ -138,19 +138,19 @@
 		<key>background</key>
 		<string>6@1x.png</string>
 		<key>font</key>
-		<string>InfiniteStroke</string>
+		<string>infinte_stroke</string>
 		<key>ttype</key>
 		<string>B</string>
 		<key>bcolor</key>
 		<string>#FAD1D0</string>
 		<key>fcolor</key>
-		<string>#C0B8C2</string>
+		<string>#35281e</string>
 	</dict>
 	<dict>
 		<key>background</key>
 		<string>none</string>
 		<key>font</key>
-		<string>InfiniteStroke</string>
+		<string>infinte_stroke</string>
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
@@ -178,9 +178,9 @@
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#CCCC99</string>
+		<string>#DCE775</string>
 		<key>fcolor</key>
-		<string>#003366</string>
+		<string>#000000</string>
 	</dict>
 	<dict>
 		<key>background</key>
@@ -192,7 +192,7 @@
 		<key>bcolor</key>
 		<string>#9E9E9E</string>
 		<key>fcolor</key>
-		<string>#FFFFFF</string>
+		<string>#000000</string>
 	</dict>
 	<dict>
 		<key>background</key>
@@ -202,7 +202,7 @@
 		<key>ttype</key>
 		<string>A</string>
 		<key>bcolor</key>
-		<string>#7A4012</string>
+		<string>#607D8B</string>
 		<key>fcolor</key>
 		<string>#DFDAC7</string>
 	</dict>

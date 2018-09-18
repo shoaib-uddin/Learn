@@ -14,7 +14,8 @@ class LearnottoApi{
     class func Login(_ UserName: String, _ Password: String, _ signup: EnSignUp, completion: @escaping (_ callback: Bool) -> Void){
         
         // Post Model Create
-        let post = "username=\(UserName)&password=\(Password)";
+        let token = CoreDataHelper.returnPushSettings().token!;
+        let post = "username=\(UserName)&password=\(Password)&APN_token=\(token)";
         
         //Network Request
         NetworkHelper.MakePostRequest("\(api.SignIn)?\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
@@ -24,7 +25,6 @@ class LearnottoApi{
             print(response);
             let sig = response[0];
             signup.Id = sig.Id;
-            
             print(signup);
             CoreDataHelper.updateUser(signup: signup, completion: { (flag) in
                 completion(true);
@@ -89,7 +89,7 @@ class LearnottoApi{
         var post = "";
         post += "userid=\(id)&";
         post += "Page=\(page)&";
-        post += "Size=100";
+        post += "Size=500";
         if(subCat != nil){
             post += "&SubCategoryId=\(subCat!)";
         }
@@ -145,10 +145,38 @@ class LearnottoApi{
         
     }
     
-    class func getCategories( completion: @escaping (_ callback: Bool, _ data: [EnDDL]?) -> Void ){
+    class func getDefaultCategories(page: Int, size: Int, completion: @escaping (_ callback: Bool, _ data: [EnDDL]?) -> Void ){
+        
+        var post = "";
+        post += "Page=\(page)&";
+        post += "Size=\(size)";
         
         //Network Request
-        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getCategories)", postData: nil, showLoader: true, success: { (successData) -> Void in
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getDefaultCategories)?\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [EnDDL] = [EnDDL](json: successData as? String);
+            print(response);
+            completion(true, response);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false, nil);
+            
+        })
+        
+        
+    }
+    
+    class func getCategories(page: Int, size: Int, completion: @escaping (_ callback: Bool, _ data: [EnDDL]?) -> Void ){
+        
+        var post = "";
+        post += "Page=\(page)&";
+        post += "Size=\(size)";
+        
+        //Network Request
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getCategories)?\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
             
             let response : [EnDDL] = [EnDDL](json: successData as? String);
             print(response);
@@ -292,6 +320,48 @@ class LearnottoApi{
         
         
     }
+    
+    class func UpdateNotificationSettings(_ start_time: Int, _ end_time: Int, repeat_count: Int, NotificationON: Int, id: String, completion: @escaping (_ callback: Bool) -> Void){
+        
+        // Post Model Create
+        var post = "";
+        post += "userid=\(id)&";
+        post += "start_time=\(start_time)&";
+        post += "end_time=\(end_time)&";
+        post += "repeat_count=\(repeat_count)&";
+        post += "NotificationON=\(NotificationON)";
+        
+        
+        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        
+        let post2 = [
+            "start_time": start_time,
+            "end_time": end_time,
+            "repeat_count": repeat_count,
+            "NotificationON": NotificationON,
+            "user_ID": id
+            ] as! [String: Any];
+        
+        //Network Request
+        print(post2);
+        NetworkHelper.MakePostRequestForArray(Url: "\(api.UpdateNotificationSettings)?\(encoded!)", postData: post2, showLoader: true, success: { (successData) -> Void in
+            
+            let response : [EnFact] = [EnFact](json: successData as? String);
+            print(response);
+            completion(true);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false);
+            
+        })
+        
+        
+    }
+    
+    
     
     
 

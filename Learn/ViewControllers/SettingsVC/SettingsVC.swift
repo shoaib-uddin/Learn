@@ -19,6 +19,7 @@ class SettingsVC : BaseVC, UniHeaderCVCDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     
     var collectionArray: [Background] = [Background]();
+    weak var vcDelegate: SettingsVCDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad();

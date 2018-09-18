@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F6E6B66F9795FAA6C9D359745AF47666'
-               BlueprintName = 'SwiftIconFont'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftIconFont.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B0F8C10A4EE9359DBE50B80AC24C3857"
+               BlueprintName = "SwiftIconFont"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "SwiftIconFont.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

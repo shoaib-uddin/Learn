@@ -17,12 +17,14 @@ var globalCatId: String!;
 var globalNotiFact: EnFact!;
 
 struct api {
-    static let SERVICEURL = "http://54.86.166.112:84/api/Default/";
+    static let SERVICEURL = "http://52.90.115.73:84/api/Default/";
     static let SignIn = "SigIn";
     static let SignUp = "SignUp";
     static let getFacts = "GetFacts";
+    static let UpdateNotificationSettings = "UpdateNotificationSettings";
     static let getMyFavouriteFacts = "GetMyFavouriteFacts";
     static let getCategories = "GetCategories";
+    static let getDefaultCategories = "GetDefaultCategories";
     static let getSubCategories = "GetSubCategories";
     static let getRandomFacts = "GetRandomFacts";
     static let myFavouriteCount = "MyFavouriteCount";

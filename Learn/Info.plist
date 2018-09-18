@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -28,11 +28,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>40</string>
 	<key>FacebookAppID</key>
 	<string>179615715986940</string>
 	<key>FacebookDisplayName</key>
 	<string>Learn</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -50,6 +52,10 @@
 	<string>Retrieve Reminders to alert the user at his selected interval to get or see new facts in the app</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>futura_medium_italic.ttf</string>
+		<string>goodline_free.ttf</string>
+		<string>new_font.ttf</string>
+		<string>infinite_stroke.ttf</string>
 		<string>abel-regular_0.ttf</string>
 		<string>Esphimere Light_0.otf</string>
 		<string>Gin Oblique.otf</string>

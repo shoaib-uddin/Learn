@@ -32,15 +32,19 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         
         currentIndex = indexPath;
         let fact = facts[indexPath.row];
+        cell.lblText.font = UIFont(name: globalSettings.font!, size: 45);
+        cell.lblText.minimumScaleFactor = 0.3;
+//
+        
         cell.setData(fact);
-        cell.lblText.font = UIFont(name: globalSettings.font!, size: cell.lblText.font.pointSize);
+//        cell.lblText.font = UIFont(name: globalSettings.font!, size: cell.lblText.font.pointSize);
         //cell.imageView.isHidden = true;
         
         
         print(indexPath.row , fact);
         self.isLikeByMe = fact.likebyme;
         self.factid = fact.ID!;
-        cell.lblText.text = fact.ID!;
+        
         
         //UtilityHelper.AlertMessage("\(fact.ID!)");
         
@@ -60,6 +64,15 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         //
         for cell in self.collectionView.visibleCells{
             let indec = self.collectionView.indexPath(for: cell);
+            
+            // for infinite scroll -- patch work
+            if(indec?.row == facts.count - 1){
+                print("last");
+                facts += facts;
+                self.collectionView.reloadData();
+            }
+            
+            
             let fact = facts[(indec?.row)!];
             DispatchQueue.main.async {
                 let g: Bool = Bool(fact.likebyme);

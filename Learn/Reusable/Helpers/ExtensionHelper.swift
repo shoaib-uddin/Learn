@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 
 
+
 extension Date {
     var localizedDescription: String {
         return description(with: .current)
@@ -31,6 +32,10 @@ extension Date {
         let sourceDate = dateFormatter.date(from: formattedDate as String);
         
         return sourceDate!;
+    }
+    
+    func adding(minutes: Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
 }
 

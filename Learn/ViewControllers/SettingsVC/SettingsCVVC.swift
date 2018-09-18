@@ -89,6 +89,10 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             
             let c = self.collectionArray[indexPath.row];
             cell.setData(c);
+            cell.lblRef.isHidden = true;
+//            cell.lblText.numberOfLines = 1;
+//            cell.lblText.adjustsFontSizeToFitWidth = true;
+//            cell.lblText.minimumScaleFactor = 0.1;
             
             
             return cell;
@@ -126,7 +130,9 @@ extension SettingsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         print(data);
         CoreDataHelper.insertSettings(data: data) { (success) in
             if(success){
+                self.vcDelegate?.updateViewBySettings();
                 self.dismiss(animated: true, completion: nil);
+                
             }
         }
         

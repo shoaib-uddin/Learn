@@ -42,7 +42,8 @@ class EnSignUp: EVObject {
     var username: String? = ""
     var Token: String? = ""
     var FacebookId: String? = ""
-    var ImageUrl: String? = ""
+    var ImageUrl: String? = "";
+    var APN_Token: String? = ""
 }
 
 class EnFact: EVObject{

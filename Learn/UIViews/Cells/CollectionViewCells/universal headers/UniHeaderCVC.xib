@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,22 +22,22 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="acq-mn-mSJ">
-                        <rect key="frame" x="0.0" y="-0.5" width="73.5" height="73"/>
+                        <rect key="frame" x="0.0" y="7" width="58" height="58"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="acq-mn-mSJ" secondAttribute="height" multiplier="1:1" id="uy6-T6-Gc2"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-mi-MXY">
-                        <rect key="frame" x="0.0" y="-0.5" width="73.5" height="73"/>
+                        <rect key="frame" x="0.0" y="7" width="58" height="58"/>
                         <connections>
                             <action selector="doClose:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Sch-6O-E1z"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STYLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUc-3m-Z6U">
-                        <rect key="frame" x="20" y="0.0" width="373" height="73"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STYLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="ZUc-3m-Z6U">
+                        <rect key="frame" x="20" y="7.5" width="373" height="58"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +46,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="acq-mn-mSJ" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="0gS-A3-uHI"/>
-                <constraint firstItem="acq-mn-mSJ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="9DB-xI-QPz"/>
+                <constraint firstItem="acq-mn-mSJ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="9DB-xI-QPz"/>
                 <constraint firstItem="Sil-mi-MXY" firstAttribute="centerX" secondItem="acq-mn-mSJ" secondAttribute="centerX" id="DEl-GV-3Fe"/>
                 <constraint firstItem="Sil-mi-MXY" firstAttribute="height" secondItem="acq-mn-mSJ" secondAttribute="height" id="Dmd-be-65c"/>
                 <constraint firstItem="ZUc-3m-Z6U" firstAttribute="centerY" secondItem="acq-mn-mSJ" secondAttribute="centerY" id="FId-jv-j27"/>

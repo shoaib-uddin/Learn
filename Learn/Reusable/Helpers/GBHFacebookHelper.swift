@@ -45,11 +45,11 @@ class GBHFacebookHelper {
                     //SignupModel.Email = fbResult["email"] as? String;
                     
                     //let rand = Int.random(range: 30..<2000); // 456 // 457 // 458 // 459 // 460 // 461 // 462
-                    let rand = 462
+                    let rand = 463
                     SignupModel.Token = "\(rand)";
-                    SignupModel.FacebookId = "fb-\(rand)";
-                    SignupModel.username = "username-\(rand)";
-                    SignupModel.Email = "username-\(rand)";
+                    SignupModel.FacebookId = fbResult["id"] as? String;
+                    SignupModel.username = (fbResult["email"] as? String)!;
+                    SignupModel.Email = fbResult["email"] as? String;
                     
                     // SignupModel.username = fbResult["email"] as? String;
                     SignupModel.Id = fbResult["id"] as? String;

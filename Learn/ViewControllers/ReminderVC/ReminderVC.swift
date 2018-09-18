@@ -24,7 +24,6 @@ class ReminderVC: BaseVC, UniHeaderCVCDelegate{
         
         self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
         collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
-        
         collectionView.register(UINib(nibName: "HeadViewCVC", bundle: nil), forCellWithReuseIdentifier: "HeadViewCVC");
         collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");
         collectionView.register(UINib(nibName: "ReminderCVC", bundle: nil), forCellWithReuseIdentifier: "ReminderCVC");

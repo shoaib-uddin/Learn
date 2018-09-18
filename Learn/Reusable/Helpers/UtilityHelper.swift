@@ -41,6 +41,20 @@ open class UtilityHelper
         
     }
     
+    class func getNegativeCurrentDateTime(date: Date) -> Date{
+        
+        let currentDate = date;
+        let CurrentTimeZone = NSTimeZone(abbreviation: "GMT")
+        let SystemTimeZone = NSTimeZone.system as NSTimeZone
+        let currentGMTOffset: Int? = CurrentTimeZone?.secondsFromGMT(for: currentDate)
+        let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
+        let interval = TimeInterval((currentGMTOffset! - (SystemGMTOffset * 2) ))
+        let TodayDate = Date(timeInterval: interval, since: currentDate)
+        print("Current time zone Today Date : \(TodayDate)")
+        return TodayDate;
+        
+    }
+    
     class func setKey(_ KeyName : String , KeyValue : String){
         let prefs:UserDefaults = UserDefaults.standard
         prefs.set(KeyValue, forKey: KeyName)
@@ -109,22 +123,22 @@ open class UtilityHelper
         
         
         
-        if ARSLineProgress.shown { return }
-        
-        ARSLineProgress.showWithPresentCompetionBlock { () -> Void in
-            print("Showed with completion block")
-        }
+//        if ARSLineProgress.shown { return }
+//
+//        ARSLineProgress.showWithPresentCompetionBlock { () -> Void in
+//            print("Showed with completion block")
+//        }
         
     }
     
     class func HideLoader() {
         
-        if !ARSLineProgress.shown { return }
-        DispatchQueue.main.async {
-            ARSLineProgress.hideWithCompletionBlock({ () -> Void in
-                print("Hidden with completion block")
-            })
-        }
+//        if !ARSLineProgress.shown { return }
+//        DispatchQueue.main.async {
+//            ARSLineProgress.hideWithCompletionBlock({ () -> Void in
+//                print("Hidden with completion block")
+//            })
+//        }
         
     }
     

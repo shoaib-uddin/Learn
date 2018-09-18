@@ -34,7 +34,7 @@ class SearchCatSideVC : BaseVC, UniHeaderCVCDelegate, TableSearchCVCDelegate{
         collectionView.dataSource = self;
         collectionView.allowsMultipleSelection = false;
         
-        LearnottoApi.getCategories { (success, data) in
+        LearnottoApi.getCategories(page: 0, size: 10000) { (success, data) in
             if(success){
                 
                 if let d = data{

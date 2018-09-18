@@ -25,7 +25,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <textInputTraits key="textInputTraits"/>
                     </searchBar>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-JN-fNc">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="TableView" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-JN-fNc">
                         <rect key="frame" x="0.0" y="56" width="380" height="462"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -36,7 +36,7 @@
             <size key="customSize" width="380" height="518"/>
             <connections>
                 <outlet property="searchBar" destination="XC8-xE-uRv" id="cwA-3F-W3Q"/>
-                <outlet property="tableView" destination="Tbe-JN-fNc" id="biL-7e-Aqc"/>
+                <outlet property="tableView" destination="Tbe-JN-fNc" id="4dz-5d-QmX"/>
             </connections>
             <point key="canvasLocation" x="17" y="57"/>
         </collectionViewCell>

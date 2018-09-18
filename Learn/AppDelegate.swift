@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import UserNotifications
-
+import Firebase
 
 
 @UIApplicationMain
@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //
+        
+        print("received in foreground");
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         //
         
@@ -30,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         case UNNotificationDefaultActionIdentifier: // App was opened from notification
             // Do something
             
-            let title = response.notification.request.content.title;
-            
-            LearnottoApi.getSingleFacts(CoreDataHelper.returnUser().id!, title.components(separatedBy: "-")[1], completion: { (success, fact) in
+            //let title = response.notification.request.content.userInfo["dictid"] as! String;
+            let fact_id = response.notification.request.content.userInfo["factId"] as! String
+            LearnottoApi.getSingleFacts(CoreDataHelper.returnUser().id!, fact_id, completion: { (success, fact) in
                 //
                 
                 
@@ -63,10 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        //
-        
-    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -96,7 +101,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self;
         
+        if #available(iOS 10, *) {
+            
+            //Notifications get posted to the function (delegate):  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void)"
+            
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                
+                guard error == nil else {
+                    //Display Error.. Handle Error.. etc..
+                    return
+                }
+                
+                if granted {
+                    //Do stuff here..
+                    
+                    //Register for RemoteNotifications. Your Remote Notifications can display alerts now :)
+                    DispatchQueue.main.async {
+                        application.registerForRemoteNotifications()
+                    }
+                }
+                else {
+                    //Handle user denying permissions..
+                }
+            }
+            
+            //Register for remote notifications.. If permission above is NOT granted, all notifications are delivered silently to AppDelegate.
+            application.registerForRemoteNotifications()
+        }
+        else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        }
+        
+        FirebaseApp.configure();
+        
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        //
+        
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString);
+        CoreDataHelper.updatePushToken(token: deviceTokenString) { (success) in
+            print("token saved \(success)")
+        }
+        print()
+        if let refreshedToken = InstanceID.instanceID().token() {
+            print("InstanceID token: \(refreshedToken)")
+        }
+        
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        //
+         print("i am not available - \(error)")
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

@@ -12,8 +12,39 @@ import Photos
 import MessageUI
 import PhotosUI
 
-extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageComposeViewControllerDelegate{
+extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCDelegate, PreSidemenuVCDelegate, MFMessageComposeViewControllerDelegate{
     
+    func selectedMenuItem(vc: PreSidemenuVC, menu: String) {
+        //
+        print(menu);
+        switch menu as! String {
+        case "REM":
+            
+            break;
+        case "CAT":
+            loadData();
+            break;
+        case "STY":
+            loadVisuals();
+            self.collectionView.reloadData();
+            break;
+        case "SRC":
+            
+            break;
+        case "FAV":
+            
+            break;
+            
+        default:
+            break;
+        }
+    }
+    
+    func changeCategoryCollection(vc: CatSidemenuVC, catId: String) {
+        //
+        print(catId);
+        loadData();
+    }
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         self.dismiss(animated: true, completion: nil)
 
@@ -95,17 +126,32 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
             view.removeFromSuperview();
             DispatchQueue.main.async {
                 //
+                
                 self.topBtnView.isHidden = true;
                 self.bottomBtnView.isHidden = true;
+                
+//                let image = UIImage(named: "\(globalSettings.fcolor!).png");
+//                let imageView = UIImageView(image: image!);
+//
+//                imageView.frame = CGRect(x: self.view.frame.maxX - 90, y: self.view.frame.maxY - 90, width: 80, height: 80);
+//                imageView.tag = 9887;
+//                self.view.addSubview(imageView);
+//
                 let snapshot = self.view.snapshot();
-                // save snapshot to PhAssets
-                self.PhotoAlbum.save(image: snapshot!, completion: { (asset) in
-                    print("saved");
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // save snapshot to PhAssets
+                    self.PhotoAlbum.save(image: snapshot!, completion: { (asset) in
+                        print("saved");
+                        
+                        
+                    });
                     
-                    
-                });
-                self.topBtnView.isHidden = false;
-                self.bottomBtnView.isHidden = false;
+//                    imageView.removeFromSuperview();
+                    self.topBtnView.isHidden = false;
+                    self.bottomBtnView.isHidden = false;
+                }
+                
             }
             
             
@@ -118,11 +164,24 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
                 //
                 self.topBtnView.isHidden = true;
                 self.bottomBtnView.isHidden = true;
+                
+//                let image = UIImage(named: "\(globalSettings.fcolor!).png");
+//                let imageView = UIImageView(image: image!);
+//
+//                imageView.frame = CGRect(x: self.view.frame.maxX - 90, y: self.view.frame.maxY - 90, width: 80, height: 80);
+//                imageView.tag = 9887;
+//                self.view.addSubview(imageView);
+//
                 let snapshot = self.view.snapshot();
                 // save snapshot to PhAssets
-                self.topBtnView.isHidden = false;
-                self.bottomBtnView.isHidden = false;
-                self.shareImage(image: snapshot!);
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    
+//                    imageView.removeFromSuperview();
+                    self.topBtnView.isHidden = false;
+                    self.bottomBtnView.isHidden = false;
+                    self.shareImage(image: snapshot!);
+                }
+                
                 
             }
             
@@ -151,6 +210,7 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
     
     // don't delete, its a delegate function
     func updateViewBySettings() {
+        loadVisuals();
         self.collectionView.reloadData();
     }
     
@@ -175,6 +235,7 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, MFMessageCompo
                     self.viewFromNotif = false;
                     self.facts.insert(self.factFromNotif!, at: 0);
                 }
+                self.loadVisuals();
                 self.collectionView.reloadData();
                 DispatchQueue.main.async {
                     let g: Bool = Bool(self.facts[0].likebyme);
