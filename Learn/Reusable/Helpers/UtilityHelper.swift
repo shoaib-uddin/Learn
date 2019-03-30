@@ -22,7 +22,7 @@ open class UtilityHelper
         let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
         let interval = TimeInterval((SystemGMTOffset - currentGMTOffset!))
         let TodayDate = Date(timeInterval: interval, since: currentDate)
-        print("Current time zone Today Date : \(TodayDate)")
+        // print("Current time zone Today Date : \(TodayDate)")
         return TodayDate;
         
     }
@@ -36,7 +36,7 @@ open class UtilityHelper
         let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
         let interval = TimeInterval((SystemGMTOffset - currentGMTOffset!))
         let TodayDate = Date(timeInterval: interval, since: currentDate)
-        print("Current time zone Today Date : \(TodayDate)")
+        // print("Current time zone Today Date : \(TodayDate)")
         return TodayDate;
         
     }
@@ -50,7 +50,7 @@ open class UtilityHelper
         let SystemGMTOffset: Int = SystemTimeZone.secondsFromGMT(for: currentDate)
         let interval = TimeInterval((currentGMTOffset! - (SystemGMTOffset * 2) ))
         let TodayDate = Date(timeInterval: interval, since: currentDate)
-        print("Current time zone Today Date : \(TodayDate)")
+        // print("Current time zone Today Date : \(TodayDate)")
         return TodayDate;
         
     }

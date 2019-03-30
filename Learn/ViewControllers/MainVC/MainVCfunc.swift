@@ -225,7 +225,8 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCD
     func getFacts(page: Int, subCat: String!){
         
         facts.removeAll();
-        LearnottoApi.getFacts(signup.id!, page, subCat: subCat) { (success, facts) in
+        guard let _id = signup.id else{ return }
+        LearnottoApi.getFacts(_id, page, subCat: subCat) { (success, facts) in
             //
             if(success){
                 

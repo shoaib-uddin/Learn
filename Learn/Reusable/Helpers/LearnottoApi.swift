@@ -14,8 +14,21 @@ class LearnottoApi{
     class func Login(_ UserName: String, _ Password: String, _ signup: EnSignUp, completion: @escaping (_ callback: Bool) -> Void){
         
         // Post Model Create
-        let token = CoreDataHelper.returnPushSettings().token!;
-        let post = "username=\(UserName)&password=\(Password)&APN_token=\(token)";
+        //let token = CoreDataHelper.returnPushSettings().token ?? "";
+        let token = "";
+        
+        var str = ""
+        signup.toDictionary().forEach { (k,v) in
+            print(k,v)
+            if let _k = k as? String, let _v = v as? String{
+                str = str + _k + "=" + _v + "&"
+            }
+            
+        }
+        
+        
+        // let post = "username=\(UserName)&password=\(Password)&APN_token=\(token)";
+        let post = str.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         
         //Network Request
         NetworkHelper.MakePostRequest("\(api.SignIn)?\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
@@ -48,30 +61,76 @@ class LearnottoApi{
     class func Signup(_ signup: EnSignUp, completion: @escaping (_ callback: Bool) -> Void){
         
         // Post Model Create
-        let post = [
-            "password": "\(signup.password!)",
-            "Id" :"\(signup.Id!)",
-            "Name" : "\(signup.Name!)",
-            "Gender" : "\(signup.Gender!)",
-            "Email": "\(signup.Email!)",
-            "username" : "\(signup.username!)",
-            "Token" : "\(signup.Token!)",
-            "FacebookId" : "\(signup.FacebookId!)",
-            "ImageUrl" : "\(signup.ImageUrl!)"
-        ] as? [String: Any];
+        
+        var post: [String: Any] = [String:Any]() ;
+        
+        if let _password = signup.password{
+            post["password"] = _password
+        }else{
+            post["password"] = settings.gPassword
+        }
+        
+        if let _id = signup.Id{
+            post["Id"] = _id
+        }else{
+            post["Id"] = "76565646765"
+        }
+        
+        if let _name = signup.Name{
+            post["Name"] = _name
+        }else{
+            post["Name"] = "Random name"
+        }
+        
+        if let _gender = signup.Gender{
+            post["Gender"] = _gender
+        }else{
+            post["Gender"] = "Male"
+        }
+        
+        if let _email = signup.Email{
+            post["Email"] = _email
+        }else{
+            post["Email"] = "testaccount@mail.com"
+        }
+        
+        if let _username = signup.username{
+            post["username"] = _username
+        }else{
+            post["username"] = ""
+        }
+        
+        if let _token = signup.Token{
+            post["Token"] = _token
+        }else{
+            post["Token"] = ""
+        }
+        
+        if let _facebookId = signup.FacebookId{
+            post["FacebookId"] = _facebookId
+        }else{
+            post["FacebookId"] = ""
+        }
+        
+        if let _imageUrl = signup.ImageUrl{
+            post["ImageUrl"] = _imageUrl
+        }else{
+            post["ImageUrl"] = ""
+        }
+        
 //        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         
         //Network Request
         NetworkHelper.MakePostRequestForArray(Url: "\(api.SignUp)", postData: post, showLoader: true, success: { (successData) -> Void in
             
-            
-            CoreDataHelper.createUser(signup: signup, completion: { (flag) in
+            let response : [EnSignUp] = [EnSignUp](json: successData as? String);
+            print(response);
+            let sig = response[0];
+            signup.Id = sig.Id;
+            print(signup);
+            CoreDataHelper.updateUser(signup: signup, completion: { (flag) in
                 completion(true);
             })
-            
-            
-            
-            
             
         },failure: { (error) -> Void in
             
@@ -85,20 +144,21 @@ class LearnottoApi{
     
     class func getFacts(_ id: String, _ page: Int, subCat: String!,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
         
+        
         // Post Model Create
         var post = "";
-        post += "userid=\(id)&";
+        post += "userid=" + id + "&";
         post += "Page=\(page)&";
         post += "Size=500";
         if(subCat != nil){
-            post += "&SubCategoryId=\(subCat!)";
+            post += "&CategoryId=\(subCat!)";
         }
         
-        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+        //let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         
         //Network Request
         print()
-        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getFacts)?\(encoded!)", postData: nil, showLoader: true, success: { (successData) -> Void in
+        NetworkHelper.MakeGetRequestForArray(Url: "\(api.getFacts)?\(post)", postData: nil, showLoader: true, success: { (successData) -> Void in
             
             let response : [EnFact] = [EnFact](json: successData as? String);
             print(response);

@@ -39,25 +39,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // Do something
             
             //let title = response.notification.request.content.userInfo["dictid"] as! String;
-            let fact_id = response.notification.request.content.userInfo["factId"] as! String
-            LearnottoApi.getSingleFacts(CoreDataHelper.returnUser().id!, fact_id, completion: { (success, fact) in
-                //
-                
-                
-                
-                if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC {
-                    if let window = self.window, let rootViewController = window.rootViewController {
-                        var currentController = rootViewController
-                        while let presentedController = currentController.presentedViewController {
-                            currentController = presentedController
+            let fact_id = response.notification.request.content.userInfo["factId"] as! String;
+            if let _user = CoreDataHelper.returnUser(), let _id = _user.id{
+            
+                LearnottoApi.getSingleFacts(_id, fact_id, completion: { (success, fact) in
+                    //
+                    
+                    
+                    
+                    if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as? MainVC {
+                        if let window = self.window, let rootViewController = window.rootViewController {
+                            var currentController = rootViewController
+                            while let presentedController = currentController.presentedViewController {
+                                currentController = presentedController
+                            }
+                            
+                            controller.viewFromNotif = true;
+                            controller.factFromNotif = fact;
+                            currentController.present(controller, animated: true, completion: nil)
                         }
-                        
-                        controller.viewFromNotif = true;
-                        controller.factFromNotif = fact;
-                        currentController.present(controller, animated: true, completion: nil)
                     }
-                }
-            })
+                })
+            
+            }
+            
             
             
 

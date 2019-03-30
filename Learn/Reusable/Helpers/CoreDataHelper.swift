@@ -27,8 +27,6 @@ class CoreDataHelper{
             completion(true);
             
         } catch {
-            
-            print("Failed")
             completion(false);
         }
         
@@ -57,8 +55,6 @@ class CoreDataHelper{
                 
             }
         } catch {
-            
-            print("Failed")
             completion(false);
         }
         
@@ -86,7 +82,7 @@ class CoreDataHelper{
             
         } catch {
             
-            print("Failed")
+            // "Failed"
         }
         
         return firstElement;
@@ -117,15 +113,11 @@ class CoreDataHelper{
                 try context.save();
                 completion(true);
             }else{
-                print("Boo");
-                
                 self.createReminderSetting(startDate: startDate, endDate: endDate, isON: isON, repeatCount: repeatCount, completion: { (success) in
                     completion(true);
                 })
             }
         } catch {
-            
-            print("Failed")
             completion(false);
         }
         
@@ -158,8 +150,6 @@ class CoreDataHelper{
             completion(true);
             
         } catch {
-            
-            print("Failed")
             completion(false);
         }
         
@@ -191,8 +181,7 @@ class CoreDataHelper{
             
             
         } catch {
-            
-            print("Failed")
+            // error
         }
         
         return firstElement;
@@ -214,24 +203,42 @@ class CoreDataHelper{
             let result = try context.fetch(request) as! [User];
             if(result.count > 0){ // Atleast one record
                 
-                result[0].email = signup.Email!;
-                result[0].gender = signup.Gender!;
-                result[0].id = signup.Id!;
-                result[0].imageUrl = signup.ImageUrl!;
-                result[0].name = signup.Name!;
-                result[0].password = signup.password!;
+                if let _email = signup.Email{
+                    result[0].email = _email;
+                }
+                
+                if let _gender = signup.Gender{
+                    result[0].gender = _gender;
+                }
+                
+                if let _id = signup.Id{
+                    result[0].id = _id;
+                }
+                
+                if let _image = signup.ImageUrl{
+                    result[0].imageUrl = _image;
+                }
+                
+                if let _name = signup.Name{
+                    result[0].name = _name;
+                }
+                
+                if let _password = signup.password{
+                    result[0].password = _password;
+                }
+                
                 
                 try context.save();
                 completion(true);
             }else{
-                print("Boo");
+                
                 self.createUser(signup: signup, completion: { (flag) in
                     completion(false);
                 })
             }
         } catch {
             
-            print("Failed")
+            // "Failed"
             completion(false);
         }
         
@@ -253,12 +260,43 @@ class CoreDataHelper{
         
         // setting Settings Global
             let newUser = NSManagedObject(entity: cSign!, insertInto: context) as! User;
-            newUser.setValue("\(signup.Email!)", forKey: "email");
-            newUser.setValue("\(signup.Gender!)", forKey: "gender");
-            newUser.setValue("\(signup.Id!)", forKey: "id");
-            newUser.setValue("\(signup.ImageUrl!)", forKey: "imageUrl");
-            newUser.setValue("\(signup.Name!)", forKey: "name");
-            newUser.setValue("\(signup.password!)", forKey: "password");
+        
+        
+        if let _email = signup.Email{
+            newUser.setValue(_email, forKey: "email");
+        }
+        
+        if let _gender = signup.Gender{
+            newUser.setValue(_gender, forKey: "gender");
+        }
+        
+        if let _id = signup.Id{
+            newUser.setValue(_id, forKey: "id");
+        }
+        
+        if let _imgUrl = signup.ImageUrl{
+            newUser.setValue(_imgUrl, forKey: "imageUrl");
+        }
+        
+        if let _name = signup.Name{
+            newUser.setValue(_name, forKey: "name");
+        }
+        
+        if let _password = signup.password{
+            newUser.setValue(_password, forKey: "password");
+        }
+        
+        if let _apntoken = signup.APN_Token{
+            newUser.setValue(_apntoken, forKey: "apn_token");
+        }
+        
+        if let _token = signup.Token{
+            newUser.setValue(_token, forKey: "token");
+        }
+        
+        if let _fbid = signup.FacebookId{
+            newUser.setValue(_fbid, forKey: "facebook_id");
+        }
         
         do{
                 
@@ -267,7 +305,6 @@ class CoreDataHelper{
             
         } catch {
             
-            print("Failed")
             completion(false);
         }
         
@@ -278,7 +315,47 @@ class CoreDataHelper{
         
     }
     
-    class func returnUser() -> User{
+    class func returnSignup() -> EnSignUp?{
+        let appDelegate =  AppDelegate.getAppDelegate();
+        let context = appDelegate.persistentContainer.viewContext;
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User");
+        request.returnsObjectsAsFaults = false
+        
+        
+        var signup = EnSignUp();
+        var firstElement: User!;
+        
+        do {
+            let result = try context.fetch(request) as! [User]
+            
+            if(result.count > 0){ // Atleast one record
+                firstElement = result.first as! User
+                
+                signup.Email = firstElement.email
+                signup.Gender = firstElement.gender
+                signup.Id = firstElement.id
+                signup.ImageUrl = firstElement.imageUrl
+                signup.Name = firstElement.name
+                signup.password = firstElement.password
+                signup.APN_Token = firstElement.apn_token
+                signup.Token = firstElement.token
+                signup.FacebookId = firstElement.facebook_id
+            }else{
+                return nil
+            }
+            
+            
+            
+        } catch {
+            
+            return nil;
+            
+        }
+        
+        return signup;
+    }
+    
+    class func returnUser() -> User?{
         
         let appDelegate =  AppDelegate.getAppDelegate();
         let context = appDelegate.persistentContainer.viewContext;
@@ -295,7 +372,8 @@ class CoreDataHelper{
             
         } catch {
             
-            print("Failed")
+            return nil;
+            
         }
         
         return firstElement;
@@ -332,7 +410,6 @@ class CoreDataHelper{
             
         } catch {
             
-            print("Failed")
             completion(false);
         }
         
@@ -340,7 +417,6 @@ class CoreDataHelper{
             try context.save();
             completion(true);
         } catch {
-            print("Failed saving")
             completion(false);
         }
         
@@ -361,7 +437,7 @@ class CoreDataHelper{
                     //
                     AssociatedPaths.append(url.path);
                     self.copyImageToDocFolder(index: index + 1, completion: { (urls) in
-                        print(urls);
+                        // print(urls);
                     })
                     
                 })
@@ -391,8 +467,7 @@ class CoreDataHelper{
             firstElement = result.first as! Settings
             
         } catch {
-            
-            print("Failed")
+            //
         }
         
         return firstElement;
@@ -408,11 +483,9 @@ class CoreDataHelper{
         for family: String in UIFont.familyNames
         {
             
-            print("\(family)")
             for names: String in UIFont.fontNames(forFamilyName: family)
             {
                 
-                print("== \(names)");
                 var font = Font();
                 font.family = family;
                 font.type = names;
@@ -481,13 +554,13 @@ class CoreDataHelper{
             
             for data in result as! [NSManagedObject] {
                 let v = data.value(forKey: "name") as! String;
-                print(v)
+                
                 cat.append(v);
             }
             
         } catch {
             
-            print("Failed")
+            //
         }
         
         return cat;
@@ -510,7 +583,7 @@ class CoreDataHelper{
             
         } catch {
             
-            print("Failed")
+            //
         }
         
         return cat;
@@ -534,7 +607,7 @@ class CoreDataHelper{
             facts = result as! [Facts];
         } catch {
             
-            print("Failed")
+            //
         }
 
         completion(facts);
@@ -561,7 +634,7 @@ class CoreDataHelper{
         do {
             try context.save();
         } catch {
-            print("Failed saving")
+            //
         }
         
         
@@ -628,7 +701,7 @@ class CoreDataHelper{
             try context.save();
             UtilityHelper.setBoolKey(localv.isInitializeCategories, KeyValue: true);
         } catch {
-            print("Failed saving")
+            //
         }
         
     }

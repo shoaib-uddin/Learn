@@ -35,15 +35,15 @@ public class ResponseObject: EVObject {
 
 class EnSignUp: EVObject {
     var password: String? = settings.gPassword;
-    var Id: String? = ""
-    var Name: String? = ""
-    var Gender: String? = ""
-    var Email: String? = ""
-    var username: String? = ""
-    var Token: String? = ""
-    var FacebookId: String? = ""
-    var ImageUrl: String? = "";
-    var APN_Token: String? = ""
+    var Id: String! = ""
+    var Name: String! = ""
+    var Gender: String! = "Male"
+    var Email: String! = ""
+    var username: String! = ""
+    var Token: String! = ""
+    var FacebookId: String! = ""
+    var ImageUrl: String! = "";
+    var APN_Token: String! = ""
 }
 
 class EnFact: EVObject{

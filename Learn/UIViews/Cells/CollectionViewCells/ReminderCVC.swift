@@ -40,25 +40,17 @@ class ReminderCVC: UICollectionViewCell {
     
     fileprivate func removeAllPendingNotifications(){
         
-//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
-//            var identifiers: [String] = []
-//            for notification:UNNotificationRequest in notificationRequests {
-//                if notification.identifier.contains("learn") {
-//                    identifiers.append(notification.identifier)
-//                }
-//            }
-//            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
-//        }
-        
         var start_time = hhmmss(self.startTimeDp.date);
         var end_time = hhmmss(self.endTimeDp.date);
         
-        let userModel = CoreDataHelper.returnUser();
-        LearnottoApi.UpdateNotificationSettings(start_time, end_time, repeat_count: getRepeatCount(), NotificationON: 0, id: userModel.id!) { (success) in
-            //
-            print(success);
-            print(success);
+        if let _user = CoreDataHelper.returnUser(), let _id = _user.id{
+            LearnottoApi.UpdateNotificationSettings(start_time, end_time, repeat_count: getRepeatCount(), NotificationON: 0, id: _id) { (success) in
+                //
+                print(success);
+                print(success);
+            }
         }
+        
         
         
         
@@ -237,11 +229,16 @@ class ReminderCVC: UICollectionViewCell {
             var start_time = hhmmss(startTimeDp.date);
             var end_time = hhmmss(endTimeDp.date);
             
-            LearnottoApi.UpdateNotificationSettings(start_time, end_time, repeat_count: getRepeatCount(), NotificationON: 1, id: userModel.id!) { (success) in
-                //
-                print(success);
-                print(success);
+            if let _user = CoreDataHelper.returnUser(), let _id = _user.id{
+                
+                LearnottoApi.UpdateNotificationSettings(start_time, end_time, repeat_count: getRepeatCount(), NotificationON: 1, id: _id) { (success) in
+                    //
+                    print(success);
+                    print(success);
+                }
+            
             }
+            
             
             
             
@@ -630,7 +627,7 @@ class ReminderCVC: UICollectionViewCell {
         
         //let ndate = UtilityHelper.getCurrentDateTime(date: date)
         
-        let ndate = UtilityHelper.getCurrentDateTime(date: date)
+        let ndate = self.makeDate(pdate: date)
         let ss = ndate.timeIntervalSinceNow
         print(ss);
         return Int(ss);
@@ -650,6 +647,22 @@ class ReminderCVC: UICollectionViewCell {
 //        return "\(hh ?? 00):\(mm ?? 00):\(ss ?? 00)";
 //
         
+    }
+    
+    func makeDate(pdate: Date) -> Date {
+        
+        let calendar = Calendar.current;
+        let date = Date();
+        
+        let components = NSDateComponents();
+        components.year = calendar.component(.year, from: date);
+        components.month = calendar.component(.month, from: date);
+        components.day = calendar.component(.day, from: date);
+        components.hour = calendar.component(.hour, from: pdate);
+        components.minute = calendar.component(.minute, from: pdate);
+        components.second = calendar.component(.second, from: pdate);
+        let ndate = calendar.date(from: components as DateComponents)
+        return ndate! as Date
     }
     
     

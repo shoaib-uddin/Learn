@@ -14,6 +14,8 @@ class LoginVC: UIViewController{
     
     
     
+    @IBOutlet weak var btnlogin: UIButton!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var loginView: UIView!
     
     
@@ -24,33 +26,38 @@ class LoginVC: UIViewController{
         
         self.view.layoutIfNeeded();
         
-        GBHFacebookHelper.shared.checklogin { (success, error) in
-            if(success){
-                self.tryLogin();
+        Losding(true)
+        if let _user = CoreDataHelper.returnSignup(){
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                self.Losding(false)
+                PageRedirect.redirectToMainPage(self, signup: _user)
             }
+            
+        }else{
+            Losding(false)
         }
-        
-        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.navigationController?.isNavigationBarHidden = true;
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        //
         self.navigationController?.isNavigationBarHidden = false;
     }
     
     @IBAction func doLogin(_ sender: UIButton) {
         
-        // UtilityHelper.ShowLoader();
+        
+        Losding(true);
         
         GBHFacebookHelper.shared.login(controller: nil) { (success1, prompt) in
             if(success1){
                 self.tryLogin();
+            }else{
+                self.Losding(false)
             }
         }
         
@@ -63,38 +70,38 @@ class LoginVC: UIViewController{
             //
             if(success2){
                 
-                let email = signup?.Email;
-                let password = settings.gPassword;
-                
-                LearnottoApi.Login(email!, password, signup!, completion: { (success3) in
-                    //
-                    if(success3){
-                            PageRedirect.redirectToMainPage(self, signup: signup!);
-                    }else{
-                        
-                        LearnottoApi.Signup(signup!, completion: { (success4) in
-                            //
-                            if(success4){
-                                LearnottoApi.Login(email!, password, signup!, completion: { (success5) in
-                                    //
-                                    if(success5){
-                                            PageRedirect.redirectToMainPage(self, signup: signup!);
-                                    }else{
-                                        UtilityHelper.AlertMessage(Errors.dbLoginFailed);
-                                    }
-                                })
-                            }else{
-                                UtilityHelper.AlertMessage(Errors.dbSignupFailed);
-                            }
-                        })
-                    }
+                guard let _signup = signup else { self.Losding(false);  return }
+                LearnottoApi.Signup(_signup, completion: { (success4) in
+                        //
+                        if(success4){
+                            self.Losding(true)
+                            PageRedirect.redirectToMainPage(self, signup: _signup);
+                        }else{
+                            self.Losding(false)
+                            UtilityHelper.AlertMessage(Errors.dbSignupFailed);
+                        }
                 })
+                
             }else{
+                self.Losding(false)
                 UtilityHelper.AlertMessage(Errors.FbLoginFailed)
             }
             
         });
         
+        
+    }
+    
+    
+    func Losding(_ flag: Bool){
+        
+        loader.isHidden = !flag;
+        if(flag){
+            loader.startAnimating();
+        }else{
+            loader.stopAnimating();
+        }
+        btnlogin.isHidden = flag;
         
     }
     

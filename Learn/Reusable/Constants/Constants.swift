@@ -17,7 +17,9 @@ var globalCatId: String!;
 var globalNotiFact: EnFact!;
 
 struct api {
-    static let SERVICEURL = "http://52.90.115.73:84/api/Default/";
+    //static let SERVICEURL = "http://52.90.115.73:84/api/Default/";
+    static let SERVICEURL = "http://learnotto.pixtechcreation.com/api/Default/";
+    
     static let SignIn = "SigIn";
     static let SignUp = "SignUp";
     static let getFacts = "GetFacts";

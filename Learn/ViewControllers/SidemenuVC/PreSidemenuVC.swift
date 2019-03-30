@@ -18,7 +18,6 @@ import StoreKit
 class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, SettingsVCDelegate{
     func updateViewBySettings() {
         //
-    
         DispatchQueue.main.async {
             self.vcDelegate?.selectedMenuItem(vc: self, menu: "STY");
             self.dismiss(animated: true, completion: nil)
@@ -28,8 +27,13 @@ class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, Settin
     
     func changeCategoryCollection(vc: CatSidemenuVC, catId: String) {
         //
+        DispatchQueue.main.async {
+            self.dismiss(animated: true) {
+                self.vcDelegate?.selectedMenuItem(vc: self, menu: "CAT");
+            }
+        }
         
-        vcDelegate?.selectedMenuItem(vc: self, menu: "CAT");
+        
     }
     
     
@@ -150,15 +154,20 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
                 
                 if(( data["Name"] as! String).contains("Favor")){
                     
-                    
-                    LearnottoApi.getFavFactCount(CoreDataHelper.returnUser().id!, completion: { (success, fav) in
-                        //
-                        if let c = (fav?.count! as? Int){
-                            cell.lblHeading.text = cell.lblHeading.text! + "  (\(c))"
-                            self.ffavCount = c;
-                        }
+                    if let _user = CoreDataHelper.returnUser(), let _id = _user.id{
                         
-                    })
+                        LearnottoApi.getFavFactCount(_id, completion: { (success, fav) in
+                            //
+                            if let c = (fav?.count! as? Int){
+                                cell.lblHeading.text = cell.lblHeading.text! + "  (\(c))"
+                                self.ffavCount = c;
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                    
                     
                 }
                 
@@ -239,7 +248,7 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
                 PageRedirect.redirectToReminderPage(self);
                 break;
             case "CAT":
-                PageRedirect.redirectToCatSidemenuPage(self);
+                PageRedirect.redirectToCatSidemenuPage(self, true);
                 break;
             case "STY":
                 PageRedirect.redirectToSettingsPage(self);

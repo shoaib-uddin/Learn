@@ -33,7 +33,7 @@ class GBHFacebookHelper {
         // Start Facebook Request
         _ = graphRequest?.start { _, result, error in
             if error != nil {
-                print(error.debugDescription)
+                // print(error.debugDescription)
                 completion(false, nil);
                 return
             } else {
@@ -55,11 +55,16 @@ class GBHFacebookHelper {
                     SignupModel.Id = fbResult["id"] as? String;
                     SignupModel.Gender = fbResult["gender"] as? String;
                     SignupModel.Name = fbResult["name"] as? String;
-                    var temp = fbResult["picture"] as? [String: AnyObject];
-                    var data = temp!["data"] as? [String: AnyObject];
-                    SignupModel.ImageUrl = data!["url"] as? String;
+                    if var temp = fbResult["picture"] as? [String: AnyObject]{
+                        if var data = temp["data"] as? [String: AnyObject]{
+                            SignupModel.ImageUrl = data["url"] as? String;
+                        };
+                    }
                     
-                    print(SignupModel);
+                    
+                    
+                    
+                    // print(SignupModel);
                     completion(true, SignupModel);
                     
                     
@@ -77,6 +82,7 @@ class GBHFacebookHelper {
     fileprivate func logout() {
         FBSDKLoginManager().logOut()
     }
+    
 
     // MARK: - Login
 
@@ -96,8 +102,8 @@ class GBHFacebookHelper {
                                from: controller) { (response, error) in
                                 if error != nil {
                                     // Failed
-                                    print("Failed to login")
-                                    print(error.debugDescription)
+                                   //  print("Failed to login")
+                                   //  print(error.debugDescription)
                                     completion(false, .loginFailed)
                                 } else {
                                     // Success
@@ -107,7 +113,7 @@ class GBHFacebookHelper {
                                     } else {
                                         if response?.token != nil {
                                             
-                                            print(response?.token ?? "TOKEN == Random");
+//                                            print(response?.token ?? "TOKEN == Random");
                                             // Check "user_photos" permission statut
                                             if let permission = response?.declinedPermissions {
                                                 if permission.contains("email") {
@@ -120,12 +126,12 @@ class GBHFacebookHelper {
                                                 }
                                             } else {
                                                 // Failed to get permission 
-                                                print("Failed to get permission...")
+//                                                print("Failed to get permission...")
                                                 completion(false, .loginFailed)
                                             }
                                         } else {
                                             // Failed
-                                            print("Failed to get token")
+//                                            print("Failed to get token")
                                             completion(false, .loginFailed)
                                         }
                                     }
@@ -136,12 +142,12 @@ class GBHFacebookHelper {
             if FBSDKAccessToken.current().permissions.contains("email") {
                 // User_photos's permission ok
                 
-                print(FBSDKAccessToken.current());
+//                print(FBSDKAccessToken.current());
                 completion(true, nil)
             } else {
                 // User_photos's permission denied
                 self.logout() // Flush fb session
-                print("Permission for user's photos are denied")
+//                print("Permission for user's photos are denied")
                 completion(false, .permissionDenied)
             }
         }
@@ -181,7 +187,7 @@ class GBHFacebookHelper {
         
         if FBSDKAccessToken.current() == nil {
             // No token, we need to login
-            print("Already logged out");
+//            print("Already logged out");
         } else {
             self.logout();
         }

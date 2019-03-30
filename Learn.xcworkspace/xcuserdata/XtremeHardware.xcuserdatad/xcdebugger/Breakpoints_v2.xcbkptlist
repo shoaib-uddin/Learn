@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Learn/UIViews/Cells/CollectionViewCells/ReminderCVC.swift"
-            timestampString = "558941403.616199"
+            filePath = "Learn/Reusable/Helpers/CoreDataHelper.swift"
+            timestampString = "575663667.783204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
-            landmarkName = "hhmmss(_:)"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "updateUser(signup:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

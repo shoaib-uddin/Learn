@@ -25,13 +25,19 @@ class FavCVC: UICollectionViewCell {
         collectionView.allowsMultipleSelection = false;
         
         facts.removeAll();
-        LearnottoApi.getFavFacts(CoreDataHelper.returnUser().id!, 0, size: 5000) { (success, facts) in
-            //
-            if(success){
-                self.facts = facts!;
-                self.collectionView.reloadData();
+        
+        if let _user = CoreDataHelper.returnUser(),      let _id = _user.id{
+            
+            LearnottoApi.getFavFacts(_id, 0, size: 5000) { (success, facts) in
+                //
+                if(success){
+                    self.facts = facts!;
+                    self.collectionView.reloadData();
+                }
             }
+            
         }
+        
             
             
         

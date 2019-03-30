@@ -20,6 +20,15 @@ class PageRedirect {
         
     }
     
+    class func redirectToLoginPage(_ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        // destination.signup = signup;
+        viewController.navigationController?.pushViewController(destination, animated: true);
+        
+    }
+    
     class func redirectToMainPage(_ viewController: UIViewController, signup: EnSignUp){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
@@ -47,7 +56,7 @@ class PageRedirect {
         
     }
     
-    class func redirectToCatSidemenuPage(_ viewController: UIViewController){
+    class func redirectToCatSidemenuPage(_ viewController: UIViewController, _ sidemenu: Bool = false){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
         let destination = storyboard.instantiateViewController(withIdentifier: "CatSidemenuVC") as! CatSidemenuVC

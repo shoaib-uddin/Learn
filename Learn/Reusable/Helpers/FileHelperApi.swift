@@ -21,7 +21,7 @@ class FileApi{
                 try fileManager.removeItem(atPath: tempFolderPath + filePath)
             }
         } catch {
-            print("Could not clear temp folder: \(error)")
+            // print("Could not clear temp folder: \(error)")
         }
     }
     
@@ -42,10 +42,10 @@ class FileApi{
                     do {
                         fileSize = try filemanager.attributesOfItem(atPath: url.path)[FileAttributeKey.size]! as! Int;
                     } catch {
-                        print(error.localizedDescription)
+                        // print(error.localizedDescription)
                     }
                     
-                    print(size);
+                    // print(size);
                     completion(url, size, fileSize);
                     
                 }
@@ -89,7 +89,7 @@ class FileApi{
         let documentsDirectory =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fullImgNm: URL = documentsDirectory.appendingPathComponent(name)
         
-        print(fullImgNm);
+        // print(fullImgNm);
         
         if let image = UIImage.init(contentsOfFile: fullImgNm.path){
             completion(image);
@@ -131,7 +131,7 @@ class FileApi{
             do {
                 try FileManager.default.createDirectory(at: URL(fileURLWithPath: path), withIntermediateDirectories: false, attributes: nil)
             } catch {
-                print("Error creating images folder in Doc dir: \(error.localizedDescription)")
+                // print("Error creating images folder in Doc dir: \(error.localizedDescription)")
             }
         }
         
@@ -143,7 +143,7 @@ class FileApi{
             successblock(path)
         } catch {
             successblock(nil)
-            print("Error while caching the data in Doc folder.")
+            // print("Error while caching the data in Doc folder.")
         }
         
         

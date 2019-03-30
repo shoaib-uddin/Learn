@@ -46,7 +46,7 @@ extension String {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]
             } catch let error as NSError {
-                print(error)
+//                print(error)
             }
         }
         return nil
@@ -115,7 +115,7 @@ extension NSArray
             return jsonString;
             // here "jsonData" is the dictionary encoded in JSON data
         } catch let error as NSError {
-            print(error)
+//            print(error)
         }
         return "";
     }
