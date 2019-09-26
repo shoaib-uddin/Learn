@@ -6,9 +6,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - EVReflection (5.5.2):
-    - EVReflection/Core (= 5.5.2)
-  - EVReflection/Core (5.5.2)
+  - EVReflection (5.10.1):
+    - EVReflection/Core (= 5.10.1)
+  - EVReflection/Core (5.10.1)
   - FBSDKCoreKit (4.30.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.30.0):
@@ -42,7 +42,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
-  - EVReflection
+  - EVReflection (~> 5)
   - FBSDKLoginKit
   - Firebase/Core
   - IBAnimatable
@@ -75,7 +75,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  EVReflection: d41e17998e6fe326bef86b836e980a8010afa5e4
+  EVReflection: 8124de482178d34ccd56473e16cd95990f9a1113
   FBSDKCoreKit: 7c4bba2877781a131ab5d54c0a78c405d4307b62
   FBSDKLoginKit: fe7a7e82373dc5daad92e1623219e86224ab1fb1
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
@@ -91,6 +91,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   SwiftIconFont: ebd8ee931a1e7072b61a87aec53f3a0786ef7f2b
 
-PODFILE CHECKSUM: ca4cd3cb998c8f965d44f7f5a43cb55a4d665109
+PODFILE CHECKSUM: b7f097169234d4a9e3da58789701590b17c37e19
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

@@ -11,7 +11,6 @@ target 'Learn' do
 pod 'IBAnimatable'
 pod 'FBSDKLoginKit'
 pod 'Alamofire', '~> 4.0'
-pod 'EVReflection'
 pod 'ReachabilitySwift'
 #pod 'MBProgressHUD'
 pod 'LKAlertController'
@@ -21,6 +20,8 @@ pod 'IQKeyboardManagerSwift'
 pod 'SwiftIconFont'
 pod 'LocalNotificationHelper', '~> 2'
 pod 'Firebase/Core'
+pod 'EVReflection', '~> 5'
+
 
 
 

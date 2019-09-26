@@ -63,12 +63,12 @@ class LoginVC: UIViewController{
         
     }
     
-    fileprivate func tryLogin(){
+    fileprivate func tryLogin() {
         
         
         GBHFacebookHelper.shared.fbDataRequest(completion: { (success2, signup) in
             //
-            if(success2){
+            if (success2) {
                 
                 guard let _signup = signup else { self.Losding(false);  return }
                 LearnottoApi.Signup(_signup, completion: { (success4) in
