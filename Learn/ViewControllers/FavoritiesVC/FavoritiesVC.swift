@@ -12,13 +12,14 @@ import UIKit
 class FavoritiesVC: BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var globalImageView: UIImageView!;
     var FavCount: Int = 0;
     var collectionArray: [[String: Any]] = [[String: Any]]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+        loadBackground(vc: self, globalImageView: globalImageView);
         collectionView.register(UINib(nibName: "HeadViewCVC", bundle: nil), forCellWithReuseIdentifier: "HeadViewCVC");
         collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");
         collectionView.register(UINib(nibName: "FavCVC", bundle: nil), forCellWithReuseIdentifier: "FavCVC");

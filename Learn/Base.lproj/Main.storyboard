@@ -307,6 +307,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="7sb-Su-9hI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-S6-bGq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -322,15 +325,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hwe-S6-bGq" firstAttribute="centerY" secondItem="OLX-zC-HnM" secondAttribute="centerY" id="05V-9i-LSe"/>
+                            <constraint firstItem="7sb-Su-9hI" firstAttribute="centerX" secondItem="OLX-zC-HnM" secondAttribute="centerX" id="48A-UT-ivo"/>
                             <constraint firstItem="hwe-S6-bGq" firstAttribute="centerX" secondItem="2PO-Zc-KcR" secondAttribute="centerX" id="AyI-kv-jSs"/>
+                            <constraint firstItem="7sb-Su-9hI" firstAttribute="centerY" secondItem="OLX-zC-HnM" secondAttribute="centerY" id="F8O-mM-8Lh"/>
                             <constraint firstItem="hwe-S6-bGq" firstAttribute="height" secondItem="OLX-zC-HnM" secondAttribute="height" id="VN1-Ry-ots"/>
                             <constraint firstItem="hwe-S6-bGq" firstAttribute="width" secondItem="OLX-zC-HnM" secondAttribute="width" id="elY-WC-5Ct"/>
+                            <constraint firstItem="7sb-Su-9hI" firstAttribute="width" secondItem="OLX-zC-HnM" secondAttribute="width" id="q9E-qa-2M8"/>
+                            <constraint firstItem="7sb-Su-9hI" firstAttribute="height" secondItem="OLX-zC-HnM" secondAttribute="height" id="qSK-Ra-CTJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2PO-Zc-KcR"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="hwe-S6-bGq" id="jlo-sv-vOP"/>
+                        <outlet property="globalImageView" destination="7sb-Su-9hI" id="Xdw-rp-BGG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtO-fZ-yqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -345,6 +353,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-qS-ZiG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="T7E-iG-O27">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -361,13 +372,18 @@
                         <constraints>
                             <constraint firstItem="T7E-iG-O27" firstAttribute="centerY" secondItem="7WX-4D-Xbx" secondAttribute="centerY" id="07z-YR-zJx"/>
                             <constraint firstItem="T7E-iG-O27" firstAttribute="centerX" secondItem="0SZ-Pk-4pb" secondAttribute="centerX" id="5ah-6e-VHD"/>
+                            <constraint firstItem="7y0-qS-ZiG" firstAttribute="centerX" secondItem="7WX-4D-Xbx" secondAttribute="centerX" id="MNT-pn-qTd"/>
+                            <constraint firstItem="7y0-qS-ZiG" firstAttribute="centerY" secondItem="7WX-4D-Xbx" secondAttribute="centerY" id="NaE-QJ-RR9"/>
                             <constraint firstItem="T7E-iG-O27" firstAttribute="width" secondItem="7WX-4D-Xbx" secondAttribute="width" id="War-50-fA5"/>
                             <constraint firstItem="T7E-iG-O27" firstAttribute="height" secondItem="7WX-4D-Xbx" secondAttribute="height" id="flX-D6-Lqq"/>
+                            <constraint firstItem="7y0-qS-ZiG" firstAttribute="width" secondItem="7WX-4D-Xbx" secondAttribute="width" id="hio-Hb-Vna"/>
+                            <constraint firstItem="7y0-qS-ZiG" firstAttribute="height" secondItem="7WX-4D-Xbx" secondAttribute="height" id="jhC-t6-VTY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0SZ-Pk-4pb"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="T7E-iG-O27" id="ctP-xW-FC7"/>
+                        <outlet property="globalImageView" destination="7y0-qS-ZiG" id="ehQ-VP-qwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6we-0l-hGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,6 +436,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="AgZ-Ob-Kjj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mn1-ty-cF2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -436,13 +455,18 @@
                         <constraints>
                             <constraint firstItem="Mn1-ty-cF2" firstAttribute="centerY" secondItem="xTf-vR-16Z" secondAttribute="centerY" id="86I-vY-iGM"/>
                             <constraint firstItem="Mn1-ty-cF2" firstAttribute="centerX" secondItem="Qaa-zY-mOW" secondAttribute="centerX" id="HWX-Za-fiG"/>
+                            <constraint firstItem="AgZ-Ob-Kjj" firstAttribute="height" secondItem="xTf-vR-16Z" secondAttribute="height" id="PkH-b8-PH1"/>
+                            <constraint firstItem="AgZ-Ob-Kjj" firstAttribute="width" secondItem="xTf-vR-16Z" secondAttribute="width" id="UMU-jl-IJJ"/>
                             <constraint firstItem="Mn1-ty-cF2" firstAttribute="width" secondItem="xTf-vR-16Z" secondAttribute="width" id="e6o-Bl-pzp"/>
                             <constraint firstItem="Mn1-ty-cF2" firstAttribute="height" secondItem="xTf-vR-16Z" secondAttribute="height" id="em2-nT-Du6"/>
+                            <constraint firstItem="AgZ-Ob-Kjj" firstAttribute="centerX" secondItem="xTf-vR-16Z" secondAttribute="centerX" id="ndN-XK-xXe"/>
+                            <constraint firstItem="AgZ-Ob-Kjj" firstAttribute="centerY" secondItem="xTf-vR-16Z" secondAttribute="centerY" id="s8G-gJ-bJt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qaa-zY-mOW"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Mn1-ty-cF2" id="vZB-jl-a2n"/>
+                        <outlet property="globalImageView" destination="AgZ-Ob-Kjj" id="uRC-R5-FV2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92A-nr-9Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -457,6 +481,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="AKu-g1-erV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZxU-ZM-ayV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -473,13 +500,18 @@
                         <constraints>
                             <constraint firstItem="ZxU-ZM-ayV" firstAttribute="centerX" secondItem="ybY-1D-074" secondAttribute="centerX" id="E5v-p4-YPX"/>
                             <constraint firstItem="ZxU-ZM-ayV" firstAttribute="height" secondItem="zhU-3N-YKd" secondAttribute="height" id="EhQ-yi-ap7"/>
+                            <constraint firstItem="AKu-g1-erV" firstAttribute="width" secondItem="zhU-3N-YKd" secondAttribute="width" id="Rrn-vW-gKH"/>
                             <constraint firstItem="ZxU-ZM-ayV" firstAttribute="width" secondItem="zhU-3N-YKd" secondAttribute="width" id="ZmN-4o-uli"/>
+                            <constraint firstItem="AKu-g1-erV" firstAttribute="height" secondItem="zhU-3N-YKd" secondAttribute="height" id="cpw-zr-daS"/>
                             <constraint firstItem="ZxU-ZM-ayV" firstAttribute="centerY" secondItem="zhU-3N-YKd" secondAttribute="centerY" id="jRa-th-cKD"/>
+                            <constraint firstItem="AKu-g1-erV" firstAttribute="centerY" secondItem="zhU-3N-YKd" secondAttribute="centerY" id="r4V-5b-JXE"/>
+                            <constraint firstItem="AKu-g1-erV" firstAttribute="centerX" secondItem="zhU-3N-YKd" secondAttribute="centerX" id="s5q-Zp-B91"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ybY-1D-074"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="ZxU-ZM-ayV" id="noT-3M-P7R"/>
+                        <outlet property="globalImageView" destination="AKu-g1-erV" id="FJG-CW-k8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEA-oi-0MP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -494,6 +526,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="EnP-cO-3Rh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pEk-dM-JFC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -509,14 +544,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pEk-dM-JFC" firstAttribute="centerX" secondItem="cSa-Un-rDV" secondAttribute="centerX" id="8pa-Sl-Dys"/>
+                            <constraint firstItem="EnP-cO-3Rh" firstAttribute="width" secondItem="Cyk-3l-o5O" secondAttribute="width" id="BMj-6S-9av"/>
+                            <constraint firstItem="EnP-cO-3Rh" firstAttribute="centerY" secondItem="Cyk-3l-o5O" secondAttribute="centerY" id="KWh-ru-By3"/>
                             <constraint firstItem="pEk-dM-JFC" firstAttribute="centerY" secondItem="Cyk-3l-o5O" secondAttribute="centerY" id="e8Y-xa-K7N"/>
                             <constraint firstItem="pEk-dM-JFC" firstAttribute="width" secondItem="Cyk-3l-o5O" secondAttribute="width" id="idE-xt-jgM"/>
+                            <constraint firstItem="EnP-cO-3Rh" firstAttribute="centerX" secondItem="Cyk-3l-o5O" secondAttribute="centerX" id="sBE-F9-qNC"/>
+                            <constraint firstItem="EnP-cO-3Rh" firstAttribute="height" secondItem="Cyk-3l-o5O" secondAttribute="height" id="uI8-tu-yuY"/>
                             <constraint firstItem="pEk-dM-JFC" firstAttribute="height" secondItem="Cyk-3l-o5O" secondAttribute="height" id="ywL-hT-Yys"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cSa-Un-rDV"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pEk-dM-JFC" id="E85-Mz-fXs"/>
+                        <outlet property="globalImageView" destination="EnP-cO-3Rh" id="V3r-sr-cVX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j15-xR-EGj" userLabel="First Responder" sceneMemberID="firstResponder"/>

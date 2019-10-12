@@ -202,15 +202,17 @@ class MainVC: BaseVC{
         let clr = StyleHelper.colorWithHexString(globalSettings.fcolor!);
         UITextView.appearance().linkTextAttributes = [ NSAttributedStringKey.foregroundColor.rawValue: clr ];
         
-        if(globalSettings.ttype == "A"){
-            self.globalImageView.image = nil;
-        }else{
-            self.globalImageView.image = nil;
-            FileApi.retrieveImageFromDocFolder(name: globalSettings.background!) { (image) in
-                self.globalImageView.image = image
-            }
-        }
-        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+        loadBackground(vc: self, globalImageView: self.globalImageView )
+        
+//        if(globalSettings.ttype == "A"){
+//            self.globalImageView.image = nil;
+//        }else{
+//            self.globalImageView.image = nil;
+//            FileApi.retrieveImageFromDocFolder(name: globalSettings.background!) { (image) in
+//                self.globalImageView.image = image
+//            }
+//        }
+//        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
         
     }
     

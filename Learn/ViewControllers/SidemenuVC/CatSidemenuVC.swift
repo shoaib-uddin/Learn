@@ -17,14 +17,14 @@ import UIKit
 class CatSidemenuVC : BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var globalImageView: UIImageView!
     var collectionArray: [EnDDL] = [EnDDL]();
     weak var vcDelegate: CatSidemenuVCDelegate?;
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+        loadBackground(vc: self, globalImageView: globalImageView);
 
 //        let returnSettings: Settings = CoreDataHelper.returnSettings();
 //        print(returnSettings.background ?? "Error getting settings background");

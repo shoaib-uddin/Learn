@@ -14,6 +14,7 @@ import UserNotifications
 class ReminderVC: BaseVC, UniHeaderCVCDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var globalImageView: UIImageView!
     
     var collectionArray: [[String: Any]] = [[String: Any]]();
     let center = UNUserNotificationCenter.current();
@@ -22,7 +23,8 @@ class ReminderVC: BaseVC, UniHeaderCVCDelegate{
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+        loadBackground(vc: self, globalImageView: self.globalImageView)
+        
         collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
         collectionView.register(UINib(nibName: "HeadViewCVC", bundle: nil), forCellWithReuseIdentifier: "HeadViewCVC");
         collectionView.register(UINib(nibName: "UniHeaderCVC", bundle: nil), forCellWithReuseIdentifier: "UniHeaderCVC");

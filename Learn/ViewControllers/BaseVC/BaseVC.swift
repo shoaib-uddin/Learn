@@ -40,6 +40,20 @@ class BaseVC: UIViewController{
 
 
     }
+    
+    func loadBackground(vc: UIViewController, globalImageView: UIImageView ){
+        
+        if(globalSettings.ttype == "A"){
+            globalImageView.image = nil;
+        }else{
+            globalImageView.image = nil;
+            FileApi.retrieveImageFromDocFolder(name: globalSettings.background!) { (image) in
+                globalImageView.image = image
+            }
+        }
+        vc.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
+    
+    }
 
 //    override func viewWillDisappear(_ animated: Bool) {
 //        //

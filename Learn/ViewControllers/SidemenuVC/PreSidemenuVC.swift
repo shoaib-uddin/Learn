@@ -36,7 +36,7 @@ class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, Settin
         
     }
     
-    
+    @IBOutlet weak var globalImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     var ffavCount: Int = 0;
     var collectionArray: [[String: Any]] = [[String: Any]]();
@@ -45,6 +45,8 @@ class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, Settin
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        loadBackground(vc: self, globalImageView: self.globalImageView )
         
         self.view.backgroundColor = StyleHelper.colorWithHexString(globalSettings.bcolor!);
         collectionView.register(UINib(nibName: "SidemenuTableHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SidemenuTableHeader");
@@ -75,6 +77,10 @@ class PreSidemenuVC: BaseVC, UniHeaderCVCDelegate, CatSidemenuVCDelegate, Settin
         if #available( iOS 10.3,*){
             SKStoreReviewController.requestReview()
         }
+    }
+    
+    func loadVisuals(){
+        
     }
     
     
