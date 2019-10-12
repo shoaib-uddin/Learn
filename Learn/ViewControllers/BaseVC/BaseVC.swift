@@ -50,6 +50,14 @@ class BaseVC: UIViewController{
         return .lightContent
     }
     
+    func showNavigationBar(){
+        UINavigationBar.appearance().isHidden = false;
+    }
+    
+    func hideNavigationBar(){
+        UINavigationBar.appearance().isHidden = true;
+    }
+    
     
     
     

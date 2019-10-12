@@ -46,7 +46,10 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCD
         loadData();
     }
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: )
+        self.dismiss(animated: true) {
+            self.hideNavigationBar();
+        }
 
     }
     
@@ -103,7 +106,8 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCD
                 let controller = MFMessageComposeViewController()
                 controller.body = copiedText
                 controller.recipients = nil
-                controller.messageComposeDelegate = self
+                controller.messageComposeDelegate = self;
+                showNavigationBar();
                 self.present(controller, animated: true, completion: nil)
             }
             
