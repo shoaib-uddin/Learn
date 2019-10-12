@@ -92,6 +92,7 @@ class NetworkHelper {
         .responseJSON { (response) in
             //
             switch response.result {
+                
             case .success(let JSON):
                 
                 print(JSON);
@@ -100,7 +101,6 @@ class NetworkHelper {
                 print(resObj);
                 
 //                let ResponseString = resObj.toJsonString();
-//
 //                print("RESPONSE DATA : " + ResponseString);
                 
                 if(resObj.Status == 1){

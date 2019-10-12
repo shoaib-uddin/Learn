@@ -14,8 +14,8 @@ class LearnottoApi{
     class func Login(_ UserName: String, _ Password: String, _ signup: EnSignUp, completion: @escaping (_ callback: Bool) -> Void){
         
         // Post Model Create
-        //let token = CoreDataHelper.returnPushSettings().token ?? "";
-        let token = "";
+        let token = CoreDataHelper.returnPushSettings().token ?? "";
+        //let token = "";
         
         var str = ""
         signup.toDictionary().forEach { (k,v) in
@@ -106,6 +106,12 @@ class LearnottoApi{
             post["Token"] = ""
         }
         
+        if let _APN_Token = CoreDataHelper.returnPushSettings()?.token{
+            post["APN_Token"] = _APN_Token
+        }else{
+            post["APN_Token"] = ""
+        }
+        
         if let _facebookId = signup.FacebookId{
             post["FacebookId"] = _facebookId
         }else{
@@ -117,6 +123,14 @@ class LearnottoApi{
         }else{
             post["ImageUrl"] = ""
         }
+        
+        if let _imageUrl = signup.ImageUrl{
+            post["ImageUrl"] = _imageUrl
+        }else{
+            post["ImageUrl"] = ""
+        }
+        
+        
         
 //        let encoded = post.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
         

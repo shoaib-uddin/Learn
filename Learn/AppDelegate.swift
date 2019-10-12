@@ -148,18 +148,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         //
-        
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceToken);
+        let deviceTokenString = deviceToken.map { String(format: "%02x", $0) }.joined()
+        print(deviceTokenString);
+        //let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print(deviceTokenString);
         CoreDataHelper.updatePushToken(token: deviceTokenString) { (success) in
             print("token saved \(success)")
         }
         print()
         if let refreshedToken = InstanceID.instanceID().token() {
-            print("InstanceID token: \(refreshedToken)")
+            print("InstanceID token: \(refreshedToken)");
+            CoreDataHelper.updatePushToken(token: refreshedToken) { (success) in
+                print("token saved \(success)")
+            }
         }
         
     }
+    
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         //

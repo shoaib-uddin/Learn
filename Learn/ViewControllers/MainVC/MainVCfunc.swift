@@ -247,9 +247,12 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCD
                     }
                 }
                 
+            }else{
+                self.getFacts(page: 0, subCat: nil);
             }
             
         }
+        
         
     }
     
