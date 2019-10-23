@@ -59,6 +59,7 @@ class MainVC: BaseVC{
         collectionView.dataSource = self;
         collectionView.allowsMultipleSelection = false;
         
+        StyleHelper.curveRadiusImageView(self.imgMenu);
         self.refresher = UIRefreshControl();
         self.collectionView!.alwaysBounceVertical = true
         self.refresher.tintColor = UIColor.red
@@ -194,7 +195,9 @@ class MainVC: BaseVC{
     
     func loadVisuals(){
         //
-        StyleHelper.setFontImageVisualsMaterial(self.imgMenu, name: "home");
+        
+        
+//        StyleHelper.setFontImageVisualsMaterial(self.imgMenu, name: "home");
         StyleHelper.setFontImageVisualsMaterial(self.imgCateg, name: "dashboard");
         StyleHelper.setFontImageVisualsMaterial(self.imgAa, name: "style");
         StyleHelper.setFontImageVisualsMaterial(self.imgShare, name: "screen.share");

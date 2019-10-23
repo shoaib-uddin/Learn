@@ -156,6 +156,30 @@ class LearnottoApi{
         
     }
     
+    class func addFeedback(feedback: String,  completion: @escaping (_ callback: Bool) -> Void ){
+        
+        var post: [String: Any] = [String:Any]() ;
+        
+        post["userid"] = CoreDataHelper.returnUser()?.id;
+        post["message"] = feedback;
+        
+        
+        //Network Request
+        NetworkHelper.MakePostRequestForArray(Url: "\(api.AddFeedBack)", postData: post, showLoader: true, success: { (successData) -> Void in
+            
+            completion(true);
+            
+            
+        },failure: { (error) -> Void in
+            
+            print(error?.localizedDescription ?? "ERROR");
+            completion(false);
+            
+        })
+        
+        
+    }
+    
     class func getFacts(_ id: String, _ page: Int, subCat: String!,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
         
         
@@ -308,6 +332,8 @@ class LearnottoApi{
         
         
     }
+    
+    
     
     class func getRandomFacts(_ id: String,   completion: @escaping (_ callback: Bool, _ data: [EnFact]?) -> Void){
         

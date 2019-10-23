@@ -20,6 +20,14 @@ class PageRedirect {
         
     }
     
+    class func redirectToFeedbackPage(_ viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);
+        let destination = storyboard.instantiateViewController(withIdentifier: "FeedbackVC") as! FeedbackVC
+        viewController.present(destination, animated: true, completion: nil);
+        
+    }
+    
     class func redirectToLoginPage(_ viewController: UIViewController){
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main);

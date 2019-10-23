@@ -109,6 +109,7 @@
 		0AFDDA252064D456002C860B /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA1B2064D456002C860B /* ARSStatus.swift */; };
 		0AFDDA272064D7AE002C860B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDDA262064D7AE002C860B /* UserModel.swift */; };
 		2F8AC24BEED3F0383ACB1E64 /* Pods_Learn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BFC95D4D30155E93829A8CC /* Pods_Learn.framework */; };
+		8F8BF89D2352011900BB5CF4 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8BF89C2352011900BB5CF4 /* FeedbackVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +252,7 @@
 		0AFDDA262064D7AE002C860B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3C9E2C88444EF7493A783CBE /* Pods-Learn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Learn/Pods-Learn.release.xcconfig"; sourceTree = "<group>"; };
 		7BFC95D4D30155E93829A8CC /* Pods_Learn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8BF89C2352011900BB5CF4 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		EA9F62BB5056E8DFE06320C4 /* Pods-Learn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learn/Pods-Learn.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -497,6 +499,7 @@
 				0A7599B020725861000570B3 /* PreSidemenuVC.swift */,
 				0A3E87E22035C7E2002A4748 /* CatSidemenuVC.swift */,
 				0A7599D92074965A000570B3 /* SearchCatSideVC.swift */,
+				8F8BF89C2352011900BB5CF4 /* FeedbackVC.swift */,
 			);
 			path = SidemenuVC;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A7599B120725861000570B3 /* PreSidemenuVC.swift in Sources */,
+				8F8BF89D2352011900BB5CF4 /* FeedbackVC.swift in Sources */,
 				0A9CCD05205539A1006F5396 /* SettingsVC.swift in Sources */,
 				0A7599C1207321AD000570B3 /* UniHeaderCVC.swift in Sources */,
 				0AFDDA1F2064D456002C860B /* ARSLineProgressCustomization.swift in Sources */,

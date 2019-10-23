@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DD-7f-6e3">
                                 <rect key="frame" x="0.0" y="20" width="375" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu-normal" translatesAutoresizingMaskIntoConstraints="NO" id="zL4-VV-YHy">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="zL4-VV-YHy">
                                         <rect key="frame" x="20" y="9" width="42" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zL4-VV-YHy" secondAttribute="height" multiplier="1:1" id="TJ2-3Z-ELQ"/>
@@ -473,6 +473,61 @@
             </objects>
             <point key="canvasLocation" x="-607" y="829"/>
         </scene>
+        <!--FeedbackVC-->
+        <scene sceneID="gnd-Mb-11W">
+            <objects>
+                <viewController storyboardIdentifier="FeedbackVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ywc-IL-kwD" customClass="FeedbackVC" customModule="Learn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XLP-fN-v8J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HN8-8V-bzT">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQc-fX-wiw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <items>
+                                            <navigationItem title="Feedback" id="zHh-sg-a4J">
+                                                <barButtonItem key="leftBarButtonItem" title="Back" id="BSg-2J-7Iu">
+                                                    <connections>
+                                                        <action selector="closeViewWithSender:" destination="Ywc-IL-kwD" id="kn0-ct-G4a"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="Send" id="YSq-wI-YYg">
+                                                    <connections>
+                                                        <action selector="submitViewWithSender:" destination="Ywc-IL-kwD" id="Mj2-p8-HhF"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="63d-eW-kQu">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HN8-8V-bzT" firstAttribute="height" secondItem="XLP-fN-v8J" secondAttribute="height" id="0Xp-fI-6KO"/>
+                            <constraint firstItem="HN8-8V-bzT" firstAttribute="centerY" secondItem="B92-Uf-Ec6" secondAttribute="centerY" id="BPM-u8-rQC"/>
+                            <constraint firstItem="HN8-8V-bzT" firstAttribute="centerX" secondItem="B92-Uf-Ec6" secondAttribute="centerX" id="HBg-2g-epp"/>
+                            <constraint firstItem="HN8-8V-bzT" firstAttribute="width" secondItem="XLP-fN-v8J" secondAttribute="width" id="Mtm-y0-iJq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B92-Uf-Ec6"/>
+                    </view>
+                    <connections>
+                        <outlet property="navbar" destination="EQc-fX-wiw" id="iHj-SZ-d2O"/>
+                        <outlet property="textView" destination="63d-eW-kQu" id="UqW-Zv-J6S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyC-FK-8AZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2252" y="1545"/>
+        </scene>
         <!--FavoritiesVC-->
         <scene sceneID="r8h-JK-i8R">
             <objects>
@@ -887,6 +942,7 @@
         <image name="fbutton" width="599.5" height="140"/>
         <image name="home-normal" width="60" height="60"/>
         <image name="logo_name" width="235" height="196"/>
+        <image name="menu" width="512" height="512"/>
         <image name="menu-normal" width="60" height="60"/>
         <image name="style-select" width="60" height="60"/>
     </resources>

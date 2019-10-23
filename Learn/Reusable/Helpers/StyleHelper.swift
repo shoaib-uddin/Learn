@@ -13,6 +13,12 @@ import SwiftIconFont
 
 class StyleHelper{
     
+    class func curveRadiusImageView(_ imgView: UIImageView){
+        imgView.layer.masksToBounds = true;
+        imgView.layer.cornerRadius = 10;
+        imgView.clipsToBounds = true;
+    }
+    
     class func colorWithHexString (_ hex:String) -> UIColor {
         
         var cString:String = hex.uppercased();

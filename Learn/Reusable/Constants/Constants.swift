@@ -31,6 +31,7 @@ struct api {
     static let getRandomFacts = "GetRandomFacts";
     static let myFavouriteCount = "MyFavouriteCount";
     static let AddLike = "AddLike";
+    static let AddFeedBack = "AddFeedBack";
     static let Addpayments = "AddPayments";
     static let AddView = "AddView";
     static let savedCatId : String = "saveCatId";

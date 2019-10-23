@@ -238,6 +238,8 @@ extension PreSidemenuVC: UICollectionViewDataSource, UICollectionViewDelegateFlo
                 break;
             case "MAL":
                 
+                PageRedirect.redirectToFeedbackPage(self);
+                
                 break;
                 
             default:

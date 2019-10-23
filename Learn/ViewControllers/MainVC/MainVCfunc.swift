@@ -34,7 +34,11 @@ extension MainVC: SettingsVCDelegate, BlurSharePanelViewDelegate, CatSidemenuVCD
         case "FAV":
             
             break;
+        
+        case "MAL":
             
+            break;
+           
         default:
             break;
         }
